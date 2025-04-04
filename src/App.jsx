@@ -2,33 +2,65 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Background from './Components/Background'
+import Navbar from './Components/Navbar'
+import Home from './Components/Home'
+import About from './Components/About'
+import Explore from './Components/Explore'
+import Contact from './Components/Contact'
+import Rent from './Components/Rent'
+import { createBrowserRouter, RouterProvider} from 'react-router-dom';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Home/>,
+
+    },
+    {
+      path: "/about",
+      element: <About/>,
+    },
+    {
+      path: "/explore",
+      element: <Explore/>,
+    },
+    {
+      path: "/contact",
+      element: <Contact/>,
+    },
+    {
+      path: "/rent",
+      element: <Rent/>,
+    },
+  ])
 
   return (
+    
     <>
+    
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <Navbar/>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+        <div className='h-screen  relative overflow-hidden my-1 mx-1 rounded-2xl'>
+        <Background/>
+         </div>
+
+         <div className=' bg-slate-500 p-36 justify-around rounded-lg mx-1 my-1 flex'>
+          
+         </div>
+
+         <div className='p-60 bg-teal-600 items-center justify-center rounded-lg mx-1 my-1'>
+          hello
+         </div>
+
+         <footer className='bg-gray-800 text-white justify-center rounded-lg mx-1 p-14 my-1'>
+            fOOTER
+         </footer>
+         
     </>
+    
   )
 }
 
