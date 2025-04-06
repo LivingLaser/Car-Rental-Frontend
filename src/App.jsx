@@ -33,7 +33,7 @@ function App() {
     {
       path: "/rent",
       element: <Rent/>,
-    },
+    },  
   ])
 
   return (
