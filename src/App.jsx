@@ -9,6 +9,7 @@ import About from './Components/About'
 import Explore from './Components/Explore'
 import Contact from './Components/Contact'
 import Rent from './Components/Rent'
+import Login from './Components/login'
 import { createBrowserRouter, RouterProvider} from 'react-router-dom';
 
 function App() {
@@ -33,7 +34,11 @@ function App() {
     {
       path: "/rent",
       element: <Rent/>,
-    },  
+    }, 
+    {
+      path: "/login",
+      element: <Login/>,
+    }, 
   ])
 
   return (
