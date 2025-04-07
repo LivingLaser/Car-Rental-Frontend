@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
   return (
     <>
-        <nav className='rounded-lg overflow-hidden shadow-lg bg-gray-900 my-1 mx-1'>
+        <nav className='rounded-lg overflow-hidden  shadow-lg bg-gray-900 my-1 mx-1'>
             <div className='flex justify-between items-center p-4 bg-gray-800 text-white'>
                 <div className='flex items-center'>
                     <IoCarSportOutline className='text-3xl' />
