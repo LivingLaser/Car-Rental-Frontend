@@ -17,21 +17,22 @@ const Navbar = () => {
                     <span className='ml-2 text-xl font-bold'>Car Hunt</span>
                 </div>
                 <div className='flex space-x-10'>
-                    <a href="/" className='hover:text-gray-400'>Home</a>
-                    <a href="/rent" className='hover:text-gray-400'>Rent</a>
-                    <a href="/explore" className='hover:text-gray-400'>Explore   </a>
-                    <a href="/about" className='hover:text-gray-400'>About Us</a>
-                    <a href="/contact" className='hover:text-gray-400'>Contact</a>
+                    <Link to="/" className='hover:text-gray-400'>Home</Link>
+                    <Link to="/rent" className='hover:text-gray-400'>Rent</Link>
+                    <Link to="/explore" className='hover:text-gray-400'>Explore   </Link>
+                    <Link to="/about" className='hover:text-gray-400'>About Us</Link>
+                    <Link to="/contact" className='hover:text-gray-400'>Contact</Link>
+                    
                 </div>
                 <div className='flex items-center space-x-10'>
                     <FaSearch className='text-xl' />
                     <FaShoppingCart className='text-xl' />
-                    <a href="/Login">
+                    <Link to="/login">
                         <button className='bg-blue-500 text-white flex px-4 py-2 rounded hover:bg-red-600 backdrop-blur-md animate-bounce'>
                             Login
                             <FaArrowRight className='ml-2 my-auto' />
                         </button>
-                    </a>
+                    </Link>
                 </div>
             </div>
         </nav>
