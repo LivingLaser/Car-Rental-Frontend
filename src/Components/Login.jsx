@@ -1,4 +1,4 @@
-// src/LoginForm.jsx
+/*// src/LoginForm.jsx
 import React from "react";
 import { TextField, Button, Checkbox, FormControlLabel } from "@mui/material";
 import GoogleIcon from "@mui/icons-material/Google";
@@ -69,6 +69,61 @@ export default function Login({onSignupClick}) {
         </span>
         
       </p>
+    </div>
+  );
+}
+  */
+
+// src/LoginForm.jsx
+import React from "react";
+import { TextField, Button } from "@mui/material";
+
+export default function Login({ onSignupClick }) {
+  return (
+    <div
+      className="h-screen bg-cover bg-center flex items-center justify-center"
+      style={{
+        backgroundImage: "url('\login-bg.jpg')",
+      }}
+    >
+      <div className="bg-black bg-opacity-70 p-8 rounded-xl w-full max-w-sm shadow-lg text-white">
+        <h2 className="text-xl font-bold text-center mb-4 text-orange-400">
+          Login Here
+        </h2>
+        <TextField
+          label="Enter Email Here"
+          variant="filled"
+          fullWidth
+          className="mb-4"
+          InputProps={{ style: { backgroundColor: "white" } }}
+        />
+        <TextField
+          label="Enter Password Here"
+          type="password"
+          variant="filled"
+          fullWidth
+          className="mb-4"
+          InputProps={{ style: { backgroundColor: "white" } }}
+        />
+        <Button
+          variant="contained"
+          color="warning"
+          fullWidth
+          className="mb-4"
+        >
+          Login
+        </Button>
+        <p className="text-sm text-center">
+          Don’t have an account?{" "}
+          <span
+            className="text-orange-400 hover:underline cursor-pointer"
+            onClick={onSignupClick}
+          >
+            Sign up
+          </span>{" "}
+          here
+        </p>
+      </div>
     </div>
   );
 }
