@@ -4,6 +4,7 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import Explore from './Explore';
+import { Link } from 'react-router-dom';
 
 
 const Carousel = () => {
@@ -75,8 +76,8 @@ const Carousel = () => {
         },
         {
             id: 6,
-            name: 'Lets Explore',
-            image: "https://northfleet.in/wp-content/uploads/2023/12/Best-Family-Cars-in-India.webp",
+            name: 'Bentley Mulliner Batur',
+            image: "https://www.motortrend.com/uploads/2022/08/Bentley-Mulliner-Batur-coupe-3.jpg?w=768&width=768&q=75&format=webp",
             mileage: '........ km',
             availability: '..........',
             fuelType: '........',
@@ -101,20 +102,34 @@ const Carousel = () => {
                         <h3 className='text-center text-lg'>Rating : {car.rating}</h3>
                         <h3 className='text-center text-lg'>Description : {car.description}</h3>
                         
-                            <button className='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 translate-x-28 mt-3 flex items-center'>
-                                More Cars
-                                <FaArrowAltCircleRight className='ml-2' />
-                            </button>
+                        <div className='flex justify-center mt-5'>
+                            <Link to="/explore">
+                                <button className='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 flex items-center'>
+                                    Rent Now
+                                    <FaArrowAltCircleRight className='ml-2' />
+                                </button>
+                            </Link>
+                        </div>
                         
                     </div>
                     
                     
-                </div>
+
+                    </div>
 
             ))
 
         }
       </Slider>
+
+      <div className='flex justify-center mt-5'>
+        <Link to="/explore">
+        <button className='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 flex items-center'>
+          More Cars
+          <FaArrowAltCircleRight className='ml-2' />
+        </button>
+        </Link>
+      </div>
     </div>
   )
 }
