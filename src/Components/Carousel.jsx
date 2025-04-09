@@ -125,7 +125,7 @@ const Carousel = () => {
       <div className='flex justify-center mt-5'>
         <Link to="/explore">
         <button className='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 flex items-center'>
-          More Cars
+          Explore
           <FaArrowAltCircleRight className='ml-2' />
         </button>
         </Link>
