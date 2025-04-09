@@ -1,32 +1,102 @@
 import React from "react";
-import { TextField, Button, Checkbox, FormControlLabel } from "@mui/material";
-import GoogleIcon from "@mui/icons-material/Google";
-import FacebookIcon from "@mui/icons-material/Facebook";
+import { TextField, Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
-export default function Signup() {
+export default function Signup({ onLoginClick }) {
+  const navigate = useNavigate();
+
   return (
-    <div className="w-full max-w-lg bg-gray-800 shadow-lg p-8">
+    <div className="relative h-screen overflow-hidden">
+      {/* ✅ Background video */}
+      <video
+        autoPlay
+        loop
+        muted
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        src="/Signup.mp4"
+      />
 
-      <div className="flex w-full max-w-lg h-auto bg-gray-800 shadow-lg">
-        <div className="flex-1 p-8 flex flex-col justify-center">
-          <h2 className="text-2xl font-bold">SIGN UP</h2>
-          <p className="text-gray-400 text-sm mb-5">Create your account to get started.</p>
+      {/* ✅ Form container */}
+      <div className="relative z-10 h-full flex items-center justify-end pr-20">
+        <div className="bg-black bg-opacity-70 p-8 rounded-xl w-full max-w-md shadow-lg text-white">
+          <h2 className="text-xl font-bold text-center mb-6 text-orange-400">
+            Create an Account
+          </h2>
 
-          <TextField label="Name" variant="outlined" fullWidth className="mb-4 bg-white rounded" />
-          <TextField label="Email" variant="outlined" fullWidth className="mb-4 bg-white rounded" />
-          <TextField label="Password" type="password" variant="outlined" fullWidth className="mb-4 bg-white rounded" />
-          <TextField label="Confirm Password" type="password" variant="outlined" fullWidth className="mb-4 bg-white rounded" />
-
-          <FormControlLabel control={<Checkbox />} label="I agree to the Terms and Conditions" className="text-white mb-3" />
-
-          <Button variant="contained" color="primary" fullWidth className="bg-blue-500 mt-2">Sign Up</Button>
-
-          <div className="flex justify-between mt-4">
-            <Button variant="outlined" startIcon={<GoogleIcon />} className="flex-1 mx-1 text-white border-white">Google</Button>
-            <Button variant="outlined" startIcon={<FacebookIcon />} className="flex-1 mx-1 text-white border-white">Facebook</Button>
+          <div className="mb-4">
+            <TextField
+              label="Full Name"
+              variant="filled"
+              fullWidth
+              InputProps={{ style: { backgroundColor: "white" } }}
+            />
           </div>
 
-          <p className="text-center text-sm mt-3">Already have an account? <a href="#" className="text-blue-400">Log in</a></p>
+          <div className="mb-4">
+            <TextField
+              label="Email"
+              type="email"
+              variant="filled"
+              fullWidth
+              InputProps={{ style: { backgroundColor: "white" } }}
+            />
+          </div>
+
+          <div className="mb-4">
+            <TextField
+              label="Phone Number"
+              type="tel"
+              variant="filled"
+              fullWidth
+              InputProps={{ style: { backgroundColor: "white" } }}
+            />
+          </div>
+
+          <div className="mb-4">
+            <TextField
+              label="Address"
+              variant="filled"
+              fullWidth
+              multiline
+              rows={2}
+              InputProps={{ style: { backgroundColor: "white" } }}
+            />
+          </div>
+
+          <div className="mb-4">
+            <TextField
+              label="Pincode"
+              type="number"
+              variant="filled"
+              fullWidth
+              InputProps={{ style: { backgroundColor: "white" } }}
+            />
+          </div>
+
+          <div className="mb-6">
+            <TextField
+              label="Password"
+              type="password"
+              variant="filled"
+              fullWidth
+              InputProps={{ style: { backgroundColor: "white" } }}
+            />
+          </div>
+
+          <Button variant="contained" color="warning" fullWidth className="mb-4">
+            Sign Up
+          </Button>
+
+          <p className="text-sm text-center">
+            Already have an account?{" "}
+            <span
+              className="text-orange-400 hover:underline cursor-pointer"
+              onClick={() => navigate("/login")}
+            >
+              Login
+            </span>{" "}
+            here
+          </p>
         </div>
       </div>
     </div>

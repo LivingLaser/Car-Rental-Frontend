@@ -8,6 +8,7 @@ import Explore from './Components/Explore';
 import Contact from './Components/Contact';
 import Rent from './Components/Rent';
 import Login from './Components/login';
+import Signup from './Components/Signup';
 
 // Define the routes
 const router = createBrowserRouter([
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
   { path: "/contact", element: <><Navbar /><Contact /></> },
   { path: "/rent", element: <><Navbar /><Rent /></> },
   { path: "/login", element: <><Navbar /><Login /></> },
+  {path: "/signup", element: <><Navbar /><Signup /></> },
 ]);
 
 function App() {
