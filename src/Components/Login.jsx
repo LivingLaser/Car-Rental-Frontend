@@ -3,7 +3,7 @@ import { TextField, Button } from "@mui/material";
 import { motion } from "framer-motion"; 
 import { useNavigate } from "react-router-dom";
 
-export default function Login({ onSignupClick }) {
+export default function Login() {
   const navigate = useNavigate();
   return (
     
