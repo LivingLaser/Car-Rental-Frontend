@@ -2,7 +2,7 @@ import React from "react";
 import { TextField, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-export default function Signup({ onLoginClick }) {
+export default function Signup() {
   const navigate = useNavigate();
 
   return (
