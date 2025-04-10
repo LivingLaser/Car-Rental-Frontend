@@ -142,7 +142,7 @@ const Rating = () => {
     <>
       <div className="h-full w-full space-y-5 relative lg:px-24 md:px-16 sm:px-7 px-4 flex items-center justify-center flex-col">
         <div className="w-full flex items-center justify-between">
-          <h2 className="text-2xl text-neutral-300 font-semibold">
+          <h2 className="text-2xl text-red-500 font-semibold">
             Customer Reviews
           </h2>
 

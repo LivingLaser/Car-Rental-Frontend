@@ -9,7 +9,7 @@ const quotes = [
 
 const images = [
   "https://media.architecturaldigest.com/photos/66a914f1a958d12e0cc94a8e/16:9/w_2992,h_1683,c_limit/DSC_5903.jpg",
-  "https://blog.sothebysrealty.co.uk/hubfs/Rolls-Royce%20Boat%20Tail-jpg.jpeg",
+  "https://motoringworld.in/wp-content/uploads/2022/05/Mahindra-Scorpion-N-unveiled-4.jpg",
   "https://images.hindustantimes.com/auto/img/2024/02/05/1600x900/Curvv-Front-3-4th-Angle-scaled_1707118161796_1707124287643.jpg",
   "https://www.motortrend.com/files/6740cdd5dc8b4600082c7206/001-2025-bmw-i4-edrive40-lead.jpg?w=768&width=768&q=75&format=webp",
 ];

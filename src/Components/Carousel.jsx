@@ -20,8 +20,8 @@ const Carousel = () => {
     const cars = [
         {
             id: 1,
-            name: 'Bugatti Bolide',
-            image: 'https://www.sixt.com/magazine/wp-content/uploads//sites/6/2022/04/Bugatti-Bolide-Hypercar-resize-1024x683.jpg',
+            name: 'Toyota Fortuner',
+            image: 'https://stimg.cardekho.com/images/carexteriorimages/930x620/Toyota/Fortuner/10903/1690544151440/3d-model-163.jpg',
             mileage: '10,000 km',
             availability: 'Available',
             fuelType: 'Petrol',
@@ -32,8 +32,8 @@ const Carousel = () => {
         },
         {
             id: 2,
-            name: 'McLaren 570S',
-            image: 'https://www.ilusso.com/imagetag/2442/main/l/Used-2016-McLaren-570S-1698704176.jpg',
+            name: 'Hyundai Verna',
+            image: 'https://stimg.cardekho.com/images/carexteriorimages/930x620/Hyundai/Verna/8703/1736412929424/front-left-side-47.jpg',
             mileage: '10,000 km',
             availability: 'Available',
             fuelType: 'Petrol',
@@ -43,8 +43,8 @@ const Carousel = () => {
         },
         {
             id: 3,
-            name: 'Lamborghini Huracan',
-            image: 'https://hips.hearstapps.com/hmg-prod/images/2023-lamborghini-huracan-sterrato-135-66844c67d8d43.jpg?crop=0.620xw:0.522xh;0.146xw,0.251xh&resize=2048:*',
+            name: 'Tata Curvv',
+            image: 'https://stimg.cardekho.com/images/carexteriorimages/930x620/Tata/Curvv/9578/1723033064164/front-left-side-47.jpg',
             mileage: '10,000 km',
             availability: 'Available',
             fuelType: 'Petrol',
@@ -54,8 +54,8 @@ const Carousel = () => {
         },
         {
             id: 4,
-            name: 'volkswagen vento',
-            image: 'https://i.insider.com/625eeebc4f524b00194d3654?width=1136&format=jpeg',
+            name: 'Toyota Innova Crysta',
+            image: 'https://stimg.cardekho.com/images/carexteriorimages/930x620/Toyota/Innova-Crysta/9612/1697698611076/front-left-side-47.jpg',
             mileage: '10,000 km',
             availability: 'Available',
             fuelType: 'Petrol',
@@ -65,10 +65,10 @@ const Carousel = () => {
         },
         {
             id: 5,
-            name: 'Toyota Fortuner',
-            image: 'https://imgd-ct.aeplcdn.com/664x415/n/cw/ec/44709/fortuner-exterior-left-front-three-quarter.jpeg?q=80',
-            mileage: '10,000 km',
-            availability: 'Available',
+            name: 'Skoda Kylaq',
+            image: 'https://stimg.cardekho.com/images/carexteriorimages/930x620/Skoda/Kylaq/11528/1733225175669/front-left-side-47.jpg',
+            mileage: '19.05 kmpl',
+            
             fuelType: 'Petrol',
             transmission: 'Automatic',
             rating: 4.8,
@@ -76,8 +76,8 @@ const Carousel = () => {
         },
         {
             id: 6,
-            name: 'Bentley Mulliner Batur',
-            image: "https://www.motortrend.com/uploads/2022/08/Bentley-Mulliner-Batur-coupe-3.jpg?w=768&width=768&q=75&format=webp",
+            name: 'Maruti Suzuki Swift',
+            image: "https://stimg.cardekho.com/images/carexteriorimages/930x620/Maruti/Swift/9226/1739945896166/front-left-side-47.jpg",
             mileage: '........ km',
             availability: '..........',
             fuelType: '........',
@@ -125,7 +125,7 @@ const Carousel = () => {
       <div className='flex justify-center mt-5'>
         <Link to="/explore">
         <button className='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 flex items-center'>
-          More Cars
+          Explore
           <FaArrowAltCircleRight className='ml-2' />
         </button>
         </Link>

@@ -63,7 +63,7 @@ const Footer = () => {
                 <FaTwitter size={24} />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/?hl=en"
                 className="hover:text-gray-400"
                 aria-label="Instagram"
               >
