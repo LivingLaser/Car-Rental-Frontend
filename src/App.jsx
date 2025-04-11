@@ -7,8 +7,9 @@ import About from './Components/About';
 import Explore from './Components/Explore';
 import Contact from './Components/Contact';
 import Rent from './Components/Rent';
-import Login from './Components/login';
+import Login from './Components/Login';
 import Signup from './Components/Signup';
+import { ToastContainer } from "react-toastify";
 
 // Define the routes
 const router = createBrowserRouter([
@@ -18,11 +19,16 @@ const router = createBrowserRouter([
   { path: "/contact", element: <><Navbar /><Contact /></> },
   { path: "/rent", element: <><Navbar /><Rent /></> },
   { path: "/login", element: <><Navbar /><Login /></> },
-  {path: "/signup", element: <><Navbar /><Signup /></> },
+  { path: "/signup", element: <><Navbar /><Signup /></> },
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <RouterProvider router={router} />
+      <ToastContainer position="bottom-center" theme="dark" />
+    </>
+  );
 }
 
 export default App;

@@ -1,12 +1,46 @@
-import React from "react";
-import { TextField, Button } from "@mui/material";
+import React, { useState } from "react";
+import { Box, TextField, Button } from "@mui/material";
 import { motion } from "framer-motion"; 
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { loginUser } from "../services/userService";
+import { doLogin } from "../auth/authentication";
 
 export default function Login() {
   const navigate = useNavigate();
+
+  const [loginDetail, setLoginDetail] = useState({
+    email: "",
+    password: ""
+  });
+
+  const handleChange = (event) => {
+    const {id, value} = event.target;
+    setLoginDetail({...loginDetail, [id]: value});
+  }
+
+  const submitForm = (event) => {
+    event.preventDefault();
+
+    if(loginDetail.email.trim()=="" || loginDetail.password.trim()=="") {
+      toast.error("Username and Password is required");
+      return;
+    }
+
+    loginUser(loginDetail).then((response) => {
+      setLoginDetail({
+        email: "",
+        password: ""
+      });
+      doLogin(response);
+      toast.success("Welcome " + response.name);
+      navigate("/");
+    }).catch((error) => {
+      toast.error(error.response.data.message);
+    })
+  }
+
   return (
-    
     <div className="relative h-screen overflow-hidden bg-black">
       {/* ✅ Animated Background Layer */}
       <motion.div
@@ -33,11 +67,13 @@ export default function Login() {
             Login Here
           </h2>
           {/* Add spacing using Tailwind margin-bottom */}
+          <Box component="form" onSubmit={submitForm}>
           <div className="mb-4">
             <TextField
               label="Enter Email Here"
               variant="filled"
               fullWidth
+              id="email" value={loginDetail.email} onChange={handleChange}
               className="mb-4"
               InputProps={{ style: { backgroundColor: "white" } }}
             />
@@ -48,6 +84,7 @@ export default function Login() {
               type="password"
               variant="filled"
               fullWidth
+              id="password" value={loginDetail.password} onChange={handleChange}
               className="mb-6" // <-- keep spacing between password and button
               InputProps={{ style: { backgroundColor: "white" } }}
             />
@@ -56,10 +93,11 @@ export default function Login() {
             variant="contained"
             color="warning"
             fullWidth
-            className="mb-4"
+            className="mb-4" type="submit"
           >
             Login
           </Button>
+          </Box>
 
           <p className="text-sm text-center">
             Don’t have an account?{" "}
