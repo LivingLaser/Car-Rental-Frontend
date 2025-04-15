@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { use } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Background from './Background';
 import Carousel from './Carousel';
 import Footer from './Footer';
 import Rating from './Rating';
+import Rent from './Rent';
+
 
 function Home() {
+
+  
+
+
   return (
     <div>
       <div className='h-screen relative overflow-hidden my-1 mx-1 rounded-2xl'>
@@ -14,7 +21,7 @@ function Home() {
         <Carousel />
       </div>
       <div className='p-60 bg-emerald-400 items-center justify-center rounded-2xl mx-1 my-1'>
-        {/* Additional content can go here */}
+        dhur
       </div>
       <div className='p-32 bg-purple-900 items-center justify-center rounded-2xl mx-1 my-1'>
         <Rating/>
