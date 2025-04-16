@@ -26,9 +26,10 @@ const Contact = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-10">
-      <h2 className="text-2xl font-bold text-center text-blue-600">Contact Us</h2>
-      <p className="text-gray-600 text-center mb-4">
+    <div className="max-w-5xl mx-auto p-10 bg-white shadow-lg rounded-lg mt-10"
+         style={{ backgroundImage: 'url(https://stimg.cardekho.com/images/carexteriorimages/930x620/Kia/Syros/11791/1734599341690/front-left-side-47.jpg)', backgroundSize: 'cover' }}>
+      <h2 className="text-4xl font-bold text-center text-red-700">Contact Us</h2>
+      <p className="text-yellow-400 text-center mb-4">
         Get in touch with us for the best car rental experience!
       </p>
 
@@ -59,7 +60,7 @@ const Contact = () => {
           <label className="block text-sm font-semibold">Message</label>
           <textarea
             name="message"
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="w-full px-4 py-6 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
             rows="4"
             placeholder="Your Message"
             required

@@ -5,6 +5,8 @@ import Carousel from './Carousel';
 import Footer from './Footer';
 import Rating from './Rating';
 import Rent from './Rent';
+import Profile from './Profile';
+import Maps from './Maps';
 
 
 function Home() {
@@ -20,8 +22,8 @@ function Home() {
       <div className='bg-slate-500 px-10 py-24 rounded-2xl mx-1 my-1'>
         <Carousel />
       </div>
-      <div className='p-60 bg-emerald-400 items-center justify-center rounded-2xl mx-1 my-1'>
-        dhur
+      <div className='p-10 bg-cyan-400 items-center justify-center rounded-2xl mx-1 my-1'>
+        <Maps/>
       </div>
       <div className='p-32 bg-purple-900 items-center justify-center rounded-2xl mx-1 my-1'>
         <Rating/>

@@ -9,6 +9,7 @@ import Contact from './Components/Contact';
 import Rent from './Components/Rent';
 import Login from './Components/Login';
 import Signup from './Components/Signup';
+import Profile from './Components/Profile';
 import { ToastContainer } from "react-toastify";
 
 // Define the routes
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
   { path: "/rent", element: <><Navbar /><Rent /></> },
   { path: "/login", element: <><Navbar /><Login /></> },
   { path: "/signup", element: <><Navbar /><Signup /></> },
+  {path: "/profile", element: <><Navbar /><Profile /></> },
 ]);
 
 function App() {

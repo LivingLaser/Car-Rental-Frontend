@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { FaSearch } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import { MdMenu } from "react-icons/md";
@@ -8,6 +8,9 @@ import { Link } from 'react-router-dom';
 
 
 const Navbar = () => {
+
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
     <>
         <nav className='rounded-lg overflow-hidden  shadow-lg bg-gray-900 my-1 mx-1'>
@@ -18,7 +21,7 @@ const Navbar = () => {
                 </div>
                 <div className='flex space-x-10'>
                     <Link to="/" className='hover:text-gray-400'>Home</Link>
-                    <Link to="/rent" className='hover:text-gray-400'>Rent</Link>
+                    <Link to="/profile" className='hover:text-gray-400'>Profile</Link>
                     <Link to="/explore" className='hover:text-gray-400'>Explore   </Link>
                     <Link to="/about" className='hover:text-gray-400'>About Us</Link>
                     <Link to="/contact" className='hover:text-gray-400'>Contact</Link>
@@ -27,12 +30,17 @@ const Navbar = () => {
                 <div className='flex items-center space-x-10'>
                     <FaSearch className='text-xl' />
                     <FaShoppingCart className='text-xl' />
-                    <Link to="/login">
-                        <button className='bg-blue-500 text-white flex px-4 py-2 rounded hover:bg-red-600 backdrop-blur-md animate-bounce'>
-                            Login
-                            <FaArrowRight className='ml-2 my-auto' />
-                        </button>
-                    </Link>
+                    {isLoggedIn ? (
+                        <Link to="/profile">
+                            <FaUserCircle className='text-3xl hover:text-gray-400' />
+                        </Link>) : (
+                            <Link to="/login">
+                                <button className='bg-blue-500 text-white flex px-4 py-2 rounded hover:bg-red-600 backdrop-blur-md animate-bounce'>
+                                    Login
+                                    <FaArrowRight className='ml-2 my-auto' />
+                                </button>
+                            </Link>)}
+                    
                 </div>
             </div>
         </nav>
