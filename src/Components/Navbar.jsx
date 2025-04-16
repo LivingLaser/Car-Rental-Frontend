@@ -5,11 +5,18 @@ import { MdMenu } from "react-icons/md";
 import { IoCarSportOutline } from "react-icons/io5";
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { FaUserCircle } from "react-icons/fa";
 
 
 const Navbar = () => {
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [showDropdown, setShowDropdown] = useState(false);
+
+    const toggleDropdown = () => {
+        setShowDropdown(!showDropdown);
+    };
+
 
   return (
     <>
@@ -40,7 +47,25 @@ const Navbar = () => {
                                     <FaArrowRight className='ml-2 my-auto' />
                                 </button>
                             </Link>)}
-                    
+
+                        <div className=''>
+                        <Link to="/">
+                            <FaUserCircle className='text-3xl  hover:text-gray-400' onClick={toggleDropdown} />
+                        </Link>
+                        {showDropdown && (
+                            <div
+                                className={`absolute right-0 mt-2 mr-3 w-48 bg-stone-600 rounded-md shadow-lg z-10 transition-all duration-300 ease-in-out transform ${
+                                    showDropdown ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                                }`}
+                            >
+                                <ul className="py-2">
+                                    <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">Admin Login</li>
+                                    <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">Employee Login </li>
+                                    
+                                </ul>
+                            </div>
+                        )}
+                        </div>
                 </div>
             </div>
         </nav>
