@@ -59,8 +59,12 @@ const Navbar = () => {
                                 }`}
                             >
                                 <ul className="py-2">
-                                    <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">Admin Login</li>
-                                    <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">Employee Login </li>
+                                    <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
+                                        <Link to="/Admin" onClick={() => setShowDropdown(false)}>Admin Login</Link>
+                                    </li>
+                                    <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
+                                        <Link to="/Employee" onClick={() => setShowDropdown(false)}>Employee Login</Link>
+                                    </li>
                                     
                                 </ul>
                             </div>
