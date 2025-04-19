@@ -89,34 +89,31 @@ const Maps = () => {
 
       // Add demo markers around Kolkata
       const demoLocations = [
-        { lat: 22.5726, lng: 88.3639, name: 'Demo Office 1' }, // Near Howrah Bridge
-        { lat: 22.5800, lng: 88.4000, name: 'Demo Office 2' }, // Near Salt Lake
-        { lat: 22.5500, lng: 88.3700, name: 'Demo Office 3' }, // Near Park Circus
+      
+        
+        
         { lat: 22.6000, lng: 88.3200, name: 'Demo Office 4' }, // Near Dum Dum
         { lat: 22.5400, lng: 88.3500, name: 'Demo Office 5' }, // Near Jadavpur
         
-        { lat: 22.5900, lng: 88.3700, name: 'Demo Office 6' }, // Near Alambazar
-        { lat: 22.5700, lng: 88.3800, name: 'Demo Office 7' }, // Near Gariahat
+        
         { lat: 22.5800, lng: 88.3600, name: 'Demo Office 8' }, // Near Ballygunge
         
-        { lat: 22.5600, lng: 88.3400, name: 'Demo Office 9' }, // Near Behala
-        { lat: 22.5300, lng: 88.3300, name: 'Demo Office 10' }, // Near Tollygunge
+        
         { lat: 22.5500, lng: 88.3900, name: 'Demo Office 11' }, // Near Howrah Station
         { lat: 22.5800, lng: 88.4100, name: 'Demo Office 12' }, // Near Sealdah Station
         
         { lat: 22.5900, lng: 88.4200, name: 'Demo Office 13' }, // Near Esplanade
-        { lat: 22.6000, lng: 88.4300, name: 'Demo Office 14' }, // Near Maidan
-        { lat: 22.6100, lng: 88.4400, name: 'Demo Office 15' }, // Near Victoria Memorial
-        { lat: 22.6200, lng: 88.4500, name: 'Demo Office 16' }, // Near Science City
+        
+        
             
-        { lat: 22.6300, lng: 88.4600, name: 'Demo Office 17' }, // Near Eco Park
+        
         { lat: 22.6400, lng: 88.4700, name: 'Demo Office 18' }, // Near New Town
-        { lat: 22.6500, lng: 88.4800, name: 'Demo Office 19' }, // Near Rajarhat
+        
         { lat: 22.6600, lng: 88.4900, name: 'Demo Office 20' }, // Near Barasat
         
-        { lat: 22.6700, lng: 88.5000, name: 'Demo Office 21' }, // Near Barrackpore
-        { lat: 22.6800, lng: 88.5100, name: 'Demo Office 22' }, // Near Chandannagar
-        { lat: 22.6900, lng: 88.5200, name: 'Demo Office 23' }, // Near Howrah Maidan
+        
+        
+        
         { lat: 22.7000, lng: 88.5300, name: 'Demo Office 24' }, // Near Belur Math
       ];
 

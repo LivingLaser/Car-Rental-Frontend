@@ -141,8 +141,8 @@ const Rating = () => {
   return (
     <>
       <div className="h-full w-full space-y-5 relative lg:px-24 md:px-16 sm:px-7 px-4 flex items-center justify-center flex-col">
-        <div className="w-full flex items-center justify-between">
-          <h2 className="text-2xl text-red-500 font-semibold">
+        <div className="w-full flex items-center justify-between mb-11 ">
+          <h2 className="text-4xl font-semibold">
             Customer Reviews
           </h2>
 
@@ -167,7 +167,7 @@ const Rating = () => {
           </div>
         </div>
 
-        <div className="w-full py-2 ">
+        <div className="w-full py-2  ">
           <Swiper
             slidesPerView={1}
             spaceBetween={5}
