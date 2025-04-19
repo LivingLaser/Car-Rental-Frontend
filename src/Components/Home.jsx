@@ -25,7 +25,7 @@ function Home() {
       <div className='p-10 bg-cyan-400 items-center justify-center rounded-2xl mx-1 my-1'>
         <Maps/>
       </div>
-      <div className='p-32 bg-purple-900 items-center justify-center rounded-2xl mx-1 my-1'>
+      <div className='p-32 bg-purple-600 items-center justify-center rounded-2xl mx-1 my-1'>
         <Rating/>
       </div>
       <footer className='bg-gray-800 text-white justify-center rounded-2xl mx-1 p-14 my-1'>

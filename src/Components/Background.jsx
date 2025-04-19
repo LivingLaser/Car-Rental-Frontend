@@ -1,17 +1,26 @@
 import React, { useState, useEffect } from "react";
 
 const quotes = [
-  "Rent Your Perfect Car!",
-  "Hassle-Free Rentals!",
-  "Anywhere, Anytime – The Keys to Your Next Drive!",
-  "From City Streets to Open Roads – We’ve Got You Covered!",
+  <>
+  Rent Your <span className="text-stroke "> Perfect</span> Car!
+  </>,
+  <>
+  <span className="text-stroke"> Hassle-Free </span> Rentals!
+  </>,
+  <>
+  <span className="text-stroke"> Anywhere, Anytime</span> – The Keys to Your Next Drive!
+  </>,
+  <>
+  From <span className="text-stroke "> City Streets to Open Roads</span> – We’ve Got You Covered! 
+  </>
+  
 ];
 
 const images = [
   "https://media.architecturaldigest.com/photos/66a914f1a958d12e0cc94a8e/16:9/w_2992,h_1683,c_limit/DSC_5903.jpg",
   "https://motoringworld.in/wp-content/uploads/2022/05/Mahindra-Scorpion-N-unveiled-4.jpg",
   "https://images.hindustantimes.com/auto/img/2024/02/05/1600x900/Curvv-Front-3-4th-Angle-scaled_1707118161796_1707124287643.jpg",
-  "https://www.motortrend.com/files/6740cdd5dc8b4600082c7206/001-2025-bmw-i4-edrive40-lead.jpg?w=768&width=768&q=75&format=webp",
+  "https://stimg.cardekho.com/images/carexteriorimages/930x620/Mahindra-BE/6e/9263/1732689215786/side-view-(left)-90.jpg",
 ];
 
 const Background = () => {
@@ -23,6 +32,8 @@ const Background = () => {
     }, 5000); // Change slide every 5 seconds
     return () => clearInterval(interval);
   }, []);
+
+  
 
   return (
     <div className="h-screen w-screen relative overflow-hidden rounded-lg">

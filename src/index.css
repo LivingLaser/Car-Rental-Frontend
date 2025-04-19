@@ -11,8 +11,11 @@
   html {
     scroll-behavior: smooth;
   }
-    body {
-        @apply overflow-x-hidden bg-gradient-to-l from-[#e6c90d] to-[#10af78];
-    }
+    
 
+}
+
+.text-stroke {
+  -webkit-text-stroke: 2px black;
+  color: rgb(231, 252, 4);
 }
