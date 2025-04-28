@@ -46,7 +46,7 @@ export default function Login() {
       <motion.div
         className="absolute inset-0 bg-cover bg-center z-0"
         style={{
-          backgroundImage: "url('/login-bg.jpg')",
+          backgroundImage: "url('/login1.jpg')",
         }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
