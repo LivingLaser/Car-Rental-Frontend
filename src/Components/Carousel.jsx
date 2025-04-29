@@ -11,9 +11,6 @@ import { useNavigate } from 'react-router-dom';
 const Carousel = () => {
 
     
-
-    
-
     const settings = {
     className: "center",
     centerMode: true,

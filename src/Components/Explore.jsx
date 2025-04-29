@@ -9,7 +9,7 @@ export default function Explore() {
   return (
     <>
       {/* Drawer */}
-      <FilterDrawer />
+      <FilterDrawer/>
 
       {/* Card Layout */}
       <Box
@@ -22,6 +22,8 @@ export default function Explore() {
           gap: 6,
           p: 7,
           bgcolor: '#f1f8e9',
+          borderRadius: '16px',
+          margin: '5px 5px 5px 5px',
         }}
       >
         

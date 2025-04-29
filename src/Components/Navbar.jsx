@@ -24,9 +24,9 @@ const Navbar = () => {
       <nav className="rounded-lg overflow-hidden shadow-lg bg-gray-900 my-1 mx-1">
         <div className="flex justify-between items-center p-4 bg-slate-700 text-white">
         <div className="flex items-center space-x-3">
-            <img src={logo} alt="Car Hunt Logo" className="h-12 w-auto rounded-full shadow-md" />
-            <Link to="/" className="text-white text-3xl font-extrabold tracking-wide hover:text-blue-400 transition duration-300">
-                 <span className="text-blue-500">Car</span> Hunt
+            <IoCarSportOutline className="text-5xl" />
+            <Link to="/" className="text-white text-3xl font-bold ">
+                 <span className="">Car</span> Hunt
             </Link>
         </div>
           <div className="hidden md:flex space-x-10">
@@ -37,18 +37,19 @@ const Navbar = () => {
             <Link to="/contact" className="hover:text-gray-400">Contact</Link>
           </div>
           <div className="hidden md:flex items-center space-x-10">
-            {isLoggedIn ? (
-              <Link to="/profile">
-                <FaUserCircle className="text-3xl hover:text-gray-400" />
-              </Link>
-            ) : (
-              <Link to="/login">
-                <button className="bg-blue-500 text-white flex px-4 py-2 rounded hover:bg-red-600 backdrop-blur-md animate-bounce">
-                  Login
-                  <FaArrowRight className="ml-2 my-auto" />
-                </button>
-              </Link>
-            )}
+          {isLoggedIn ? (
+            <div className="flex items-center space-x-3">
+              <FaUserCircle className="text-3xl hover:text-gray-400" />
+              <span className="text-lg">{username}</span>
+            </div>
+          ) : (
+            <Link to="/login">
+              <button className="bg-blue-500 text-white flex px-4 py-2 rounded hover:bg-red-600 backdrop-blur-md transform transition-transform duration-500 hover:translate-x-4">
+                Login
+                <FaArrowRight className="ml-2 my-auto" />
+              </button>
+            </Link>
+          )}
             <div>
               <IoSettingsOutline
                 className="text-3xl hover:text-gray-400 animate-spin"
@@ -61,11 +62,15 @@ const Navbar = () => {
                   }`}
                 >
                   <ul className="py-2">
-                  <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
+                                     <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
                                          <Link to="/Admin" onClick={() => setShowDropdown(false)}>Admin Login</Link>
                                      </li>
                                      <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
                                          <Link to="/Employee" onClick={() => setShowDropdown(false)}>Employee Login</Link>
+                                     </li>
+                                     <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
+
+                                            <Link to="/profile" onClick={() => setShowDropdown(false)}>Profile</Link>
                                      </li>
                   </ul>
                 </div>

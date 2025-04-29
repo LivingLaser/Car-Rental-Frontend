@@ -13,6 +13,7 @@ import Profile from './Components/Profile';
 import Admin from './Components/Admin';
 import Employee from './Components/Employee';
 import { ToastContainer } from "react-toastify";
+import Rent2 from './Components/Rent2';
 
 // Define the routes
 const router = createBrowserRouter([
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
   { path: "/profile", element: <><Navbar /><Profile /></> },
   { path: "/admin", element: <><Navbar /><Admin /></> },
   { path: "/employee", element: <><Navbar/><Employee /></>},
+  {path: "/rent2", element: <><Navbar/><Rent2/></>},
 ]);
 
 function App() {
