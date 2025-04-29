@@ -43,7 +43,7 @@ export default function Signup() {
   }
 
   return (
-    <div className="relative h-screen overflow-hidden">
+    <div className="relative h-screen overflow-hidden rounded-2xl mx-1 my-1">
       {/* ✅ Background video */}
       <video
         autoPlay
