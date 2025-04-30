@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { TextField, Button } from '@mui/material';
 
-const Admin = () => {
+const EmployeeSignup = () => {
   const [formData, setFormData] = useState({
+    email: '',
     username: '',
     password: '',
   });
@@ -14,20 +15,29 @@ const Admin = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle login logic here
-    console.log(formData);
+    console.log('Signup:', formData);
   };
 
   return (
     <div
       className="flex items-center justify-center min-h-screen bg-cover bg-center"
-      style={{ backgroundImage: "url('/Admin-login1.jpg')" }}
+      style={{ backgroundImage: "url('/employee.jpg')" }}
     >
-      <div className="bg-black bg-opacity-60 p-8 rounded-lg shadow-lg w-96">
-        <h2 style={{ color: 'white' }} className="text-2xl font-bold text-center mb-6">
-          ADMIN LOGIN
-        </h2>
+      <div className="bg-black-500 bg-opacity-60 p-8 rounded-lg shadow-lg w-96" style={{ marginRight: '500px' }}>
+        <h2 style={{ color: 'white' }} className="text-2xl font-bold text-center mb-6">EMPLOYEE SIGN-UP</h2>
         <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <TextField
+              label="Email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              fullWidth
+              InputLabelProps={{ style: { color: 'white' } }}
+              InputProps={{ style: { color: 'white' } }}
+            />
+          </div>
           <div className="mb-4">
             <TextField
               label="Username"
@@ -54,7 +64,7 @@ const Admin = () => {
             />
           </div>
           <Button type="submit" variant="contained" color="primary" fullWidth>
-            Login
+            Signup
           </Button>
         </form>
       </div>
@@ -62,4 +72,4 @@ const Admin = () => {
   );
 };
 
-export default Admin;
+export default EmployeeSignup;

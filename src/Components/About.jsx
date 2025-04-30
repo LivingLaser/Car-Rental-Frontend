@@ -27,8 +27,8 @@ const team = [
   },
   {
     name: "Bishwadeep Khanra",
-    role: "UI/UX Designer",
-    description: "Designs the app’s look and feel (user-friendly screens, prototypes, Figma).",
+    role: "Frontend Developer",
+    description: "Designs and builds the interface (React, Tailwind, MUI).",
     image: "/bish.jpg",
   },
 ];
@@ -39,22 +39,35 @@ export default function About() {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % team.length);
-    }, 2000); // change every 5 seconds
+    }, 3000); // change every 3 seconds
     return () => clearInterval(interval);
   }, []);
 
   const member = team[index];
 
   return (
-    <div className="relative h-screen w-full text-white">
+    <div className="relative h-screen w-full text-white ">
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/Aboutus.jpg')" }}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat rounded-xl"
+        style={{
+          backgroundImage: "url('/Aboutus.jpg')",
+          height: '100%',  // Adjust the height of the background image
+          width: '100%',   // Adjust the width of the background image
+          margin: 'auto', // Center the image
+        }}
+        
       />
 
       {/* Optional dark overlay for readability */}
-      <div className="absolute inset-0 bg-black bg-opacity-60" />
+      <div 
+        className="absolute inset-0 bg-black bg-opacity-60 rounded-xl"
+        style={{
+          height: '100%',
+          width: '100%',
+          margin: 'auto',
+      }} 
+    />
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
