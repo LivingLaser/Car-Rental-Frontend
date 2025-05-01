@@ -1,23 +1,8 @@
 import React, { useState } from 'react';
-import {
-  Box,
-  Typography,
-  CardContent,
-  Link,
-  Stack,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  Button,
-  TextField,
-  Alert
-} from '@mui/material';
-
+import { Box, Typography, CardContent, Link, Stack, Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, Alert } from '@mui/material';
 
 export default function Password() {
   const [open, setOpen] = useState(false);
-
   const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -53,23 +38,20 @@ export default function Password() {
   return (
     <Box p={3}>
       <Typography variant="h5" fontWeight="bold" mb={3}>
-     Settings
+        Settings
       </Typography>
 
       <Stack spacing={2}>
         {/* Profile Card */}
-       
-          <CardContent sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-           
-            <Link component="button" underline="hover" color="primary" onClick={handleOpen}>
-              Change Password
-            </Link >
-             <Link component="button" underline="hover" color="error"  >    Log out
-             </Link>
-          </CardContent>
-          
 
-          
+        <CardContent sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+
+          <Link component="button" underline="hover" color="primary" onClick={handleOpen}>
+            Change Password
+          </Link >
+          <Link component="button" underline="hover" color="error"  >    Log out
+          </Link>
+        </CardContent>
       </Stack>
 
       {/* Change Password Modal */}

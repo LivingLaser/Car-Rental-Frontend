@@ -1,14 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Avatar,
-  Box,
-  Typography,
-  Link,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-} from '@mui/material';
+import { Avatar, Box, Typography, Link, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import Dp from './Dp';
@@ -40,15 +31,15 @@ export default function Profile() {
       case 'Settings':
         return (
           <Box p={4}>
-            <Typography variant="h6"><Password/></Typography>
+            <Typography variant="h6"><Password /></Typography>
           </Box>
         );
-    
-        
+
+
       case 'My Profile':
         return (
           <Box p={4}>
-            <Typography variant="h6"><Settings/></Typography>
+            <Typography variant="h6"><Settings /></Typography>
           </Box>
         );
       default:
@@ -74,13 +65,10 @@ export default function Profile() {
         {/* Profile */}
         <Box textAlign="center" mb={4}>
           <Avatar sx={{ width: 120, height: 120, mx: 'auto', bgcolor: '#90a4ae', fontSize: 32 }}>
-            <Dp/>
+            <Dp />
           </Avatar>
           <Typography variant="h6" mt={2}>User Name</Typography>
-          <Typography variant="body2" color="text.secondary">User Phone number</Typography>
-          <Link href="#" underline="hover" sx={{ mt: 1, display: 'block', fontSize: 14 }}>
-            Link your e-mail or social account
-          </Link>
+          <Typography variant="body2" color="text.secondary">User Email</Typography>
         </Box>
 
         {/* Menu List */}
@@ -88,7 +76,7 @@ export default function Profile() {
           {[
             { text: 'Recent Bookings', icon: <LocalShippingIcon /> },
             { text: 'My Profile', icon: <AccountCircleIcon /> },
-            { text: 'Settings', icon: <PasswordIcon/> },
+            { text: 'Settings', icon: <PasswordIcon /> },
           ].map((item) => (
             <ListItem
               button
@@ -104,11 +92,14 @@ export default function Profile() {
                 {item.icon}
               </ListItemIcon>
               <ListItemText
-                primary={item.text}
-                primaryTypographyProps={{
-                  fontWeight: selectedSection === item.text ? 600 : 400,
-                  color: selectedSection === item.text ? '#2196f3' : 'inherit',
-                }}
+                primary={
+                  <Typography
+                    fontWeight={selectedSection === item.text ? 600 : 400}
+                    color={selectedSection === item.text ? '#2196f3' : 'inherit'}
+                  >
+                    {item.text}
+                  </Typography>
+                }
               />
               <ChevronRightIcon />
             </ListItem>

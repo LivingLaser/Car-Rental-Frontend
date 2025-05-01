@@ -1,20 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Box,
-  Typography,
-  Card,
-  CardContent,
-  IconButton,
-  Link,
-  Stack,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  Button,
-  TextField
-} from '@mui/material';
-import PhoneIcon from '@mui/icons-material/Phone';
+import { Box, Typography, Card, CardContent, Link, Stack, Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField } from '@mui/material';
 
 export default function Settings() {
   const [open, setOpen] = useState(false);
@@ -25,7 +10,8 @@ export default function Settings() {
   return (
     <Box p={3}>
       <Typography variant="h5" fontWeight="bold" mb={3}>
-       My Profile      </Typography>
+        My Profile
+      </Typography>
 
       <Stack spacing={2}>
         {/* Profile Card */}
@@ -43,8 +29,6 @@ export default function Settings() {
           </CardContent>
         </Card>
 
-      
-
         {/*  Email ID Card */}
         <Card variant="outlined">
           <CardContent sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -54,10 +38,9 @@ export default function Settings() {
             </Box>
           </CardContent>
         </Card>
-   
 
-       {/* Address Book Card */}
-       <Card variant="outlined">
+        {/* Address Book Card */}
+        <Card variant="outlined">
           <CardContent sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <Box>
               <Typography variant="h6">Phone  </Typography>
@@ -75,15 +58,13 @@ export default function Settings() {
             </Box>
           </CardContent>
         </Card>
-
-        </Stack>
+      </Stack>
 
       {/* Modal */}
-      <Dialog open={open} onClose={handleClose } fullWidth={true}>
+      <Dialog open={open} onClose={handleClose} fullWidth={true}>
         <DialogTitle>Edit Profile</DialogTitle>
         <DialogContent sx={{ display: 'flex', flexDirection: 'column', gap: 3, mt: 2 }}> <br />
           <TextField label="Name" fullWidth />
-          <input type='hidden'/>
           <TextField label="Phone Number" fullWidth />
           <TextField label="Address" fullWidth />
           <TextField label="Pincode" fullWidth />

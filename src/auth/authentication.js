@@ -10,7 +10,3 @@ export const doLogin = (data) => {
 export const doLogout = () => {
     localStorage.removeItem("data");
 }
-
-export const getCurrentUserDetail = () => {
-    return isLoggedin ? JSON.parse(localStorage.getItem("data")) : null;
-}
