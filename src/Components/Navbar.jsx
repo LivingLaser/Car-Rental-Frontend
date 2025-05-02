@@ -1,15 +1,19 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { MdMenu, MdClose } from "react-icons/md";
 import { IoCarSportOutline } from "react-icons/io5";
 import { FaArrowRight, FaUserCircle } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { IoSettingsOutline } from "react-icons/io5";
+import  { isLoggedin } from '../auth/authentication';
 import logo from '../assets/car.png';
+import userContext from '../auth/userContext';
+import defaultProfileImage from '../assets/profile.jpg';
 
 const Navbar = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  //const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const userData = useContext(userContext);
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
@@ -31,16 +35,25 @@ const Navbar = () => {
         </div>
           <div className="hidden md:flex space-x-10">
             <Link to="/" className="hover:text-gray-400">Home</Link>
-            <Link to="/profile" className="hover:text-gray-400">Profile</Link>
             <Link to="/explore" className="hover:text-gray-400">Explore</Link>
+            <Link to="/profile" className="hover:text-gray-400">Bookings</Link>
             <Link to="/about" className="hover:text-gray-400">About Us</Link>
             <Link to="/contact" className="hover:text-gray-400">Contact</Link>
           </div>
           <div className="hidden md:flex items-center space-x-10">
-          {isLoggedIn ? (
+          {isLoggedin() ? (
             <div className="flex items-center space-x-3">
-              <FaUserCircle className="text-3xl hover:text-gray-400" />
-              <span className="text-lg">{username}</span>
+              <Link to="/profile">
+                <img
+                    src={userData.user.profileImage || defaultProfileImage} // Use a default image if no profile image is available
+                    alt="Profile"
+                    className="w-10 h-10 rounded-full hover:opacity-80 hover:border-2 hover:border-yellow-400 transition duration-300"
+                />
+              </Link>
+
+              <Link to="/profile" >
+              <span className="text-lg hover:text-yellow-400">{userData.user.name}</span>
+              </Link>
             </div>
           ) : (
             <Link to="/login">
@@ -68,10 +81,7 @@ const Navbar = () => {
                                      <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
                                          <Link to="/Employee" onClick={() => setShowDropdown(false)}>Employee Login</Link>
                                      </li>
-                                     <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
-
-                                            <Link to="/profile" onClick={() => setShowDropdown(false)}>Profile</Link>
-                                     </li>
+                                     
                   </ul>
                 </div>
               )}
