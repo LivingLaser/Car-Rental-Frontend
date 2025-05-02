@@ -46,6 +46,9 @@ export default function About() {
   const member = team[index];
 
   return (
+
+    
+
     <div className="relative h-screen w-full text-white ">
       {/* Background Image */}
       <div
@@ -57,6 +60,7 @@ export default function About() {
           margin: 'auto', // Center the image
         }}
         
+
       />
 
       {/* Optional dark overlay for readability */}
@@ -70,7 +74,7 @@ export default function About() {
     />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 ">
         <h1 className="text-4xl font-bold mb-4 -mt-20">About Us</h1>
         <p className="max-w-xl text-lg mb-8">
           We are a passionate team of 5 developers building a modern and reliable car rental platform.
