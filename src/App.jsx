@@ -14,6 +14,7 @@ import Admin from './Components/Admin';
 import Employee from './Components/Employee';
 import { ToastContainer } from "react-toastify";
 import Rent2 from './Components/Rent2';
+import UserProvider from './auth/UserProvider';
 
 // Define the routes
 const router = createBrowserRouter([
@@ -32,10 +33,10 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <>
+    <UserProvider>
       <RouterProvider router={router} />
       <ToastContainer position="bottom-center" theme="dark" />
-    </>
+    </UserProvider>
   );
 }
 

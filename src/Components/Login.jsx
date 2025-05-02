@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Box, TextField, Button } from "@mui/material";
 import { motion } from "framer-motion"; 
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { loginUser } from "../services/userService";
 import { doLogin } from "../auth/authentication";
+import userContext from "../auth/userContext";
 
 export default function Login() {
   const navigate = useNavigate();
-
+  const userData = useContext(userContext);
   const [loginDetail, setLoginDetail] = useState({
     email: "",
     password: ""
@@ -33,6 +34,7 @@ export default function Login() {
         password: ""
       });
       doLogin(response);
+      userData.setUser(response);
       toast.success("Welcome " + response.name);
       navigate("/");
     }).catch((error) => {
