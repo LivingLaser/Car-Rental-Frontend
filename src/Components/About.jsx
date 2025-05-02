@@ -46,10 +46,10 @@ export default function About() {
   const member = team[index];
 
   return (
-    <div className="relative h-screen w-full text-white">
+    <div className="relative h-screen  text-white mx-1 my-1 rounded-2xl">
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat rounded-2xl"
         style={{ backgroundImage: "url('/Aboutus.jpg')" }}
       />
 
@@ -57,7 +57,7 @@ export default function About() {
       <div className="absolute inset-0 bg-black bg-opacity-60" />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 ">
         <h1 className="text-4xl font-bold mb-4 -mt-20">About Us</h1>
         <p className="max-w-xl text-lg mb-8">
           We are a passionate team of 5 developers building a modern and reliable car rental platform.
