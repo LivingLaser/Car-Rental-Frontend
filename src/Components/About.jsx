@@ -49,7 +49,7 @@ export default function About() {
 
     
 
-    <div className="relative h-screen w-full text-white ">
+    <div className="relative h-screen  text-white mx-1 my-1 overflow-hidden rounded-2xl ">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat rounded-xl"
