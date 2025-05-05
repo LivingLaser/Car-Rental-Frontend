@@ -123,12 +123,12 @@ const Carousel = () => {
                         <img src={car.image} alt={car.name} className='rounded-lg ' />
                         <h2 className='text-center text-2xl'>{car.name}</h2>
                         <h3 className='text-center text-lg'>Mileage : {car.mileage}</h3>
-                        <h3 className='text-center text-lg'>Availability : {car.availability}</h3>
-                        <h3 className='text-center text-lg'>Fuel Type : {car.fuelType}</h3>
+                        <h3 className='text-center text-lg'>Engine(CC) : {car.Engine}</h3>
                         <h3 className='text-center text-lg'>Transmission : {car.transmission}</h3>
-                        <h3 className='text-center text-lg'>Rating : {car.rating}</h3>
-                        <h3 className='text-center text-lg'>Description : {car.description}</h3>
-                        <h3 className='text-center text-lg'>Price : {car.price}</h3>
+                        <h3 className='text-center text-lg'>Seat Capacity : {car.Seat_Capacity}</h3>
+                        <h3 className='text-center text-lg'>Boot Space : {car.Seat_Capacity}</h3>
+                        
+                        <h3 className='text-center text-lg'>Rent Price : {car.price}</h3>
                         
                         <div className='flex justify-center mt-5'>
                             <Link to="/rent" state={{ carDetails: car }}>

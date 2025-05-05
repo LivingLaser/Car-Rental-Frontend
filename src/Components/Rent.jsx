@@ -32,6 +32,14 @@ const Rent = () => {
         <p className="text-lg font-semibold mb-4">Price: ₹{car.price}/day</p>
         <form>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
+            <div>
+              <label className="block text-sm font-medium mb-1">Pickup Location</label>
+              <input type="text" className="w-full p-2 border rounded-md" placeholder="Enter pickup location" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-1">Drop-off Location</label>
+              <input type="text" className="w-full p-2 border rounded-md" placeholder="Enter drop-off location" />
+            </div>
             
             
             <div>
