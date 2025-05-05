@@ -1,12 +1,15 @@
-import React, { useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
+import { USER_IMAGE_RESOURCE } from '../services/userService';
+import userContext from '../auth/userContext';
 
 export default function Dp() {
   const [image, setImage] = useState(null);
   const fileInputRef = useRef(null);
+  const userData = useContext(userContext);
 
   const handleAvatarClick = () => {
     fileInputRef.current.click();
@@ -29,7 +32,7 @@ export default function Dp() {
     >
       <Box position="relative" display="inline-block">
         <Avatar
-          src={image}
+          src={USER_IMAGE_RESOURCE + userData.user.userImage}
           sx={{ width: 120, height: 120 }}
         >
           U

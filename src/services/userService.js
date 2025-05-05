@@ -37,6 +37,14 @@ export const updateProfile = (user, userId) => {
     return myAxios.put(`/users/${userId}`, user).then((response) => response.data);
 }
 
+export const changePassword = (email, password, newPassword) => {
+    let formData = new FormData();
+    formData.append("email", email);
+    formData.append("password", password);
+    formData.append("newPassword", newPassword);
+    return myAxios.put("/users/change_password", formData).then((response) => response.data);
+}
+
 export const getAllUsers = (pageNumber) => {
     return myAxios.get(`/users/`, {
         params: {
