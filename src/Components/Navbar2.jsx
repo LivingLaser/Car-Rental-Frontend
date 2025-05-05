@@ -9,6 +9,7 @@ import logo from '../assets/car.png';
 import userContext from '../auth/userContext';
 import defaultProfileImage from '../assets/profile.jpg';
 
+
 const Navbar = () => {
   //const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
@@ -34,11 +35,10 @@ const Navbar = () => {
             </Link>
         </div>
           <div className="hidden md:flex space-x-10">
-            <Link to="/" className="hover:text-gray-400">Home</Link>
-            <Link to="/explore" className="hover:text-gray-400">Explore</Link>
-            <Link to="/profile" className="hover:text-gray-400">Bookings</Link>
-            <Link to="/about" className="hover:text-gray-400">About Us</Link>
-            <Link to="/contact" className="hover:text-gray-400">Contact</Link>
+            <Link to="/dashAdmin" className="hover:text-gray-400">Dashboard</Link>
+            <Link to="/manageuser" className="hover:text-gray-400">Users</Link>
+            <Link to="/manageemployee" className="hover:text-gray-400">Employees</Link>
+            <Link to="/managecar" className="hover:text-gray-400">Cars</Link>
             
             
           </div>
@@ -58,9 +58,9 @@ const Navbar = () => {
               </Link>
             </div>
           ) : (
-            <Link to="/login">
+            <Link to="/">
               <button className="bg-blue-500 text-white flex px-4 py-2 rounded hover:bg-red-600 backdrop-blur-md transform transition-transform duration-500 hover:translate-x-4">
-                Login
+                Log Out
                 <FaArrowRight className="ml-2 my-auto" />
               </button>
             </Link>
@@ -104,8 +104,7 @@ const Navbar = () => {
             <Link to="/" className="block hover:text-gray-400">Home</Link>
             <Link to="/profile" className="block hover:text-gray-400">Profile</Link>
             <Link to="/explore" className="block hover:text-gray-400">Explore</Link>
-            <Link to="/about" className="block hover:text-gray-400">About Us</Link>
-            <Link to="/contact" className="block hover:text-gray-400">Contact</Link>
+            
             {isLoggedIn ? (
               <Link to="/profile" className="block hover:text-gray-400">
                 <FaUserCircle className="inline-block text-2xl mr-2" />

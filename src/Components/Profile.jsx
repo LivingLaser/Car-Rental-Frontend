@@ -21,7 +21,11 @@ export default function Profile() {
     switch (selectedSection) {
       case 'Recent Bookings':
         return (
-          <Box textAlign="center" p={4}>
+          <Box textAlign="center" p={4} 
+            sx={{
+              borderRadius: '16px',
+              bgcolor: '#f1f8e9',
+            }}>
             <Typography variant="h6" mt={2}>No Orders Found</Typography>
             <Typography variant="body2" color="text.secondary" mt={1}>
               No orders yet. Start your journey now!
@@ -30,7 +34,11 @@ export default function Profile() {
         );
       case 'Settings':
         return (
-          <Box p={4}>
+          <Box p={4}
+          sx={{
+            borderRadius: '16px',
+            bgcolor: '#f1f8e9',
+          }}>
             <Typography variant="h6"><Password /></Typography>
           </Box>
         );
@@ -38,7 +46,11 @@ export default function Profile() {
 
       case 'My Profile':
         return (
-          <Box p={4}>
+          <Box p={4}
+          sx={{
+            borderRadius: '16px',
+            bgcolor: '#f1f8e9',
+          }}>
             <Typography variant="h6"><Settings /></Typography>
           </Box>
         );
@@ -60,6 +72,9 @@ export default function Profile() {
           bgcolor: '#f5f7fa',
           p: 3,
           transition: 'all 0.5s ease',
+          margin: '5px 5px 5px 5px',
+          borderRadius: '16px',
+          
         }}
       >
         {/* Profile */}
@@ -109,7 +124,12 @@ export default function Profile() {
 
       {/* Main Content */}
       {!isCentered && (
-        <Box flexGrow={1} bgcolor="#fff" p={4}>
+        <Box flexGrow={1} bgcolor="#fff" p={4}
+        sx={{
+            borderRadius: '16px',
+            margin: '5px 5px 5px 5px',
+            transition: 'all 0.5s ease',
+          }}>
           {renderContent()}
         </Box>
       )}
