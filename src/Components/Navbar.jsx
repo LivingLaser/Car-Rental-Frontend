@@ -105,7 +105,7 @@ const Navbar = () => {
             <Link to="/explore" className="block hover:text-gray-400">Explore</Link>
             <Link to="/about" className="block hover:text-gray-400">About Us</Link>
             <Link to="/contact" className="block hover:text-gray-400">Contact</Link>
-            {isLoggedIn ? (
+            {isLoggedin ? (
               <Link to="/profile" className="block hover:text-gray-400">
                 <FaUserCircle className="inline-block text-2xl mr-2" />
                 Profile
