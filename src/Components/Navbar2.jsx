@@ -10,6 +10,8 @@ import userContext from '../auth/userContext';
 import defaultProfileImage from '../assets/profile.jpg';
 
 
+
+
 const Navbar = () => {
   //const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
@@ -37,8 +39,12 @@ const Navbar = () => {
           <div className="hidden md:flex space-x-10">
             <Link to="/dashAdmin" className="hover:text-gray-400">Dashboard</Link>
             <Link to="/manageuser" className="hover:text-gray-400">Users</Link>
+            <Link to="/EmpSignup" className="hover:text-gray-400">AddEmployee</Link>
             <Link to="/manageemployee" className="hover:text-gray-400">Employees</Link>
             <Link to="/managecar" className="hover:text-gray-400">Cars</Link>
+            
+
+
             
             
           </div>

@@ -23,7 +23,7 @@ const EmployeeSignup = () => {
       className="flex items-center justify-center min-h-screen bg-cover bg-center"
       style={{ backgroundImage: "url('/employee.jpg')" }}
     >
-      <div className="bg-black-500 bg-opacity-60 p-8 rounded-lg shadow-lg w-96" style={{ marginRight: '500px' }}>
+      <div className="bg-black-500 bg-opacity-60 p-8 rounded-lg min-h-screen shadow-lg w-96" style={{ marginRight: '500px' }}>
         <h2 style={{ color: 'white' }} className="text-2xl font-bold text-center mb-6">EMPLOYEE SIGN-UP</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">

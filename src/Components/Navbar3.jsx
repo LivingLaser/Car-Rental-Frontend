@@ -38,6 +38,10 @@ const Navbar = () => {
             <Link to="/dashemp" className="hover:text-gray-400">Dashboard</Link>
             <Link to="/cregemp" className="hover:text-gray-400">Registration</Link>
             <Link to="/" className="hover:text-gray-400">Bookings</Link>
+            <Link to="/AddCar" className="hover:text-gray-400">AddCars</Link>
+            
+            
+
             
             
           </div>

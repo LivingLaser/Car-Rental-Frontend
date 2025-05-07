@@ -43,21 +43,21 @@ export default function Signup() {
   }
 
   return (
-    <div className="relative h-screen overflow-hidden rounded-2xl mx-1 my-1">
+    <div className="relative min-h-screen overflow-hidden rounded-2xl mx-1 my-1">
       {/* ✅ Background video */}
       <video
         autoPlay
         loop
         muted
-        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        className="absolute top-0 left-0 w-full h-full object-cover z-0 pointers-events-none"
         src="/Signup.mp4"
       />
 
       {/* ✅ Form container */}
-      <div className="relative z-10 h-full flex items-center justify-end pr-20">
-        <div className="bg-black bg-opacity-70 p-8 rounded-xl w-full max-w-md shadow-lg text-white">
-          <h2 className="text-xl font-bold text-center mb-6 text-orange-400">
-            Create an Account
+      <div className="relative z-10 h-full flex items-center justify-center lg:justify-end px-4 lg:px-20 -translate-y-3 sm:-translate-y-6">
+        <div className="bg-black bg-opacity-70 p-6 sm:p-8 mt-10 rounded-lg w-full max-w-md min-h-screen text-white">
+          <h2 className="text-xl font-bold text-center mb-6 text-orange-500">
+            CREATE ACCOUNT
           </h2>
 
           <Box component="form" onSubmit={submitForm}>
