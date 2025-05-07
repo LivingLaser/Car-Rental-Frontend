@@ -1,8 +1,8 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { MdMenu, MdClose } from "react-icons/md";
 import { IoCarSportOutline } from "react-icons/io5";
 import { FaArrowRight, FaUserCircle } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { IoSettingsOutline } from "react-icons/io5";
 import  { isLoggedin } from '../auth/authentication';
 import userContext from '../auth/userContext';
@@ -13,6 +13,7 @@ const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const userData = useContext(userContext);
+  const location = useLocation();
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
@@ -21,6 +22,10 @@ const Navbar = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  useEffect(() => {
+    setShowDropdown(false);
+  }, [location]);
 
   return (
     <>
@@ -35,7 +40,7 @@ const Navbar = () => {
           <div className="hidden md:flex space-x-10">
             <Link to="/" className="hover:text-gray-400">Home</Link>
             <Link to="/explore" className="hover:text-gray-400">Explore</Link>
-            <Link to="/Booking" className="hover:text-gray-400">Bookings</Link>
+            <Link to="/booking" className="hover:text-gray-400">Bookings</Link>
             <Link to="/about" className="hover:text-gray-400">About Us</Link>
             <Link to="/contact" className="hover:text-gray-400">Contact</Link>
             
@@ -76,12 +81,17 @@ const Navbar = () => {
                   }`}
                 >
                   <ul className="py-2">
+                                    <Link to="/Admin" onClick={() => setShowDropdown(false)}>
                                      <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
-                                         <Link to="/Admin" onClick={() => setShowDropdown(false)}>Admin Login</Link>
+                                         Admin Login
                                      </li>
+                                     </Link>
+
+                                     <Link to="/Employee" onClick={() => setShowDropdown(false)}>
                                      <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
-                                         <Link to="/Employee" onClick={() => setShowDropdown(false)}>Employee Login</Link>
+                                         Employee Login
                                      </li>
+                                     </Link>
                                      
                   </ul>
                 </div>
@@ -101,8 +111,8 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="md:hidden bg-gray-800 text-white p-4 space-y-4">
             <Link to="/" className="block hover:text-gray-400">Home</Link>
-            <Link to="/profile" className="block hover:text-gray-400">Profile</Link>
             <Link to="/explore" className="block hover:text-gray-400">Explore</Link>
+            <Link to="/booking" className="block hover:text-gray-400">Bookings</Link>
             <Link to="/about" className="block hover:text-gray-400">About Us</Link>
             <Link to="/contact" className="block hover:text-gray-400">Contact</Link>
             {isLoggedin ? (
