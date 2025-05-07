@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { TextField, Button } from '@mui/material';
 
-const EmployeeSignup = () => {
+const EmpSignup = () => {
   const [formData, setFormData] = useState({
     email: '',
     username: '',
@@ -72,4 +72,4 @@ const EmployeeSignup = () => {
   );
 };
 
-export default EmployeeSignup;
+export default EmpSignup;

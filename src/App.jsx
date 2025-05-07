@@ -25,6 +25,7 @@ import ManageCar from './Components/ManageCar';
 import Navbar3 from './Components/Navbar3';
 import Cregemp from './Components/Cregemp';
 import Booking from './Components/Booking';
+import EmpSignup from './Components/EmpSignup';
 
 
 // Define the routes
@@ -47,7 +48,7 @@ const router = createBrowserRouter([
   {path: "/dashemp", element: <><Navbar3/><DashEmp/></>},
   {path: "/cregemp", element: <><Navbar3/><Cregemp/></>},
   {path: "/reg", element: <><Navbar3/><Registration/></>},
-  {path: "/Empsignup", element: <><Navbar2/><Empsignup/></>},
+  {path: "/Empsignup", element: <><Navbar2/><EmpSignup/></>},
   {path: "/dashadmin", element: <><Navbar2/><DashAdmin/></>},
   {path: "/manageemployee", element: <><Navbar2/><ManageEmployee/></>},
   {path: "/manageuser", element: <><Navbar2/><ManageUser/></>},
