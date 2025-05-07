@@ -26,6 +26,7 @@ import Navbar3 from './Components/Navbar3';
 import Cregemp from './Components/Cregemp';
 import Booking from './Components/Booking';
 import EmpSignup from './Components/EmpSignup';
+import AddCar from './Components/AddCar';
 
 
 // Define the routes

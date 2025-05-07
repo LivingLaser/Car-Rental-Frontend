@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
-const AddCarForm = () => {
+const AddCar = () => {
   const [imagePreview, setImagePreview] = useState(null);  
   const navigate = useNavigate();
 
@@ -90,4 +90,4 @@ const AddCarForm = () => {
   );
 };
 
-export default AddCarForm;
+export default AddCar;
