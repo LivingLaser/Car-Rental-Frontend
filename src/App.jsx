@@ -40,21 +40,21 @@ const router = createBrowserRouter([
   { path: "/signup", element: <><Navbar /><Signup /></> },
   { path: "/profile", element: <><Navbar /><Profile /></> },
   { path: "/admin", element: <><Navbar /><Admin /></> },
-  { path: "/employee", element: <><Navbar/><Employee /></>},
-  {path: "/rent2", element: <><Navbar/><Rent2/></>},
-  {path: "/booking", element: <><Navbar/><Booking/></>},
-  
+  { path: "/employee", element: <><Navbar /><Employee /></> },
+  { path: "/rent2", element: <><Navbar /><Rent2 /></> },
+  { path: "/booking", element: <><Navbar /><Booking /></> },
 
-  {path: "/navbar2", element: <><Navbar2/></>},
-  {path: "/dashemp", element: <><Navbar3/><DashEmp/></>},
-  {path: "/cregemp", element: <><Navbar3/><Cregemp/></>},
-  {path: "/reg", element: <><Navbar3/><Registration/></>},
-  {path: "/Empsignup", element: <><Navbar2/><EmpSignup/></>},
-  {path: "/dashadmin", element: <><Navbar2/><DashAdmin/></>},
-  {path: "/manageemployee", element: <><Navbar2/><ManageEmployee/></>},
-  {path: "/manageuser", element: <><Navbar2/><ManageUser/></>},
-  {path: "/managecar", element: <><Navbar2/><ManageCar/></>},
-  {path: "/AddCar", element: <><Navbar3/><AddCar/></>},
+
+  { path: "/navbar2", element: <><Navbar2 /></> },
+  { path: "/dashemp", element: <><Navbar3 /><DashEmp /></> },
+  { path: "/cregemp", element: <><Navbar3 /><Cregemp /></> },
+  { path: "/reg", element: <><Navbar3 /><Registration /></> },
+  { path: "/empsignup", element: <><Navbar2 /><EmpSignup /></> },
+  { path: "/dashadmin", element: <><Navbar2 /><DashAdmin /></> },
+  { path: "/manageemployee", element: <><Navbar2 /><ManageEmployee /></> },
+  { path: "/manageuser", element: <><Navbar2 /><ManageUser /></> },
+  { path: "/managecar", element: <><Navbar2 /><ManageCar /></> },
+  { path: "/addcar", element: <><Navbar3 /><AddCar /></> },
 ]);
 
 function App() {
@@ -67,7 +67,3 @@ function App() {
 }
 
 export default App;
-
-
-
-

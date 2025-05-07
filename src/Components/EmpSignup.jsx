@@ -1,21 +1,45 @@
 import React, { useState } from 'react';
-import { TextField, Button } from '@mui/material';
+import { Box, TextField, Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import { signupEmployee } from '../services/userService';
+import { toast } from 'react-toastify';
 
 const EmpSignup = () => {
-  const [formData, setFormData] = useState({
-    email: '',
-    username: '',
-    password: '',
+  const navigate = useNavigate();
+
+  const [signupDetail, setSignupDetail] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
+    pincode: "",
+    password: ""
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+  const [errors, setErrors] = useState({});
+
+  const handleChange = (event) => {
+    const {id, value} = event.target;
+    setSignupDetail({...signupDetail, [id]: value});
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Signup:', formData);
+  const submitForm = (event) => {
+    event.preventDefault();
+    signupEmployee(signupDetail).then((response) => {
+      setSignupDetail({
+        name: "",
+        email: "",
+        phone: "",
+        address: "",
+        pincode: "",
+        password: ""
+      });
+      setErrors({});
+      toast.success("Employee Registered...");
+      navigate("/dashadmin");
+    }).catch((error) => {
+      setErrors(error);
+    })
   };
 
   return (
@@ -25,40 +49,63 @@ const EmpSignup = () => {
     >
       <div className="bg-black-500 bg-opacity-60 p-8 rounded-lg min-h-screen shadow-lg w-96" style={{ marginRight: '500px' }}>
         <h2 style={{ color: 'white' }} className="text-2xl font-bold text-center mb-6">EMPLOYEE SIGN-UP</h2>
-        <form onSubmit={handleSubmit}>
+        <Box component="form" onSubmit={submitForm}>
           <div className="mb-4">
             <TextField
-              label="Email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              fullWidth
+              label="Name" fullWidth
+              id="name" value={signupDetail.name} onChange={handleChange}
+              error={errors?.response?.data?.name ? true : false}
+              helperText={errors?.response?.data?.name}
               InputLabelProps={{ style: { color: 'white' } }}
               InputProps={{ style: { color: 'white' } }}
             />
           </div>
           <div className="mb-4">
             <TextField
-              label="Username"
-              name="username"
-              value={formData.username}
-              onChange={handleChange}
-              required
-              fullWidth
+              label="Email" type="email" fullWidth
+              id="email" value={signupDetail.email} onChange={handleChange}
+              error={errors?.response?.data?.email ? true : false}
+              helperText={errors?.response?.data?.email}
               InputLabelProps={{ style: { color: 'white' } }}
               InputProps={{ style: { color: 'white' } }}
             />
           </div>
           <div className="mb-4">
             <TextField
-              label="Password"
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-              fullWidth
+              label="Phone" fullWidth
+              id="phone" value={signupDetail.phone} onChange={handleChange}
+              error={errors?.response?.data?.phone ? true : false}
+              helperText={errors?.response?.data?.phone}
+              InputLabelProps={{ style: { color: 'white' } }}
+              InputProps={{ style: { color: 'white' } }}
+            />
+          </div>
+          <div className="mb-4">
+            <TextField
+              label="Address" fullWidth
+              id="address" value={signupDetail.address} onChange={handleChange}
+              error={errors?.response?.data?.address ? true : false}
+              helperText={errors?.response?.data?.address}
+              InputLabelProps={{ style: { color: 'white' } }}
+              InputProps={{ style: { color: 'white' } }}
+            />
+          </div>
+          <div className="mb-4">
+            <TextField
+              label="Pincode" fullWidth
+              id="pincode" value={signupDetail.pincode} onChange={handleChange}
+              error={errors?.response?.data?.pincode ? true : false}
+              helperText={errors?.response?.data?.pincode}
+              InputLabelProps={{ style: { color: 'white' } }}
+              InputProps={{ style: { color: 'white' } }}
+            />
+          </div>
+          <div className="mb-4">
+            <TextField
+              label="Password" type="password" fullWidth
+              id="password" value={signupDetail.password} onChange={handleChange}
+              error={errors?.response?.data?.password ? true : false}
+              helperText={errors?.response?.data?.password}
               InputLabelProps={{ style: { color: 'white' } }}
               InputProps={{ style: { color: 'white' } }}
             />
@@ -66,7 +113,7 @@ const EmpSignup = () => {
           <Button type="submit" variant="contained" color="primary" fullWidth>
             Signup
           </Button>
-        </form>
+        </Box>
       </div>
     </div>
   );
