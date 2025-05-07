@@ -24,6 +24,7 @@ import ManageUser from './Components/ManageUser';
 import ManageCar from './Components/ManageCar';
 import Navbar3 from './Components/Navbar3';
 import Cregemp from './Components/Cregemp';
+import Booking from './Components/Booking';
 
 
 // Define the routes
@@ -39,6 +40,7 @@ const router = createBrowserRouter([
   { path: "/admin", element: <><Navbar /><Admin /></> },
   { path: "/employee", element: <><Navbar/><Employee /></>},
   {path: "/rent2", element: <><Navbar/><Rent2/></>},
+  {path: "/booking", element: <><Navbar/><Booking/></>},
   
 
   {path: "/navbar2", element: <><Navbar2/></>},
