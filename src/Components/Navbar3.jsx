@@ -1,8 +1,8 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { MdMenu, MdClose } from "react-icons/md";
 import { IoCarSportOutline } from "react-icons/io5";
 import { FaArrowRight, FaUserCircle } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { IoSettingsOutline } from "react-icons/io5";
 import  { isLoggedin } from '../auth/authentication';
 import logo from '../assets/car.png';
@@ -14,6 +14,7 @@ const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const userData = useContext(userContext);
+  const location = useLocation();
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
@@ -22,6 +23,10 @@ const Navbar = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  useEffect(() => {
+      setShowDropdown(false);
+    }, [location]);
 
   return (
     <>
