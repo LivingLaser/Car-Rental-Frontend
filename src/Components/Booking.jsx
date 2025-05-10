@@ -1,42 +1,6 @@
 import React, { useState } from 'react';
-import {
-  Box,
-  Typography,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
-  Button,
-  Stack,
-  Modal
-} from '@mui/material';
+import { Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button, Stack, Modal } from '@mui/material';
 import Pages from './Pages';
-
-const modalStyle = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 700,
-  bgcolor: '#9ccc65',
-  borderRadius: 2,
-  boxShadow: 24,
-  p: 4,
-  maxHeight: '90vh',
-  overflowY: 'auto',
-};
-
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = Array(12).fill(createData('Gingerbread', 356, 16.0, 49, 3.9)).map((row, i) => ({
-  ...row,
-  name: `${row.name} ${i + 1}`
-}));
 
 export default function Booking() {
   const [open, setOpen] = useState(false);
@@ -44,14 +8,35 @@ export default function Booking() {
   const [page, setPage] = useState(1);
   const rowsPerPage = 10;
 
+  const modalStyle = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 700,
+    bgcolor: '#9ccc65',
+    borderRadius: 2,
+    boxShadow: 24,
+    p: 4,
+    maxHeight: '90vh',
+    overflowY: 'auto',
+  };
+
+  function createData(name, calories, fat, carbs, protein) {
+    return { name, calories, fat, carbs, protein };
+  }
+
+  const rows = Array(12).fill(createData('Gingerbread', 356, 16.0, 49, 3.9)).map((row, i) => ({
+    ...row,
+    name: `${row.name} ${i + 1}`
+  }));
+
   const handleOpen = (row) => {
     setSelectedRow(row);
     setOpen(true);
   };
 
   const handleClose = () => setOpen(false);
-  const handleChangePage = (value) => setPage(value);
-
   const paginatedRows = rows.slice((page - 1) * rowsPerPage, page * rowsPerPage);
 
   return (
@@ -100,11 +85,11 @@ export default function Booking() {
       </TableContainer>
 
       {/* External Pagination */}
-      <Pages/>
+      <Pages />
 
       {/* Modal */}
       <Modal open={open} onClose={handleClose}>
-        <Box sx={modalStyle }>
+        <Box sx={modalStyle}>
           <Typography variant="h6" gutterBottom>Car Rental Details</Typography>
 
           <Box display="flex" gap={4} mb={3} flexWrap="wrap">

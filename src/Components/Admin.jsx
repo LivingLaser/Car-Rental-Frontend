@@ -1,21 +1,39 @@
-import React, { useState } from 'react';
-import { TextField, Button } from '@mui/material';
+import React, { useContext, useState } from 'react';
+import { Box, TextField, Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import userContext from '../auth/userContext';
+import { loginAdmin } from '../services/userService';
+import { toast } from 'react-toastify';
 
 const Admin = () => {
-  const [formData, setFormData] = useState({
-    username: '',
-    password: '',
+  const navigate = useNavigate();
+  const userData = useContext(userContext);
+  const [loginDetail, setLoginDetail] = useState({
+    email: "",
+    password: "",
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+  const handleChange = (event) => {
+    const {id, value} = event.target;
+    setLoginDetail({...loginDetail, [id]: value});
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle login logic here
-    console.log(formData);
+  const submitForm = (event) => {
+    event.preventDefault();
+
+    if(loginDetail.email.trim()=="" || loginDetail.password.trim()=="") {
+      toast.error("Username and Password is required");
+      return;
+    }
+
+    loginAdmin(loginDetail).then((response) => {
+      doLogin(response);
+      userData.setUser(response);
+      toast.success("Welcome " + response.name);
+      navigate("/dashadmin");
+    }).catch((error) => {
+      toast.error(error.response.data.message);
+    })
   };
 
   return (
@@ -27,28 +45,19 @@ const Admin = () => {
         <h2 style={{ color: 'white' }} className="text-2xl font-bold text-center mb-6">
           ADMIN LOGIN
         </h2>
-        <form onSubmit={handleSubmit}>
+        <Box component="form" onSubmit={submitForm}>
           <div className="mb-4">
             <TextField
-              label="Username"
-              name="username"
-              value={formData.username}
-              onChange={handleChange}
-              required
-              fullWidth
+              label="Username" fullWidth
+              id="email" value={loginDetail.email} onChange={handleChange}
               InputLabelProps={{ style: { color: 'white' } }}
               InputProps={{ style: { color: 'white' } }}
             />
           </div>
           <div className="mb-4">
             <TextField
-              label="Password"
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-              fullWidth
+              label="Password" type="password" fullWidth
+              id="password" value={loginDetail.password} onChange={handleChange}
               InputLabelProps={{ style: { color: 'white' } }}
               InputProps={{ style: { color: 'white' } }}
             />
@@ -56,7 +65,7 @@ const Admin = () => {
           <Button type="submit" variant="contained" color="primary" fullWidth>
             Login
           </Button>
-        </form>
+        </Box>
       </div>
     </div>
   );

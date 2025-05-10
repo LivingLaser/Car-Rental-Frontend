@@ -1,106 +1,40 @@
-/*import React, { useState } from 'react';
-import { TextField, Button } from '@mui/material';
-import { color } from 'framer-motion';
+import React, { useContext, useState } from 'react';
+import { Box, TextField, Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import userContext from '../auth/userContext';
+import { loginEmployee } from '../services/userService';
+import { doLogin } from '../auth/authentication';
+import { toast } from 'react-toastify';
 
 const Employee = () => {
-  const [isLogin, setIsLogin] = useState(true);
-  const [formData, setFormData] = useState({
-    username: '',
-    password: '',
-    email: '',
+  const navigate = useNavigate();
+  const userData = useContext(userContext);
+  const [loginDetail, setLoginDetail] = useState({
+    email: "",
+    password: "",
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+  const handleChange = (event) => {
+    const {id, value} = event.target;
+    setLoginDetail({...loginDetail, [id]: value});
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
-  };
+  const submitForm = (event) => {
+    event.preventDefault();
 
-  return (
-    <div
-      className="flex items-center justify-center flex-col items-center justify-start min-h-screen bg-cover bg-center"
-      style={{ backgroundImage: "url('/employee.jpg')" }}
-    >
-      <div className="bg-black-500 bg-opacity-60 p-8 rounded-lg shadow-lg w-96" style={{ marginRight: '500px' }}>
-        <h2 style={{color: 'white'}} className="text-2xl font-bold text-center mb-6">{isLogin ? 'EMPLOYEE LOGIN' : 'EMPLOYEE SIGN-UP'}</h2>
-        <form onSubmit={handleSubmit}>
-          {!isLogin && (
-            <div className="mb-4">
-              <TextField
-                label="Email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                fullWidth
-                InputLabelProps={{ style: { color: 'white' } }} 
-                InputProps={{ style: { color: 'white' } }} 
-              />
-            </div>
-          )}
-          <div className="mb-4">
-            <TextField
-              label="Username"
-              name="username"
-              value={formData.username}
-              onChange={handleChange}
-              required
-              fullWidth
-              InputLabelProps={{ style: { color: 'white' } }} 
-              InputProps={{ style: { color: 'white' } }} 
-            />
-          </div>
-          <div className="mb-4">
-            <TextField
-              label="Password"
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-              fullWidth
-              InputLabelProps={{ style: { color: 'white' } }} 
-              InputProps={{ style: { color: 'white' } }} 
-            />
-          </div>
-          <Button type="submit" variant="contained" color="primary" fullWidth>
-            {isLogin ? 'Login' : 'Signup'}
-          </Button>
-        </form>
-        <p className="mt-4 text-center text-white">
-          {isLogin ? 'Don’t have an account? ' : 'Already have an account? '}
-          <button onClick={() => setIsLogin(!isLogin)} className="text-blue-500 hover:underline">
-            {isLogin ? 'Signup' : 'Login'}
-          </button>
-        </p>
-      </div>
-    </div>
-  );
-};
+    if(loginDetail.email.trim()=="" || loginDetail.password.trim()=="") {
+      toast.error("Username and Password is required");
+      return;
+    }
 
-export default Employee;
-*/
-import React, { useState } from 'react';
-import { TextField, Button } from '@mui/material';
-
-const EmployeeLogin = () => {
-  const [formData, setFormData] = useState({
-    username: '',
-    password: '',
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Login:', formData);
+    loginEmployee(loginDetail).then((response) => {
+      doLogin(response);
+      userData.setUser(response);
+      toast.success("Welcome " + response.name);
+      navigate("/dashemp");
+    }).catch((error) => {
+      toast.error(error.response.data.message);
+    })
   };
 
   return (
@@ -109,29 +43,20 @@ const EmployeeLogin = () => {
       style={{ backgroundImage: "url('/employee.jpg')" }}
     >
       <div className="bg-black-500 bg-opacity-60 p-8 rounded-lg shadow-lg w-96" style={{ marginRight: '500px' }}>
-        <h2 style={{ color: 'white' }} className="text-2xl font-bold text-center mb-6">EMPLOYEE LOGIN</h2>
-        <form onSubmit={handleSubmit}>
+        <h2 style={{ color: 'white' }} className="text-2xl font-bold text-center mb-6">OWNER LOGIN</h2>
+        <Box component="form" onSubmit={submitForm}>
           <div className="mb-4">
             <TextField
-              label="Username"
-              name="username"
-              value={formData.username}
-              onChange={handleChange}
-              required
-              fullWidth
+              label="Username" fullWidth
+              id="email" value={loginDetail.email} onChange={handleChange}
               InputLabelProps={{ style: { color: 'white' } }}
               InputProps={{ style: { color: 'white' } }}
             />
           </div>
           <div className="mb-4">
             <TextField
-              label="Password"
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-              fullWidth
+              label="Password" type="password" fullWidth
+              id="password" value={loginDetail.password} onChange={handleChange}
               InputLabelProps={{ style: { color: 'white' } }}
               InputProps={{ style: { color: 'white' } }}
             />
@@ -139,10 +64,20 @@ const EmployeeLogin = () => {
           <Button type="submit" variant="contained" color="primary" fullWidth>
             Login
           </Button>
-        </form>
+        </Box>
+        <p className="text-sm text-center text-white">
+            Don’t have an account?{" "}
+            <span
+              className="text-orange-400 hover:underline cursor-pointer"
+              onClick={() => navigate("/EmpSignup")}
+            >
+              Sign up
+            </span>{" "}
+            here
+          </p>
       </div>
     </div>
   );
 };
 
-export default EmployeeLogin;
+export default Employee;

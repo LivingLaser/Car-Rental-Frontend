@@ -36,9 +36,9 @@ const AddCar = () => {
             <option>Manual</option>
             <option>Electric</option>
           </select>
-          <select  className="w-full p-2 mb-4 border border-gray-300 rounded text-white bg-transparent placeholder-gray-400">
+          <select  className="text-white bg-[#1c2333] p-2 rounded border border-gray-300">
             <option>Seat Capacity</option>
-            {[...Array(10)].map((_, i) => (
+            {[...Array(8)].map((_, i) => (
               <option key={i + 1}>{i + 1}</option>
             ))}
           </select>
