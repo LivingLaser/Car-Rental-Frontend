@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 const team = [
   {
     name: "Tiyasha Ghosh",
-    role: "QA Tester",
-    description: "Tests the app for bugs, ensures smooth user experience (manual + automated testing).",
+    role: "UI/UX Designer",
+    description: "Design The Look and Feel of The Application.",
     image: "/tiyasha.jpg",
   },
   {

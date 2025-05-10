@@ -48,7 +48,7 @@ const EmpSignup = () => {
       style={{ backgroundImage: "url('/employee.jpg')" }}
     >
       <div className="bg-black-500 bg-opacity-60 p-8 rounded-lg min-h-screen shadow-lg w-96" style={{ marginRight: '500px' }}>
-        <h2 style={{ color: 'white' }} className="text-2xl font-bold text-center mb-6">EMPLOYEE SIGN-UP</h2>
+        <h2 style={{ color: 'white' }} className="text-2xl font-bold text-center mb-6">OWNER SIGN-UP</h2>
         <Box component="form" onSubmit={submitForm}>
           <div className="mb-4">
             <TextField

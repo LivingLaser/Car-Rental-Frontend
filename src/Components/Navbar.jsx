@@ -89,7 +89,7 @@ const Navbar = () => {
 
                                      <Link to="/Employee" onClick={() => setShowDropdown(false)}>
                                      <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
-                                         Employee Login
+                                         Owner Login
                                      </li>
                                      </Link>
                                      

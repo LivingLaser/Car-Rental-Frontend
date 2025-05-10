@@ -43,7 +43,7 @@ const Employee = () => {
       style={{ backgroundImage: "url('/employee.jpg')" }}
     >
       <div className="bg-black-500 bg-opacity-60 p-8 rounded-lg shadow-lg w-96" style={{ marginRight: '500px' }}>
-        <h2 style={{ color: 'white' }} className="text-2xl font-bold text-center mb-6">EMPLOYEE LOGIN</h2>
+        <h2 style={{ color: 'white' }} className="text-2xl font-bold text-center mb-6">OWNER LOGIN</h2>
         <Box component="form" onSubmit={submitForm}>
           <div className="mb-4">
             <TextField
@@ -65,6 +65,16 @@ const Employee = () => {
             Login
           </Button>
         </Box>
+        <p className="text-sm text-center text-white">
+            Don’t have an account?{" "}
+            <span
+              className="text-orange-400 hover:underline cursor-pointer"
+              onClick={() => navigate("/EmpSignup")}
+            >
+              Sign up
+            </span>{" "}
+            here
+          </p>
       </div>
     </div>
   );
