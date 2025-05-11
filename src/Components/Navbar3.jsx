@@ -37,7 +37,6 @@ const Navbar = () => {
             <Link to="/dashemp" className="hover:text-gray-400">Dashboard</Link>
             <Link to="/cregemp" className="hover:text-gray-400">Registration</Link>
             <Link to="/" className="hover:text-gray-400">Bookings</Link>
-            <Link to="/addcar" className="hover:text-gray-400">AddCars</Link>
             
             
 
@@ -83,7 +82,7 @@ const Navbar = () => {
                                          <Link to="/Admin" onClick={() => setShowDropdown(false)}>Admin Login</Link>
                                      </li>
                                      <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
-                                         <Link to="/Employee" onClick={() => setShowDropdown(false)}>Employee Login</Link>
+                                         <Link to="/Employee" onClick={() => setShowDropdown(false)}>Owner Login</Link>
                                      </li>
                                      
                   </ul>
