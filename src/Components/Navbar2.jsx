@@ -43,11 +43,12 @@ const Navbar = () => {
             </Link>
         </div>
           <div className="hidden md:flex space-x-10">
-            <Link to="/dashAdmin" className="hover:text-gray-400">Dashboard</Link>
-            <Link to="/manageuser" className="hover:text-gray-400">Users</Link>
-            <Link to="/manageemployee" className="hover:text-gray-400">Owners</Link>
-            <Link to="/managecar" className="hover:text-gray-400">Cars</Link>
-            <Link to="/addcar" className="hover:text-gray-400">AddCars</Link>
+            <Link to="/dashAdmin" className="hover:text-gray-400 text-lg">Dashboard</Link>
+            <Link to="/manageuser" className="hover:text-gray-400 text-lg">Users</Link>
+            <Link to="/manageemployee" className="hover:text-gray-400 text-lg">Owners</Link>
+            <Link to="/managecar" className="hover:text-gray-400 text-lg">Cars</Link>
+            <Link to="/cregemp" className="hover:text-gray-400 text-lg">Registrations</Link>
+            <Link to="/addcar" className="hover:text-gray-400 text-lg">AddCars</Link>
             
             
 

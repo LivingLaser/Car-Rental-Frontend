@@ -23,7 +23,7 @@ const DashAdmin = () => {
         <Card title="Total User" value="50000"  />
         <Card title="Total Employee" value="3000"  />
         <Card title="Garage Vault" value="1000"  />
-        <Card title="Total Profit" value="₹1,00,000" />
+        <Card title="Total Bookings" value="40,000" />
       </div>
 
       
