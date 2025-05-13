@@ -105,6 +105,7 @@ const Maps = () => {
         { lat: 22.5900, lng: 88.4200, name: 'Demo Office 13' }, // Near Esplanade
         
         
+        
             
         
         { lat: 22.6400, lng: 88.4700, name: 'Demo Office 18' }, // Near New Town
@@ -115,6 +116,12 @@ const Maps = () => {
         
         
         { lat: 22.7000, lng: 88.5300, name: 'Demo Office 24' }, // Near Belur Math
+      
+        { lat: 22.7800, lng: 88.6100, name: 'Demo Office 28' }, // Near Dum Dum Airport
+
+        { lat: 22.8000, lng: 88.6300, name: 'Demo Office 30' }, // Near Rajarhat
+        { lat: 22.8200, lng: 88.6500, name: 'Demo Office 32' }, // Near Salt Lake
+
       ];
 
       demoLocations.forEach((location) => {

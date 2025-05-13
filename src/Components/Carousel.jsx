@@ -3,45 +3,41 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { FaArrowAltCircleRight } from "react-icons/fa";
-import Explore from './Explore';
 import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-
 
 const Carousel = () => {
-
-    
     const settings = {
-    className: "center",
-    centerMode: true,
-    infinite: true,
-    centerPadding: "60px",
-    slidesToShow: 3,
-    speed: 500,
-    responsive: [
-        {
-            breakpoint: 1435, // For screens smaller than 1430px
-            settings: {
-                slidesToShow: 3, // Show 2 slides instead of 3
-                centerPadding: "40px", // Adjust padding
+        className: "center",
+        centerMode: true,
+        infinite: true,
+        centerPadding: "60px",
+        slidesToShow: 3,
+        speed: 500,
+        responsive: [
+            {
+                breakpoint: 1435,
+                settings: {
+                    slidesToShow: 3,
+                    centerPadding: "40px",
+                }
+            },
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 1,
+                    centerPadding: "20px",
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                    centerPadding: "10px",
+                }
             }
-        },
-        {
-            breakpoint: 1024, // For screens smaller than 1024px
-            settings: {
-                slidesToShow: 1, // Show 1 slide
-                centerPadding: "20px", // Adjust padding
-            }
-        },
-        {
-            breakpoint: 768, // For screens smaller than 768px
-            settings: {
-                slidesToShow: 1,
-                centerPadding: "10px",
-            }
-        }
-    ]
+        ]
     };
+
     const cars = [
         {
             id: 1,
@@ -52,9 +48,8 @@ const Carousel = () => {
             fuelType: 'Petrol',
             transmission: 'Automatic',
             rating: 4.8,
-            description: 'A high-performance sports car .',
-            price: 1000,
-            
+            description: 'A high-performance sports car.',
+            price: (5000/24).toFixed(2),
         },
         {
             id: 2,
@@ -65,7 +60,8 @@ const Carousel = () => {
             fuelType: 'Petrol',
             transmission: 'Automatic',
             rating: 4.8,
-            description: 'A high-performance sports car .',
+            description: 'A high-performance sports car.',
+            price: (4000 / 24).toFixed(2), // Hourly price
         },
         {
             id: 3,
@@ -76,7 +72,8 @@ const Carousel = () => {
             fuelType: 'Petrol',
             transmission: 'Automatic',
             rating: 4.8,
-            description: 'A high-performance sports car .',
+            description: 'A high-performance sports car.',
+            price: (4500 / 24).toFixed(2), // Hourly price
         },
         {
             id: 4,
@@ -87,18 +84,19 @@ const Carousel = () => {
             fuelType: 'Petrol',
             transmission: 'Automatic',
             rating: 4.8,
-            description: 'A high-performance sports car .',
+            description: 'A high-performance sports car.',
+            price: (6000 / 24).toFixed(2), // Hourly price
         },
         {
             id: 5,
             name: 'Skoda Kylaq',
             image: 'https://stimg.cardekho.com/images/carexteriorimages/930x620/Skoda/Kylaq/11528/1733225175669/front-left-side-47.jpg',
             mileage: '19.05 kmpl',
-            
             fuelType: 'Petrol',
             transmission: 'Automatic',
             rating: 4.8,
-            description: 'A high-performance sports car .',
+            description: 'A high-performance sports car.',
+            price: (5500/ 24).toFixed(2), // Hourly price
         },
         {
             id: 6,
@@ -109,48 +107,37 @@ const Carousel = () => {
             fuelType: '........',
             transmission: '........',
             rating: '........',
-            description: 'A high-performance sports car .',
-
+            description: 'A high-performance sports car.',
+            price: (300 / 24).toFixed(2), // Hourly price
         }
-    ]
-  return (
-    <div className=''>
-      <Slider {...settings}>
-        {
-            cars.map((car) => (
-                <div key={car.id}>
-                    <div className='w-96 h-[550px] p-3 object-cover mx-auto rounded-lg overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300  border-2 border-cyan-400'>
-                        <img src={car.image} alt={car.name} className='rounded-lg ' />
-                        <h2 className='text-center text-2xl'>{car.name}</h2>
-                        <h3 className='text-center text-lg'>Mileage : {car.mileage}</h3>
-                        <h3 className='text-center text-lg'>Engine(CC) : {car.Engine}</h3>
-                        <h3 className='text-center text-lg'>Transmission : {car.transmission}</h3>
-                        <h3 className='text-center text-lg'>Seat Capacity : {car.Seat_Capacity}</h3>
-                        <h3 className='text-center text-lg'>Boot Space : {car.Seat_Capacity}</h3>
-                        
-                        <h3 className='text-center text-lg'>Rent Price : {car.price}</h3>
-                        
-                        <div className='flex justify-center mt-5'>
-                            <Link to="/rent" state={{ carDetails: car }}>
-                                <button className='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 flex items-center' onClick={() => handleRentNow(car)}>
-                                    Rent Now
-                                    <FaArrowAltCircleRight className='ml-2' />
-                                </button>
-                            </Link>
+    ];
+
+    return (
+        <div className=''>
+            <Slider {...settings}>
+                {
+                    cars.map((car) => (
+                        <div key={car.id}>
+                            <div className='w-96 h-[550px] p-3 object-cover mx-auto rounded-lg overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 border-2 border-cyan-400'>
+                                <img src={car.image} alt={car.name} className='rounded-lg ' />
+                                <h2 className='text-center text-2xl'>{car.name}</h2>
+                                <h3 className='text-center text-lg'>Mileage : {car.mileage}</h3>
+                                <h3 className='text-center text-lg'>Transmission : {car.transmission}</h3>
+                                <h3 className='text-center text-lg'>Rent Price (Hourly): ₹{car.price}</h3>
+                                <div className='flex justify-center mt-5'>
+                                    <Link to="/rent" state={{ carDetails: car }}>
+                                        <button className='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 flex items-center'>
+                                            Rent Now
+                                            <FaArrowAltCircleRight className='ml-2' />
+                                        </button>
+                                    </Link>
+                                </div>
+                            </div>
                         </div>
-                        
-                    </div>
-                    
-                    
-
-                    </div>
-
-            ))
-
-        }
-      </Slider>
-
-      <div className='flex justify-center mt-5'>
+                    ))
+                }
+            </Slider>
+            <div className='flex justify-center mt-5'>
         <Link to="/explore">
         <button className='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 flex items-center'>
           Explore
@@ -158,8 +145,9 @@ const Carousel = () => {
         </button>
         </Link>
       </div>
-    </div>
-  )
+    
+        </div>
+    )
 }
 
-export default Carousel
+export default Carousel;

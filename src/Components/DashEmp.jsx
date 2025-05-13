@@ -16,14 +16,14 @@ const DashEmp = () => {
 
   return (
     <div className="bg-gray-900 text-white min-h-screen p-6 mx-1 my-1 rounded-lg">
-      <h1 className="text-3xl font-bold mb-6">Employee Dashboard</h1>
+      <h1 className="text-3xl font-bold mb-6">Owner Dashboard</h1>
 
       
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         <Card title="Total User" value="50000"  />
         <Card title="Total Registration" value="60000"  />
         <Card title="Garage Vault" value="1000"  />
-        <Card title="Total Profit" value="₹1,00,000" />
+        <Card title="Total Bookings" value="40,000" />
       </div>
 
       

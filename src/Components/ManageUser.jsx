@@ -28,7 +28,7 @@ const ManageUser = () => {
 
       {/* User List */}
       <div className="bg-gray-800 p-6 rounded-lg shadow-md">
-        <h2 className="text-lg font-semibold mb-4">User List</h2>
+        <h2 className="text-lg font-semibold mb-4">Users List</h2>
         <table className="w-full text-left text-gray-300">
           <thead>
             <tr className="border-b border-gray-700">

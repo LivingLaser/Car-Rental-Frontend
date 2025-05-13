@@ -27,11 +27,11 @@ const ManageEmployee = () => {
 
   return (
     <div className="bg-gray-900 text-white min-h-screen p-6 mx-1 my-1 rounded-2xl">
-      <h1 className="text-3xl font-bold mb-6">Manage Employees</h1>
+      <h1 className="text-3xl font-bold mb-6">Manage Owners</h1>
 
       {/* Employee List */}
       <div className="bg-gray-800 p-6 rounded-lg shadow-md">
-        <h2 className="text-lg font-semibold mb-4">Employee List</h2>
+        <h2 className="text-lg font-semibold mb-4">Owners List</h2>
         <table className="w-full text-left text-gray-300">
           <thead>
             <tr className="border-b border-gray-700">

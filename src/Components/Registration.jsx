@@ -6,32 +6,31 @@ const Registration = () => {
   const carData = location.state?.car;
 
   const [registrations, setRegistrations] = useState([
-    { id: 1, regNo: "ABC123", status: "Active" },
-    { id: 2, regNo: "XYZ789", status: "Inactive" },
+    { id: 1, regNo: "ABC123", ownerName: "John Doe", ownerPhone: "1234567890", ownerAddress: "123 Main St", insuranceValidity: "2024-01-01", pucValidity: "2024-01-01", modelColor: "Red" },  
+    { id: 2, regNo: "XYZ789", ownerName: "Jane Smith", ownerPhone: "0987654321", ownerAddress: "456 Elm St", insuranceValidity: "2024-01-01", pucValidity: "2024-01-01", modelColor: "Blue" },
+    { id: 3, regNo: "LMN456", ownerName: "Alice Johnson", ownerPhone: "5555555555", ownerAddress: "789 Oak St", insuranceValidity: "2024-01-01", pucValidity: "2024-01-01", modelColor: "Green" },
+    { id: 4, regNo: "DEF321", ownerName: "Bob Brown", ownerPhone: "4444444444", ownerAddress: "101 Pine St", insuranceValidity: "2024-01-01", pucValidity: "2024-01-01", modelColor: "Black" },
   ]);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [newRegNo, setNewRegNo] = useState("");
-  const [newStatus, setNewStatus] = useState("Pending");
+  const [editRegistration, setEditRegistration] = useState(null);
 
   const handleRemove = (id) => {
     setRegistrations(registrations.filter((reg) => reg.id !== id));
   };
 
-  const handleEdit = (id) => {
-    alert(`Edit registration with ID: ${id}`);
+  const handleEdit = (registration) => {
+    setEditRegistration(registration); 
+    setIsModalOpen(true);
   };
 
-  const handleAddRegistration = () => {
-    const newReg = {
-      id: registrations.length + 1,
-      regNo: newRegNo,
-      status: newStatus,
-    };
-    setRegistrations([...registrations, newReg]);
-    setIsModalOpen(false); 
-    setNewRegNo(""); // Reset input fields
-    setNewStatus("Pending");
+  const handleSaveChanges = () => {
+    setRegistrations((prevRegistrations) =>
+      prevRegistrations.map((reg) =>
+        reg.id === editRegistration.id ? editRegistration : reg
+      )
+    );
+    setIsModalOpen(false);
   };
 
   if (!carData) {
@@ -39,7 +38,7 @@ const Registration = () => {
   }
 
   return (
-    <div className="p-6 flex flex-row justify-center items-center gap-40  min-h-screen rounded-lg mx-1 my-1">
+    <div className="p-6 justify-center items-center gap-40  min-h-screen rounded-lg mx-1 my-1">
       
       <div className="text-center mb-8">
         <img
@@ -48,24 +47,17 @@ const Registration = () => {
           className="w-full max-w-md mx-auto rounded-lg"
         />
         <h2 className="text-2xl font-bold mt-4">{`Car Model: ${carData.name}`}</h2>
-        <p className="text-gray-600">{`Details: ${carData.details}`}</p>
+        <p className="text-black font-semibold">{`Details: ${carData.details}`}</p>
 
         
-        <div className="text-center mb-8">
-        <button
-          onClick={() => setIsModalOpen(true)}
-          className="bg-blue-500 text-white my-2 px-6 py-2 rounded-lg hover:bg-blue-600"
-        >
-          Add Registration
-        </button>
-        </div>
+        
       </div>
 
       
       
 
       
-      <div className="overflow-x-auto min-h-screen">
+      <div className="overflow-x-auto min-h-screen p-5">
         <table className="table-auto w-full my-0 border-collapse border border-gray-300 overflow-scroll">
           <thead>
             <tr className="bg-gray-100">
@@ -84,15 +76,15 @@ const Registration = () => {
             {registrations.map((reg) => (
               <tr key={reg.id} className="text-center">
                 <td className="border border-gray-300 px-4 py-2">{reg.regNo}</td>
-                <td className="border border-gray-300 px-4 py-2">{reg.status}</td>
-                <td className="border border-gray-300 px-4 py-2">{reg.status}</td>
-                <td className="border border-gray-300 px-4 py-2">{reg.status}</td>
-                <td className="border border-gray-300 px-4 py-2">{reg.status}</td>
-                <td className="border border-gray-300 px-4 py-2">{reg.status}</td>
-                <td className="border border-gray-300 px-4 py-2">{reg.status}</td>
-                <td className="border border-gray-300 flex px-4 py-2">
+                <td className="border border-gray-300 px-4 py-2">{reg.ownerName}</td>
+                <td className="border border-gray-300 px-4 py-2">{reg.ownerPhone}</td>
+                <td className="border border-gray-300 px-4 py-2">{reg.ownerAddress}</td>
+                <td className="border border-gray-300 px-4 py-2">{reg.insuranceValidity}</td>
+                <td className="border border-gray-300 px-4 py-2">{reg.pucValidity}</td>
+                <td className="border border-gray-300 px-4 py-2">{reg.modelColor}</td>
+                <td className="border border-gray-300 flex px-4 py-2 gap-3 justify-center">
                   <button
-                    onClick={() => handleEdit(reg.id)}
+                    onClick={() => handleEdit(reg)} 
                     className="bg-yellow-500 text-white px-4 py-1 rounded-lg mr-2 hover:bg-yellow-600"
                   >
                     Edit
@@ -110,44 +102,110 @@ const Registration = () => {
         </table>
       </div>
 
-      
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-96">
-            <h2 className="text-xl font-bold mb-4">Add New Registration</h2>
+          <div className="bg-slate-300 p-6 rounded-lg shadow-md w-3/4">
+            <h2 className="text-lg font-semibold mb-4">Edit Registration</h2>
             <div className="mb-4">
-              <label className="block text-gray-700 mb-2">Registration No.</label>
+              <label className="block text-sm mb-2">Registration No.</label>
               <input
-                type="text"
-                value={newRegNo}
-                onChange={(e) => setNewRegNo(e.target.value)}
-                className="w-full px-4 py-2 border rounded-lg"
+                type="number text"
+                value={editRegistration.regNo}
+                
+                onChange={(e) =>
+                  setEditRegistration({ ...editRegistration, regNo: e.target.value })
+                }
+                className="w-full p-2 rounded bg-gray-700 text-white"
               />
             </div>
+
             <div className="mb-4">
-              <label className="block text-gray-700 mb-2">Status</label>
-              <select
-                value={newStatus}
-                onChange={(e) => setNewStatus(e.target.value)}
-                className="w-full px-4 py-2 border rounded-lg"
-              >
-                <option value="Pending">Pending</option>
-                <option value="Active">Active</option>
-                <option value="Inactive">Inactive</option>
-              </select>
+              <label className="block text-sm mb-2">Owner Name</label>
+              <input
+                type="name"
+                value={editRegistration.ownerName}
+                
+                onChange={(e) =>
+                  setEditRegistration({ ...editRegistration, ownerName: e.target.value })
+                }
+                className="w-full p-2 rounded bg-gray-700 text-white"
+              />
             </div>
+
+            <div className="mb-4">
+              <label className="block text-sm mb-2">Owner Phone</label>
+              <input
+                type="number"
+                value={editRegistration.ownerPhone}
+                
+                onChange={(e) =>
+                  setEditRegistration({ ...editRegistration, ownerPhone: e.target.value })
+                }
+                className="w-full p-2 rounded bg-gray-700 text-white"
+              />
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-sm mb-2">Owner Address</label>
+              <input
+                type="text"
+                value={editRegistration.ownerAddress}
+                
+                onChange={(e) =>
+                  setEditRegistration({ ...editRegistration, ownerAddress: e.target.value })
+                }
+                className="w-full p-2 rounded bg-gray-700 text-white"
+              />
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-sm mb-2">Insurance Validity</label>
+              <input
+                type="date"
+                value={editRegistration?.insuranceValidity || ""}
+                onChange={(e) =>
+                  setEditRegistration({ ...editRegistration, insuranceValidity: e.target.value })
+                }
+                className="w-full p-2 rounded bg-gray-700 text-white"
+              />
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-sm mb-2">PUC Validity</label>
+              <input
+                type="date" 
+                value={editRegistration?.pucValidity || ""}
+                onChange={(e) =>
+                  setEditRegistration({ ...editRegistration, pucValidity: e.target.value })
+                }
+                className="w-full p-2 rounded bg-gray-700 text-white"
+              />
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-sm mb-2">Model Color</label>
+              <input
+                type="text"
+                value={editRegistration?.modelColor || ""} // Use optional chaining and fallback
+                onChange={(e) =>
+                  setEditRegistration({ ...editRegistration, modelColor: e.target.value })
+                }
+                className="w-full p-2 rounded bg-gray-700 text-white"
+              />
+            </div>
+            
             <div className="flex justify-end">
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="bg-gray-500 text-white px-4 py-2 rounded-lg mr-2 hover:bg-gray-600"
+                className="bg-gray-600 text-white px-4 py-2 rounded mr-2"
               >
                 Cancel
               </button>
               <button
-                onClick={handleAddRegistration}
-                className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+                onClick={handleSaveChanges}
+                className="bg-green-500 text-white px-4 py-2 rounded"
               >
-                Add
+                Save
               </button>
             </div>
           </div>
