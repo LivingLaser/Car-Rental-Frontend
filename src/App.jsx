@@ -12,7 +12,6 @@ import Signup from './Components/Signup';
 import Profile from './Components/Profile';
 import Admin from './Components/Admin';
 import Employee from './Components/Employee';
-import DashEmp from './Components/DashEmp';
 import DashAdmin from './Components/DashAdmin';
 import { ToastContainer } from "react-toastify";
 import Rent2 from './Components/Rent2';
@@ -27,6 +26,8 @@ import Cregemp from './Components/Cregemp';
 import Booking from './Components/Booking';
 import EmpSignup from './Components/EmpSignup';
 import AddCar from './Components/AddCar';
+import OwnerReg from './Components/OwnerReg';
+import DashOwner from './Components/DashOwner';
 
 
 // Define the routes
@@ -46,7 +47,8 @@ const router = createBrowserRouter([
 
 
   { path: "/navbar2", element: <><Navbar2 /></> },
-  { path: "/dashemp", element: <><Navbar3 /><DashEmp /></> },
+  { path: "/dashowner", element: <><Navbar3 /><DashOwner /></> },
+  { path: "/OwnerReg", element: <><Navbar3 /><OwnerReg /></> },
   { path: "/cregemp", element: <><Navbar2 /><Cregemp /></> },
   { path: "/reg", element: <><Navbar2 /><Registration /></> },
   { path: "/empsignup", element: <><Navbar2 /><EmpSignup /></> },

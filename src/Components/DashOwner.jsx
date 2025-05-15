@@ -2,7 +2,7 @@ import React from "react";
 import { Pie } from "react-chartjs-2";
 import "chart.js/auto";
 
-const DashEmp = () => {
+const DashOwner = () => {
   
   const pieData = {
     labels: ["Accepted", "Cancelled", "Rejected"],
@@ -164,4 +164,4 @@ const BookingRow = ({ name, car, date, price, status }) => (
   </tr>
 );
 
-export default DashEmp;
+export default DashOwner;

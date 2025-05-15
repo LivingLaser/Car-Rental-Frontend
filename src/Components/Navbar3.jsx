@@ -39,8 +39,10 @@ const Navbar = () => {
         </div>
           <div className="hidden md:flex space-x-10">
             
-            <Link to="/dashemp" className="hover:text-gray-400 text-lg">Dashboard</Link>
+            <Link to="/dashowner" className="hover:text-gray-400 text-lg">Dashboard</Link>
             <Link to="/" className="hover:text-gray-400 text-lg">Bookings</Link>
+            <Link to="/OwnerReg" className="hover:text-gray-400 text-lg">Registration</Link>
+
             
             
 
