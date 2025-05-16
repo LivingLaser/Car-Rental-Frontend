@@ -23,13 +23,13 @@ const OwnerReg = () => {
             placeholder="Registration" 
             className="w-full p-2 border border-gray-300 rounded text-white bg-transparent placeholder-gray-400" 
           />
-
+          <label className="block mb-1 text-sm font-bold text-blue-400">INSURANCE  VALIDITY</label>
           <input 
             type="date" 
             placeholder="Insurance Validity" 
             className="w-full p-2 border border-gray-300 rounded text-white bg-transparent placeholder-gray-400" 
           />
-
+          <label className="block mb-1 text-sm font-bold text-blue-400">PUC  VALIDITY</label>
           <input 
             type="date" 
             placeholder="PUC Validity" 
