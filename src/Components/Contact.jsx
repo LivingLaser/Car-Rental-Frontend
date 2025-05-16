@@ -41,7 +41,7 @@ const Contact = () => {
 
         <form ref={form} onSubmit={sendEmail} className="space-y-4">
           <div>
-            <label className="block text-sm font-semibold">Name</label>
+            <label className="block text-sm mb-2 font-semibold text-red-600">Name</label>
             <input
               type="text"
               name="user_name"
@@ -52,7 +52,7 @@ const Contact = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold">Email</label>
+            <label className="block text-sm mb-2 font-semibold text-red-600">Email</label>
             <input
               type="email"
               name="user_email"
@@ -63,7 +63,7 @@ const Contact = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold">Message</label>
+            <label className="block text-sm mb-2 font-semibold text-red-600">Message</label>
             <textarea
               name="message"
               className="w-full px-4 py-6 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"

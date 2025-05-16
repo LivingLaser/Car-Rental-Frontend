@@ -39,8 +39,8 @@ const Navbar = () => {
         </div>
           <div className="hidden md:flex space-x-10">
             
-            <Link to="/dashowner" className="hover:text-gray-400 text-lg">Dashboard</Link>
-            <Link to="/" className="hover:text-gray-400 text-lg">Bookings</Link>
+            <Link to="/home" className="hover:text-gray-400 text-lg">Home</Link>
+            
             <Link to="/OwnerReg" className="hover:text-gray-400 text-lg">Registration</Link>
 
             
