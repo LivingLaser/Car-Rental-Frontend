@@ -57,6 +57,7 @@ const router = createBrowserRouter([
   { path: "/manageuser", element: <><Navbar2 /><ManageUser /></> },
   { path: "/managecar", element: <><Navbar2 /><ManageCar /></> },
   { path: "/addcar", element: <><Navbar2 /><AddCar /></> },
+  {path: "/home", element: <><Navbar3 /><Home /></> },
 ]);
 
 function App() {
