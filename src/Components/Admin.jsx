@@ -3,6 +3,7 @@ import { Box, TextField, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import userContext from '../auth/userContext';
 import { loginAdmin } from '../services/userService';
+import { doLogin } from '../auth/authentication';
 import { toast } from 'react-toastify';
 
 const Admin = () => {
@@ -10,7 +11,7 @@ const Admin = () => {
   const userData = useContext(userContext);
   const [loginDetail, setLoginDetail] = useState({
     email: "",
-    password: "",
+    password: ""
   });
 
   const handleChange = (event) => {
@@ -27,6 +28,10 @@ const Admin = () => {
     }
 
     loginAdmin(loginDetail).then((response) => {
+      setLoginDetail({
+        email: "",
+        password: ""
+      });
       doLogin(response);
       userData.setUser(response);
       toast.success("Welcome " + response.name);

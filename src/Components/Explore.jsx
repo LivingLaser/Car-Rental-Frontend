@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box } from '@mui/material';
 import Pages from './Pages';
 import CardCom from './CardCom';
 import FilterDrawer from './FilterDrawer';
+import { getAllCars } from '../services/carService';
 
 // 🔹 Main Layout
 export default function Explore() {
+  const [carDetail, setCarDetail] = useState({});
+
+  useEffect(() => {
+    getAllCars(0).then((response) => {
+      setCarDetail(response);
+    }).catch((error) => {
+      console.log(error);
+    })
+  }, []);
+
   return (
     <>
       {/* Drawer */}
@@ -27,8 +38,8 @@ export default function Explore() {
         }}
       >
         
-        {Array.from({ length: 15 }).map((_, index) => (
-          <CardCom key={index} />
+        {carDetail?.pageContent?.map((car) => (
+          <CardCom key={car.modelId} car={car} />
         ))}
         
         <Pages />

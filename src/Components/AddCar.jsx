@@ -1,9 +1,54 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import { addCarModel } from "../services/carService";
+import { toast } from "react-toastify";
 
 const AddCar = () => {
   const [imagePreview, setImagePreview] = useState(null);  
   const navigate = useNavigate();
+
+  const [carDetail, setCarDetail] = useState({
+    modelName: "",
+    mileage: "",
+    engine: "",
+    transmission: "",
+    seatCapacity: "",
+    bootSpace: "",
+    fuelType: "",
+    fuelCapacity: "",
+    fuelUnit: "",
+    rentPrice: ""
+  });
+
+  const [errors, setErrors] = useState({});
+
+  const handleChange = (event) => {
+    const {id, value} = event.target;
+    setCarDetail({...carDetail, [id]: value});
+  }
+
+  const submitForm = (event) => {
+    event.preventDefault();
+    addCarModel(carDetail).then((response) => {
+      setCarDetail({
+        modelName: "",
+        mileage: "",
+        engine: "",
+        transmission: "",
+        seatCapacity: "",
+        bootSpace: "",
+        fuelType: "",
+        fuelCapacity: "",
+        fuelUnit: "",
+        rentPrice: ""
+      });
+      setErrors({});
+      toast.success("Car Model Added");
+      navigate("/dashadmin");
+    }).catch((error) => {
+      setErrors(error);
+    });
+  }
 
 
   const handleImageChange = (e) => {
@@ -31,7 +76,7 @@ const AddCar = () => {
           <input type="text" placeholder="Engine (CC)"  className="w-full p-2 mb-4 border border-gray-300 rounded text-white bg-transparent placeholder-gray-400" />
           
           <select className="text-white bg-[#1c2333] p-2 rounded border border-gray-300">
-            <option >Transmission</option>
+            <option>Transmission</option>
             <option>Automatic</option>
             <option>Manual</option>
             <option>Electric</option>

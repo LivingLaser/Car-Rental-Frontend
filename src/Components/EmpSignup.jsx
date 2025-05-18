@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, TextField, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { signupEmployee } from '../services/userService';
+import { signupOwner } from '../services/userService';
 import { toast } from 'react-toastify';
 
 const EmpSignup = () => {
@@ -25,7 +25,7 @@ const EmpSignup = () => {
 
   const submitForm = (event) => {
     event.preventDefault();
-    signupEmployee(signupDetail).then((response) => {
+    signupOwner(signupDetail).then((response) => {
       setSignupDetail({
         name: "",
         email: "",

@@ -1,14 +1,42 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import { addCarVariant } from "../services/carVariantService";
+import { toast } from "react-toastify";
 
 const OwnerReg = () => {
   const [imagePreview, setImagePreview] = useState(null);  
   const navigate = useNavigate();
 
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) setImagePreview(URL.createObjectURL(file));
-  };
+  const [variantDetail, setVariantDetail] = useState({
+    registration: "",
+    insuranceValidity: null,
+    pucValidity: null,
+    modelColor: ""
+  });
+
+  const [errors, setErrors] = useState({});
+
+  const handleChange = (event) => {
+    const {id, value} = event.target;
+    setVariantDetail({...variantDetail, [id]: value});
+  }
+
+  const submitForm = (event) => {
+    event.preventDefault();
+    addCarVariant(variantDetail, 0, 0).then((response) => {
+      setVariantDetail({
+        registration: "",
+        insuranceValidity: null,
+        pucValidity: null,
+        modelColor: ""
+      });
+      setErrors({});
+      toast.success("Car Registration Added");
+      navigate("/dashowner");
+    }).catch((error) => {
+      setErrors(error);
+    });
+  }
 
   const handleAddCar = () => {
     navigate('/dashowner');

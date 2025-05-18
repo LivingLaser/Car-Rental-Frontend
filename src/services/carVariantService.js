@@ -1,7 +1,7 @@
 import { myAxios } from "./backend"
 
-export const addCarVariant = (carVariant, modelId) => {
-    return myAxios.post(`/variants/${modelId}`, carVariant).then((response) => response.data);
+export const addCarVariant = (carVariant, modelId, userId) => {
+    return myAxios.post(`/variants/car/${modelId}/owner/${userId}`, carVariant).then((response) => response.data);
 }
 
 export const getVariantById = (registration) => {
@@ -14,6 +14,10 @@ export const updateVariant = (carVariant, registration) => {
 
 export const getVariantsByModel = (modelId) => {
     return myAxios.get(`/variants/car/${modelId}`).then((response) => response.data);
+}
+
+export const getVariantsByOwner = (userId) => {
+    return myAxios.get(`/variants/owner/${userId}`).then((response) => response.data);
 }
 
 export const removeCarVariant = (registration) => {

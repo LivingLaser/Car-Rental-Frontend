@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Box, TextField, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import userContext from '../auth/userContext';
-import { loginEmployee } from '../services/userService';
+import { loginOwner } from '../services/userService';
 import { doLogin } from '../auth/authentication';
 import { toast } from 'react-toastify';
 
@@ -27,7 +27,7 @@ const Employee = () => {
       return;
     }
 
-    loginEmployee(loginDetail).then((response) => {
+    loginOwner(loginDetail).then((response) => {
       doLogin(response);
       userData.setUser(response);
       toast.success("Welcome " + response.name);
