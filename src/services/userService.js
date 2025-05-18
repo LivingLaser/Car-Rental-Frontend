@@ -11,15 +11,15 @@ export const loginUser = (user) => {
     return myAxios.post("/users/login", formData).then((response) => response.data);
 }
 
-export const signupEmployee = (user) => {
-    return myAxios.post("/users/emp_register", user).then((response) => response.data);
+export const signupOwner = (user) => {
+    return myAxios.post("/users/owner_register", user).then((response) => response.data);
 }
 
-export const loginEmployee = (user) => {
+export const loginOwner = (user) => {
     let formData = new FormData();
     formData.append("email", user.email);
     formData.append("password", user.password);
-    return myAxios.post("/users/emp_login", formData).then((response) => response.data);
+    return myAxios.post("/users/owner_login", formData).then((response) => response.data);
 }
 
 export const loginAdmin = (user) => {
@@ -53,8 +53,8 @@ export const getAllUsers = (pageNumber) => {
     }).then((response) => response.data);
 }
 
-export const getAllEmployees = (pageNumber) => {
-    return myAxios.get(`/users/emp`, {
+export const getAllOwners = (pageNumber) => {
+    return myAxios.get(`/users/owner`, {
         params: {
             pageNumber: pageNumber
         }

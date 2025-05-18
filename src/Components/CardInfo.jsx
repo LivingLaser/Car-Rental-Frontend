@@ -7,7 +7,7 @@ import AirlineSeatReclineNormalSharpIcon from '@mui/icons-material/AirlineSeatRe
 import LuggageIcon from '@mui/icons-material/Luggage';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 
-export default function CardInfo(props) {
+export default function CardInfo({car}) {
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: '#fff',
     ...theme.typography.body2,
@@ -37,7 +37,7 @@ export default function CardInfo(props) {
       >
         {/* Top Icons */}
         <Item>
-          <Box sx={{ display: 'flex', gap: 2 }}>
+          <Box sx={{ display: 'flex', gap: 5 }}>
 
             <Box
               sx={{
@@ -51,7 +51,7 @@ export default function CardInfo(props) {
               }}
             >
               <SpeedIcon color="Black" fontSize="medium" />
-              <Typography variant="body2">{props.mileage}&nbsp;KM</Typography>
+              <Typography variant="body2">{car.mileage}&nbsp;KM</Typography>
             </Box>
 
 
@@ -67,7 +67,7 @@ export default function CardInfo(props) {
               }}
             >
               <LocalGasStationIcon color="Black" fontSize="medium" />
-              <Typography variant="body2">{props.fuelType}</Typography>
+              <Typography variant="body2">{car.fuelType}</Typography>
             </Box>
           </Box>
         </Item>
@@ -80,7 +80,7 @@ export default function CardInfo(props) {
       >
         {/* Bottom Icons */}
         <Item>
-          <Box sx={{ display: 'flex', gap: 2 }}>
+          <Box sx={{ display: 'flex', gap: 5 }}>
             <Box
               sx={{
                 display: 'flex',
@@ -92,7 +92,7 @@ export default function CardInfo(props) {
               }}
             >
               <AirlineSeatReclineNormalSharpIcon color="Black" fontSize="medium" />
-              <Typography variant="body2">{props.seatCapacity}&nbsp;Seater</Typography>
+              <Typography variant="body2">{car.seatCapacity}&nbsp;Seater</Typography>
             </Box>
 
             <Box
@@ -107,7 +107,7 @@ export default function CardInfo(props) {
               }}
             >
               <LuggageIcon color="Black" fontSize="medium" />
-              <Typography variant="body2">{props.fuelCapacity}&nbsp;{props.fuelUnit}</Typography>
+              <Typography variant="body2">{car.fuelCapacity}&nbsp;{car.fuelUnit}</Typography>
             </Box>
           </Box>
         </Item>
@@ -123,7 +123,7 @@ export default function CardInfo(props) {
         }}
       >
         <CurrencyRupeeIcon color="Black" fontSize="medium" />
-        <Typography variant="body1" fontWeight="bold">{props.rentPrice} / day</Typography>
+        <Typography variant="body1" fontWeight="bold">{car.rentPrice} / hr</Typography>
       </Box>
     </Box>
   );

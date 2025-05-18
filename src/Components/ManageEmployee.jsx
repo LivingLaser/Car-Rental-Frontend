@@ -1,29 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import Pages from "./Pages";
+import { getAllOwners } from "../services/userService";
 
 const ManageEmployee = () => {
-  const [employees, setEmployees] = useState([
-    { id: 1, name: "John Doe", email:"johndoe@Gmail.com", phone:"9090909090", address:"kolkata", status: "Active" },
-    { id: 2, name: "Jane Smith", email:"janesmith@Gmail.com", phone:"9090909090", address:"kolkata", status: "Inactive" },
-    { id: 3, name: "Alice Johnson", email:"alicejohnson@Gmail.com", phone:"9090909090", address:"kolkata", status: "Active" },
-  ]);
+  const [owners, setOwners] = useState({});
 
-  
-  const [editEmployee, setEditEmployee] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  useEffect(() => {
+    getAllOwners(0).then((response) => {
+      setOwners(response);
+    }).catch((error) => {
+      console.log(error);
+    });
+  }, []);
 
-  const handleEditEmployee = (employee) => {
-    setEditEmployee(employee);
-    setIsModalOpen(true);
-  };
-
-  const handleSaveChanges = () => {
-    setEmployees((prevEmployees) =>
-      prevEmployees.map((emp) =>
-        emp.id === editEmployee.id ? editEmployee : emp
-      )
-    );
-    setIsModalOpen(false);
-  };
+  const changePage = (pageNumber) => {
+    getAllOwners(pageNumber).then((response) => {
+      setOwners(response);
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
 
   return (
     <div className="bg-gray-900 text-white min-h-screen p-6 mx-1 my-1 rounded-2xl">
@@ -35,102 +31,29 @@ const ManageEmployee = () => {
         <table className="w-full text-left text-gray-300">
           <thead>
             <tr className="border-b border-gray-700">
+              <th className="py-2">Owner ID</th>
               <th className="py-2">Name</th>
               <th className="py-2">Email</th>
               <th className="py-2">Phone No.</th>
               <th className="py-2">Address</th>
-              <th className="py-2">Status</th>
-              <th className="py-2">Actions</th>
             </tr>
           </thead>
           <tbody>
-            {employees.map((employee) => (
-              <tr key={employee.id} className="border-b border-gray-700">
-                <td className="py-2">{employee.name}</td>
-                <td className="py-2">{employee.email}</td>
-                <td className="py-2">{employee.phone}</td>
-                <td className="py-2">{employee.address}</td>
-                <td
-                  className={`py-2 ${
-                    employee.status === "Active"
-                      ? "text-green-400"
-                      : "text-red-400"
-                  }`}
-                >
-                  {employee.status}
-                </td>
-                <td className="py-2">
-                  <button
-                    onClick={() => handleEditEmployee(employee)}
-                    className="bg-blue-500 text-white px-3 py-1 rounded"
-                  >
-                    Edit
-                  </button>
-                  
-                </td>
+            {owners?.pageContent?.map((owner) => (
+              <tr key={owner.userId} className="border-b border-gray-700">
+                <td className="py-2">{owner.userId}</td>
+                <td className="py-2">{owner.name}</td>
+                <td className="py-2">{owner.email}</td>
+                <td className="py-2">{owner.phone}</td>
+                <td className="py-2">{owner.address} - {owner.pincode}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
 
-      {/* Edit Modal */}
-      {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-gray-800 p-6 rounded-lg shadow-md w-96">
-            <h2 className="text-lg font-semibold mb-4">Edit Employee</h2>
-            <div className="mb-4">
-              <label className="block text-sm mb-2">Name</label>
-              <input
-                type="text"
-                value={editEmployee.name}
-                onChange={(e) =>
-                  setEditEmployee({ ...editEmployee, name: e.target.value })
-                }
-                className="w-full p-2 rounded bg-gray-700 text-white"
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block text-sm mb-2">Role</label>
-              <input
-                type="text"
-                value={editEmployee.role}
-                onChange={(e) =>
-                  setEditEmployee({ ...editEmployee, role: e.target.value })
-                }
-                className="w-full p-2 rounded bg-gray-700 text-white"
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block text-sm mb-2">Status</label>
-              <select
-                value={editEmployee.status}
-                onChange={(e) =>
-                  setEditEmployee({ ...editEmployee, status: e.target.value })
-                }
-                className="w-full p-2 rounded bg-gray-700 text-white"
-              >
-                <option value="Active">Active</option>
-                <option value="Inactive">Inactive</option>
-              </select>
-            </div>
-            <div className="flex justify-end">
-              <button
-                onClick={() => setIsModalOpen(false)}
-                className="bg-gray-600 text-white px-4 py-2 rounded mr-2"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={handleSaveChanges}
-                className="bg-green-500 text-white px-4 py-2 rounded"
-              >
-                Save
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      <Pages pageCount={owners?.totalPages} onPageChange={changePage} />
+
     </div>
   );
 };
