@@ -97,7 +97,7 @@ const Rent = () => {
             <div>
               <label className="block text-sm font-medium mb-1">Pickup Date</label>
               <input
-                type="datetime-local"
+                type="text"
                 className="w-full p-2 border rounded-md"
                 value={pickupDate}
                 onChange={(e) => setPickupDate(e.target.value)}
@@ -106,7 +106,7 @@ const Rent = () => {
             <div>
               <label className="block text-sm font-medium mb-1">Drop-off Date</label>
               <input
-                type="datetime-local"
+                type="text"
                 className="w-full p-2 border rounded-md"
                 value={dropoffDate}
                 onChange={(e) => setDropoffDate(e.target.value)}
