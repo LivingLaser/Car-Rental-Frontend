@@ -20,12 +20,6 @@ const team = [
     image: "/sdey.jpg",
   },
   {
-    name: "Sayantan Das",
-    role: "Development Coordinator",
-    description: "Manages the workflow, deadlines, and team communication .",
-    image: "/roga.jpg",
-  },
-  {
     name: "Bishwadeep Khanra",
     role: "Frontend Developer",
     description: "Designs and builds the interface (React, Tailwind, MUI).",
