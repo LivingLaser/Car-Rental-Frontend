@@ -112,7 +112,7 @@ const AddCar = () => {
                 onChange={handleSelectChange}
                 label="Transmission"
               >                
-                <MenuItem value="Transmission"disabled>select one</MenuItem>
+                <MenuItem value="" disabled>select one</MenuItem>
                 <MenuItem value="Automatic">Automatic</MenuItem>
                 <MenuItem value="Manual">Manual</MenuItem>
                 <MenuItem value="Electric">Electric</MenuItem>
@@ -151,7 +151,7 @@ const AddCar = () => {
                 onChange={handleSelectChange}
                 label="Fuel Type"
               >
-                <MenuItem value="Transmission"disabled>select one</MenuItem>
+                <MenuItem value="" disabled>select one</MenuItem>
                 <MenuItem value="Petrol">Petrol</MenuItem>
                 <MenuItem value="Diesel">Diesel</MenuItem>
                 <MenuItem value="Electric">Electric</MenuItem>
@@ -173,7 +173,7 @@ const AddCar = () => {
                 onChange={handleSelectChange}
                 label="Fuel Unit"
               >
-                <MenuItem value="Transmission"disabled>select one</MenuItem>
+                <MenuItem value="" disabled>select one</MenuItem>
                 <MenuItem value="L">L</MenuItem>
                 <MenuItem value="KWH">KWH</MenuItem>
               </Select>
@@ -204,11 +204,7 @@ const AddCar = () => {
           </div>
 
           {/* Submit */}
-          <button
-            type="button"
-            onClick={handleAddCar}
-            className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-          >
+          <button type="submit" className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
             Add Car
           </button>
         </form>
