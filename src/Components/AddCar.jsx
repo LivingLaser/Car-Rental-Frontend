@@ -75,7 +75,7 @@ const AddCar = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#0b0f26] rounded-lg mx-1 my-1">
+    <div className="min-h-screen flex items-center justify-center bg-[#0b0f26] rounded-lg my-1 mx-1 pt-20 overflow-y-auto">
       <div className="w-full max-w-2xl p-6 bg-[#1c2333] rounded-xl shadow-xl shadow-blue-500 text-white transform -translate-y-10">
         <form className="space-y-6" onSubmit={submitForm}>
           {/* Car Details */}

@@ -44,11 +44,9 @@ const Carousel = () => {
             name: 'Toyota Fortuner',
             image: 'https://stimg.cardekho.com/images/carexteriorimages/930x620/Toyota/Fortuner/10903/1690544151440/3d-model-163.jpg',
             mileage: '10,000 km',
-            availability: 'Available',
             fuelType: 'Petrol',
-            transmission: 'Automatic',
-            rating: 4.8,
-            description: 'A high-performance sports car.',
+            capacity: '7',
+            bootSpace: '500 L',
             price: (5000/24).toFixed(2),
         },
         {
@@ -56,36 +54,30 @@ const Carousel = () => {
             name: 'Hyundai Verna',
             image: 'https://stimg.cardekho.com/images/carexteriorimages/930x620/Hyundai/Verna/8703/1736412929424/front-left-side-47.jpg',
             mileage: '10,000 km',
-            availability: 'Available',
             fuelType: 'Petrol',
-            transmission: 'Automatic',
-            rating: 4.8,
-            description: 'A high-performance sports car.',
-            price: (4000 / 24).toFixed(2), // Hourly price
+            capacity: '5',
+            bootSpace: '500 L',
+            price: (4000 / 24).toFixed(2), 
         },
         {
             id: 3,
             name: 'Tata Curvv',
             image: 'https://stimg.cardekho.com/images/carexteriorimages/930x620/Tata/Curvv/9578/1723033064164/front-left-side-47.jpg',
             mileage: '10,000 km',
-            availability: 'Available',
             fuelType: 'Petrol',
-            transmission: 'Automatic',
-            rating: 4.8,
-            description: 'A high-performance sports car.',
-            price: (4500 / 24).toFixed(2), // Hourly price
+            capacity: '5',
+            bootSpace: '500 L',
+            price: (4500 / 24).toFixed(2), 
         },
         {
             id: 4,
             name: 'Toyota Innova Crysta',
             image: 'https://stimg.cardekho.com/images/carexteriorimages/930x620/Toyota/Innova-Crysta/9612/1697698611076/front-left-side-47.jpg',
             mileage: '10,000 km',
-            availability: 'Available',
             fuelType: 'Petrol',
-            transmission: 'Automatic',
-            rating: 4.8,
-            description: 'A high-performance sports car.',
-            price: (6000 / 24).toFixed(2), // Hourly price
+            capacity: '7',
+            bootSpace: '500 L',
+            price: (6000 / 24).toFixed(2), 
         },
         {
             id: 5,
@@ -93,22 +85,19 @@ const Carousel = () => {
             image: 'https://stimg.cardekho.com/images/carexteriorimages/930x620/Skoda/Kylaq/11528/1733225175669/front-left-side-47.jpg',
             mileage: '19.05 kmpl',
             fuelType: 'Petrol',
-            transmission: 'Automatic',
-            rating: 4.8,
-            description: 'A high-performance sports car.',
-            price: (5500/ 24).toFixed(2), // Hourly price
+            capacity: '5',
+            bootSpace: '500 L',
+            price: (5500/ 24).toFixed(2), 
         },
         {
             id: 6,
             name: 'Maruti Suzuki Swift',
             image: "https://stimg.cardekho.com/images/carexteriorimages/930x620/Maruti/Swift/9226/1739945896166/front-left-side-47.jpg",
-            mileage: '........ km',
-            availability: '..........',
-            fuelType: '........',
-            transmission: '........',
-            rating: '........',
-            description: 'A high-performance sports car.',
-            price: (300 / 24).toFixed(2), // Hourly price
+            mileage: '10,000 km',
+            fuelType: 'Diesel',
+            capacity: '5',
+            bootSpace: '500 L',
+            price: (300 / 24).toFixed(2), 
         }
     ];
 
@@ -122,8 +111,10 @@ const Carousel = () => {
                                 <img src={car.image} alt={car.name} className='rounded-lg ' />
                                 <h2 className='text-center text-2xl'>{car.name}</h2>
                                 <h3 className='text-center text-lg'>Mileage : {car.mileage}</h3>
-                                <h3 className='text-center text-lg'>Transmission : {car.transmission}</h3>
-                                <h3 className='text-center text-lg'>Rent Price (Hourly): ₹{car.price}</h3>
+                                <h3 className='text-center text-lg'>Feul Type : {car.fuelType}</h3>
+                                <h3 className='text-center text-lg'>Capacity : {car.capacity}</h3>
+                                <h3 className='text-center text-lg'>Boot Space : {car.bootSpace}</h3>
+                                <h3 className='text-center text-lg'>Price (Hourly): ₹{car.price}</h3>
                                 <div className='flex justify-center mt-5'>
                                     <Link to="/rent" state={{ carDetails: car }}>
                                         <button className='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 flex items-center'>
