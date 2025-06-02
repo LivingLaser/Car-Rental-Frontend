@@ -8,8 +8,12 @@ import { getAllCars } from '../services/carService';
 // 🔹 Main Layout
 export default function Explore() {
   const [carDetail, setCarDetail] = useState({});
+  const [keyword, setKeyword] = useState({isSearch: false, search: ""});
+  const [filter, setFilter] = useState({isFilter: false, values: {}});
 
   useEffect(() => {
+    setKeyword({isSearch: false, search: ""});
+    setFilter({isFilter: false, values: {}});
     getAllCars(0).then((response) => {
       setCarDetail(response);
     }).catch((error) => {
@@ -20,7 +24,7 @@ export default function Explore() {
   return (
     <>
       {/* Drawer */}
-      <FilterDrawer/>
+      <FilterDrawer />
 
       {/* Card Layout */}
       <Box

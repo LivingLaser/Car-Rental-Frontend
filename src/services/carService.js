@@ -55,7 +55,11 @@ export const removeCarModel = (modelId) => {
 export const uploadImage = (modelId, image) => {
     let formData = new FormData();
     formData.append("image", image);
-    return myAxios.post(`/cars/upload/image/${modelId}`, formData).then((response) => response.data);
+    return myAxios.post(`/cars/upload/image/${modelId}`, formData, {
+        headers: {
+            "Content-Type": "multipart/form-data"
+        }
+    }).then((response) => response.data);
 }
 
 export const CAR_IMAGE_RESOURCE = BASE_URL + "/cars/image/";

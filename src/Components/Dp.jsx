@@ -3,11 +3,12 @@ import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
-import { USER_IMAGE_RESOURCE } from '../services/userService';
+import { uploadImage, USER_IMAGE_RESOURCE } from '../services/userService';
 import userContext from '../auth/userContext';
+import { doLogin } from '../auth/authentication'
+import { toast } from "react-toastify";
 
 export default function Dp() {
-  const [image, setImage] = useState(null);
   const fileInputRef = useRef(null);
   const userData = useContext(userContext);
 
@@ -17,10 +18,13 @@ export default function Dp() {
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
-    if (file) {
-      const imageUrl = URL.createObjectURL(file);
-      setImage(imageUrl);
-    }
+
+    uploadImage(userData.user.userId, file).then((response) => {
+      doLogin(response);
+      userData.setUser(response);
+    }).catch((error) => {
+      toast.error("Something went wrong!");
+    })
   };
 
   return (
@@ -58,11 +62,9 @@ export default function Dp() {
 
       {/* Hidden file input */}
       <input
-        type="file"
-        accept="image/*"
+        type="file" accept="image/*"
+        ref={fileInputRef} onChange={handleImageChange}
         style={{ display: 'none' }}
-        ref={fileInputRef}
-        onChange={handleImageChange}
       />
     </Box>
   );

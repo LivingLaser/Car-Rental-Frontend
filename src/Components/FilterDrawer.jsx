@@ -6,6 +6,23 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 export default function FilterDrawer() {
     const [drawerOpen, setDrawerOpen] = useState(false);
     const toggleDrawer = (open) => () => setDrawerOpen(open);
+    const [keyword, setKeyword] = useState("");
+    const [filter, setFilter] = useState({
+        price: "50",
+        mileage: "50",
+        seatCapacity: "2",
+        bootSpace: "50"
+    });
+
+    const handleSearch = (event) => {
+        const search = event.target.value;
+        setKeyword(search);
+    }
+
+    const handleFilter = (event, value) => {
+        const name = event.target.name;
+        setFilter({...filter, [name]: value});
+    }
 
     return (
         <div>
@@ -43,49 +60,41 @@ export default function FilterDrawer() {
 
                     </Typography>
 
-                    <TextField fullWidth label="Search cars" variant="outlined" sx={{ mb: 3 }} />
-                    <Button variant="outlined" href="#outlined-buttons">scearch</Button>
+                    <TextField
+                        label="Search Cars" variant="outlined" fullWidth required
+                        id="keyword" value={keyword} onChange={handleSearch}
+                        sx={{ mb: 3 }}
+                    />
+                    <Button variant="outlined" href="#outlined-buttons">Search</Button>
 
 
                     <Divider sx={{ my: 2 }} />
 
                     <Typography gutterBottom>Price (per hour)</Typography>
                     <Slider
-                        defaultValue={100}
-                        min={50}
-                        max={1000}
-                        step={50}
-                        valueLabelDisplay="auto"
+                        min={40} max={1000} valueLabelDisplay="auto"
+                        name="price" value={filter.price} onChange={handleFilter}
                         sx={{ mb: 3 }}
                     />
 
                     <Typography gutterBottom>Milage (per hour)</Typography>
                     <Slider
-                        defaultValue={100}
-                        min={50}
-                        max={120}
-                        step={5}
-                        valueLabelDisplay="auto"
+                        min={40} max={120} valueLabelDisplay="auto"
+                        name="mileage" value={filter.mileage} onChange={handleFilter}
                         sx={{ mb: 3 }}
 
                     />
 
                     <Typography gutterBottom>Seating Capacity</Typography>
                     <Slider
-                        defaultValue={4}
-                        min={2}
-                        max={8}
-                        step={1}
-                        valueLabelDisplay="auto"
+                        min={1} max={8} valueLabelDisplay="auto"
+                        name="seatCapacity" value={filter.seatCapacity} onChange={handleFilter}
                     />
 
                     <Typography gutterBottom> Boot Space (Liter)</Typography>
                     <Slider
-                        defaultValue={100}
-                        min={50}
-                        max={1000}
-                        step={50}
-                        valueLabelDisplay="auto"
+                        min={40} max={1000} valueLabelDisplay="auto"
+                        name="bootSpace" value={filter.bootSpace} onChange={handleFilter}
                         sx={{ mb: 3 }}
                     />
                     <Button variant="outlined" href="#outlined-buttons">Filter</Button>
