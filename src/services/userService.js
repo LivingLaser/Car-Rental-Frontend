@@ -64,7 +64,11 @@ export const getAllOwners = (pageNumber) => {
 export const uploadImage = (userId, image) => {
     let formData = new FormData();
     formData.append("image", image);
-    return myAxios.post(`/users/upload/image/${userId}`, formData).then((response) => response.data);
+    return myAxios.post(`/users/upload/image/${userId}`, formData, {
+        headers: {
+            "Content-Type": "multipart/form-data"
+        }
+    }).then((response) => response.data);
 }
 
 export const USER_IMAGE_RESOURCE = BASE_URL + "/users/image/";

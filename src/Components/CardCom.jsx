@@ -12,14 +12,14 @@ export default function CardCom({car}) {
         navigate('/rent2', {
             state: {
                 car: {
-                    name: 'BMW',
-                    mileage: '1200',
-                    fuelType: 'Petrol',
-                    seatCapacity: '4',
-                    fuelCapacity: '100',
-                    fuelUnit: 'L',
-                    rentPrice: '2000.00',
-                    image: 'https://stimg.cardekho.com/images/carexteriorimages/630x420/Tata/Tiago/10655/1744284802118/front-left-side-47.jpg',
+                    name: car.name,
+                    mileage: car.mileage,
+                    fuelType: car.fuelType,
+                    seatCapacity: car.seatCapacity,
+                    fuelCapacity: car.fuelCapacity,
+                    fuelUnit: car.fuelUnit,
+                    rentPrice: car.rentPrice,
+                    image: CAR_IMAGE_RESOURCE + car.modelImage,
                 },
             },
         });

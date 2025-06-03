@@ -63,9 +63,7 @@ export default function Signup() {
           <Box component="form" onSubmit={submitForm}>
           <div className="mb-4">
             <TextField
-              label="Full Name"
-              variant="filled"
-              fullWidth
+              label="Full Name" variant="filled" fullWidth
               id="name" value={signupDetail.name} onChange={handleChange}
               error={errors?.response?.data?.name ? true : false}
               helperText={errors?.response?.data?.name}
@@ -75,10 +73,7 @@ export default function Signup() {
 
           <div className="mb-4">
             <TextField
-              label="Email"
-              type="email"
-              variant="filled"
-              fullWidth
+              label="Email" type="email" variant="filled" fullWidth
               id="email" value={signupDetail.email} onChange={handleChange}
               error={errors?.response?.data?.email ? true : false}
               helperText={errors?.response?.data?.email}
@@ -88,10 +83,7 @@ export default function Signup() {
 
           <div className="mb-4">
             <TextField
-              label="Phone Number"
-              type="tel"
-              variant="filled"
-              fullWidth
+              label="Phone Number" type="tel" variant="filled" fullWidth
               id="phone" value={signupDetail.phone} onChange={handleChange}
               error={errors?.response?.data?.phone ? true : false}
               helperText={errors?.response?.data?.phone}
@@ -101,9 +93,7 @@ export default function Signup() {
 
           <div className="mb-4">
             <TextField
-              label="Address"
-              variant="filled"
-              fullWidth multiline rows={2}
+              label="Address" variant="filled" fullWidth multiline rows={2}
               id="address" value={signupDetail.address} onChange={handleChange}
               error={errors?.response?.data?.address ? true : false}
               helperText={errors?.response?.data?.address}
@@ -113,9 +103,7 @@ export default function Signup() {
 
           <div className="mb-4">
             <TextField
-              label="Pincode"
-              variant="filled"
-              fullWidth
+              label="Pincode" variant="filled" fullWidth
               id="pincode" value={signupDetail.pincode} onChange={handleChange}
               error={errors?.response?.data?.pincode ? true : false}
               helperText={errors?.response?.data?.pincode}
@@ -125,10 +113,7 @@ export default function Signup() {
 
           <div className="mb-6">
             <TextField
-              label="Password"
-              type="password"
-              variant="filled"
-              fullWidth
+              label="Password" type="password" variant="filled" fullWidth
               id="password" value={signupDetail.password} onChange={handleChange}
               error={errors?.response?.data?.password ? true : false}
               helperText={errors?.response?.data?.password}

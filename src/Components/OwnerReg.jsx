@@ -5,7 +5,6 @@ import { toast } from "react-toastify";
 import TextField from "@mui/material/TextField";
 
 const OwnerReg = () => {
-  const [imagePreview, setImagePreview] = useState(null);
   const navigate = useNavigate();
 
   const [variantDetail, setVariantDetail] = useState({
@@ -41,8 +40,18 @@ const OwnerReg = () => {
       });
   };
 
-  const handleAddCar = () => {
-    navigate("/dashowner");
+  const inputStyles = {
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "gray",
+      },
+      "&:hover fieldset": {
+        borderColor: "white",
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "blue",
+      },
+    },
   };
 
   return (
@@ -50,77 +59,33 @@ const OwnerReg = () => {
       <div className="w-full max-w-md p-6 bg-[#1c2333] rounded-xl shadow-xl shadow-blue-500 text-white transform -translate-y-10">
         <form className="space-y-6" onSubmit={submitForm}>
           <TextField
-            id="registration"
-            label="Registration"
-            variant="outlined"
-            fullWidth
-            value={variantDetail.registration}
-            onChange={handleChange}
+            label="Registration" variant="outlined" fullWidth
+            id="registration" value={variantDetail.registration} onChange={handleChange}
+            error={errors?.response?.data?.registration ? true : false}
+            helperText={errors?.response?.data?.registration}
             InputProps={{ style: { color: "white" } }}
             InputLabelProps={{ style: { color: "gray" } }}
-            sx={{
-              "& .MuiOutlinedInput-root": {
-                "& fieldset": {
-                  borderColor: "gray",
-                },
-                "&:hover fieldset": {
-                  borderColor: "white",
-                },
-                "&.Mui-focused fieldset": {
-                  borderColor: "blue",
-                },
-              },
-            }}
+            sx={inputStyles}
           />
 
           <TextField
-            id="insuranceValidity"
-            label="Insurance Validity"
-            type="date"
-            variant="outlined"
-            fullWidth
-            value={variantDetail.insuranceValidity}
-            onChange={handleChange}
+            label="Insurance Validity" type="date" variant="outlined" fullWidth
+            id="insuranceValidity" value={variantDetail.insuranceValidity} onChange={handleChange}
+            error={errors?.response?.data?.insuranceValidity ? true : false}
+            helperText={errors?.response?.data?.insuranceValidity}
             InputLabelProps={{ shrink: true, style: { color: "gray" } }}
             InputProps={{ style: { color: "white" } }}
-            sx={{
-              "& .MuiOutlinedInput-root": {
-                "& fieldset": {
-                  borderColor: "gray",
-                },
-                "&:hover fieldset": {
-                  borderColor: "white",
-                },
-                "&.Mui-focused fieldset": {
-                  borderColor: "blue",
-                },
-              },
-            }}
+            sx={inputStyles}
           />
 
           <TextField
-            id="pucValidity"
-            label="PUC Validity"
-            type="date"
-            variant="outlined"
-            fullWidth
-            value={variantDetail.pucValidity}
-            onChange={handleChange}
+            label="PUC Validity" type="date" variant="outlined" fullWidth
+            id="pucValidity" value={variantDetail.pucValidity} onChange={handleChange}
+            error={errors?.response?.data?.pucValidity ? true : false}
+            helperText={errors?.response?.data?.pucValidity}
             InputLabelProps={{ shrink: true, style: { color: "gray" } }}
             InputProps={{ style: { color: "white" } }}
-            sx={{
-              "& .MuiOutlinedInput-root": {
-                "& fieldset": {
-                  borderColor: "gray",
-                },
-                "&:hover fieldset": {
-                  borderColor: "white",
-                },
-                "&.Mui-focused fieldset": {
-                  borderColor: "blue",
-                },
-              },
-            }}
+            sx={inputStyles}
           />
 
           <select
