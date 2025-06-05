@@ -1,3 +1,4 @@
+import { TextField } from '@mui/material';
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -78,7 +79,7 @@ const Rent = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
             <div>
               <label className="block text-sm font-medium mb-1">Pickup Location</label>
-              <input
+              <TextField
                 type="text"
                 className="w-full p-2 border rounded-md"
                 value={pickupLocation}
@@ -87,7 +88,7 @@ const Rent = () => {
             </div>
             <div>
               <label className="block text-sm font-medium mb-1">Drop-off Location</label>
-              <input
+              <TextField
                 type="text"
                 className="w-full p-2 border rounded-md"
                 value={dropoffLocation}
@@ -96,7 +97,7 @@ const Rent = () => {
             </div>
             <div>
               <label className="block text-sm font-medium mb-1">Pickup Date</label>
-              <input
+              <TextField
                 type="datetime-local"
                 className="w-full p-2 border rounded-md"
                 value={pickupDate}
@@ -105,7 +106,7 @@ const Rent = () => {
             </div>
             <div>
               <label className="block text-sm font-medium mb-1">Drop-off Date</label>
-              <input
+              <TextField
                 type="datetime-local"
                 className="w-full p-2 border rounded-md"
                 value={dropoffDate}
