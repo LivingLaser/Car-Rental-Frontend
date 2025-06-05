@@ -113,6 +113,16 @@ const EmpSignup = () => {
           <Button type="submit" variant="contained" color="primary" fullWidth>
             Signup
           </Button>
+          <p className="text-sm text-center text-white">
+            Have an account?{" "}
+            <span
+              className="text-orange-400 hover:underline cursor-pointer"
+              onClick={() => navigate("/Employee")}
+            >
+              Login
+            </span>{" "}
+            here
+          </p>
         </Box>
       </div>
     </div>
