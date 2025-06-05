@@ -21,8 +21,8 @@
 }
 
 .glass-effect {
-  background: rgba(255, 255, 255, 0.159); /* Transparent white */
-  backdrop-filter: blur(10px); /* Blur effect */
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  border: 1px solid rgba(255, 255, 255, 0.381); /* Border for glass look */
+  background: rgba(255, 255, 255, 0.159); 
+  backdrop-filter: blur(10px); 
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); 
+  border: 1px solid rgba(255, 255, 255, 0.381); 
 }

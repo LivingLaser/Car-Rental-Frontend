@@ -1,6 +1,6 @@
 html, body{
     overflow-x: hidden;
-    background: linear-gradient(135deg, #0abdbd, #505003, #e91818, #fbbf24);
+    background: linear-gradient(135deg, #0abdbd, #c4c42c, #e91818, #fbbf24);
     background-size: 400% 400%;
     animation: gradient-animation 15s ease infinite;
 }
