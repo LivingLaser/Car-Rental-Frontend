@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { addCarVariant } from "../services/carVariantService";
 import { toast } from "react-toastify";
-import TextField from "@mui/material/TextField";
+import { TextField, Select, MenuItem, InputLabel, FormControl, FormHelperText } from '@mui/material';
+
 
 const OwnerReg = () => {
   const navigate = useNavigate();
@@ -20,6 +21,16 @@ const OwnerReg = () => {
     const { id, value } = event.target;
     setVariantDetail({ ...variantDetail, [id]: value });
   };
+
+  const handleSelectChange = (event) => {
+  const { name, value } = event.target;
+
+  setVariantDetail((prev) => ({
+    ...prev,
+    [name]: value,
+  }));
+};
+
 
   const submitForm = (event) => {
     event.preventDefault();
@@ -41,18 +52,26 @@ const OwnerReg = () => {
   };
 
   const inputStyles = {
-    "& .MuiOutlinedInput-root": {
-      "& fieldset": {
-        borderColor: "gray",
-      },
-      "&:hover fieldset": {
-        borderColor: "white",
-      },
-      "&.Mui-focused fieldset": {
-        borderColor: "blue",
-      },
+    
+    "& .MuiOutlinedInput-notchedOutline": {
+      borderColor: "white"
     },
+    "& .MuiInputBase-input": {
+      color: "white"
+    },
+    "& .MuiInputLabel-root": {
+      color: "#ccc"
+    },
+    "& .MuiSelect-select": {
+      color: "white", 
+      backgroundColor: "#1c2333" 
+    },
+    "& .MuiSvgIcon-root": {
+      color: "white" 
+    }
   };
+
+  
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#0b0f26] rounded-lg mx-1 my-1">
@@ -87,24 +106,23 @@ const OwnerReg = () => {
             InputProps={{ style: { color: "white" } }}
             sx={inputStyles}
           />
-
-          <select
-            id="modelColor"
-            value={variantDetail.modelColor}
-            onChange={handleChange}
-            className="w-full text-white bg-[#1c2333] p-2 rounded border border-gray-300"
-          >
-            <option value="" disabled>
-              Model Color
-            </option>
-            <option>Red</option>
-            <option>Blue</option>
-            <option>Black</option>
-            <option>White</option>
-            <option>Silver</option>
-            <option>Gray</option>
-            <option>Yellow</option>
-          </select>
+          <FormControl fullWidth sx={inputStyles} error={errors?.response?.data?.modelColor ? true : false}>
+            <InputLabel>Model Color</InputLabel>
+            <Select
+              label="Model Color" name="modelColor"
+              value={variantDetail.modelColor} onChange={handleSelectChange}
+            >
+                <MenuItem value="Red">Red</MenuItem>
+                <MenuItem value="Blue">Blue</MenuItem>
+                <MenuItem value="Black">Black</MenuItem>
+                <MenuItem value="White">White</MenuItem>
+                <MenuItem value="Silver">Silver</MenuItem>
+                <MenuItem value="Gray">Gray</MenuItem>
+                <MenuItem value="Yellow">Yellow</MenuItem>
+                
+              </Select>
+              <FormHelperText>{errors?.response?.data?.modelColor}</FormHelperText>
+            </FormControl>
 
           <button
             type="submit"

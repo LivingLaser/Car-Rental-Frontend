@@ -71,7 +71,7 @@ export default function About() {
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 ">
         <h1 className="text-4xl font-bold mb-4 -mt-20">About Us</h1>
         <p className="max-w-xl text-lg mb-8">
-          We are a passionate team of 5 developers building a modern and reliable car rental platform.
+          We are a passionate team of 4 developers building a modern and reliable car rental platform.
           Our mission is to simplify car rentals with clean UI, seamless booking experiences, and dependable backend support.
         </p>
 
