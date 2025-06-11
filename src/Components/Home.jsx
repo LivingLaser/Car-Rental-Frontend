@@ -15,7 +15,7 @@ function Home() {
         <Carousel />
       </div>
       <div className='p-10 bg-gray-500 items-center justify-center rounded-2xl mx-1 my-1 glass-effect'>
-        <div className=' my-2 mx-0 text-center text-xl font-bold border-4 border-pink-500 rounded-2xl py-2 '>Search Your Nearby Cars............</div>
+        <div className=' my-2 mx-0 text-center text-xl font-bold border-4 border-blue-800 rounded-2xl py-2 '>Search Your Nearby Cars............</div>
         <Maps/>
       </div>
       <div className='p-32 bg-neutral-500 items-center justify-center rounded-2xl mx-1 my-1 glass-effect'>

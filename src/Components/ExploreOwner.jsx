@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Box } from '@mui/material';
 import PageList from './PageList';
 import CardCom from './CardCom';
@@ -10,6 +10,7 @@ export default function ExploreOwner() {
   const [carDetail, setCarDetail] = useState({});
   const [keyword, setKeyword] = useState({isSearch: false, search: ""});
   const [filter, setFilter] = useState({isFilter: false, values: {}});
+  const ref = useRef();
 
   useEffect(() => {
     setKeyword({isSearch: false, search: ""});
