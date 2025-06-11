@@ -1,6 +1,7 @@
 import { TextField } from '@mui/material';
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { CAR_IMAGE_RESOURCE } from '../services/carService';
 
 const Rent = () => {
   const location = useLocation();
@@ -16,7 +17,7 @@ const Rent = () => {
 
  
 
-  const hourlyPrice = (car.rentPrice);
+  const hourlyPrice = (car.car.rentPrice);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -49,13 +50,13 @@ const Rent = () => {
   return (
     <div
       className="p-5 bg-gray-100 min-h-screen rounded-2xl mx-1 my-1"
-      style={{ backgroundImage: `url(${car.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+      style={{ backgroundImage: `url(${CAR_IMAGE_RESOURCE + car.car.modelImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       <h1 className="text-3xl font-bold text-center mb-8">Rent a Car</h1>
       <div className="bg-white p-6 rounded-lg shadow-md max-w-4xl mx-auto bg-opacity-30 backdrop-blur-md">
-        <img src={car.image} alt={car.name} className="w-full h-70 object-cover rounded-md mb-4" />
-        <h2 className="text-2xl font-bold mb-2">{car.name}</h2>
-        <p className="text-gray-700 mb-4">{car.description}</p>
+        <img src={CAR_IMAGE_RESOURCE + car.car.modelImage} alt={car.car.modelName} className="w-full h-70 object-cover rounded-md mb-4" />
+        <h2 className="text-2xl font-bold mb-2">{car.modelName}</h2>
+        <p className="text-gray-700 mb-4">{car.car.fuelType}</p>
         <p className="text-lg font-semibold mb-4">Hourly Price: ₹{hourlyPrice}/hour</p>
         <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">

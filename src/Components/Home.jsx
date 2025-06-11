@@ -1,19 +1,11 @@
-import React, { use } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
 import Background from './Background';
 import Carousel from './Carousel';
 import Footer from './Footer';
 import Rating from './Rating';
-import Rent from './Rent';
-import Profile from './Profile';
 import Maps from './Maps';
 
-
 function Home() {
-
-  
-
-
   return (
     <div>
       <div className='h-screen relative overflow-hidden my-1 mx-1 rounded-2xl'>

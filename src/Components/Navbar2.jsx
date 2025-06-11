@@ -5,13 +5,8 @@ import { FaArrowRight, FaUserCircle } from "react-icons/fa";
 import { Link, useLocation } from 'react-router-dom';
 import { IoSettingsOutline } from "react-icons/io5";
 import  { isLoggedin } from '../auth/authentication';
-import logo from '../assets/car.png';
 import userContext from '../auth/userContext';
 import defaultProfileImage from '../assets/profile.jpg';
-
-
-
-
 
 const Navbar = () => {
   //const [isLoggedIn, setIsLoggedIn] = useState(false);

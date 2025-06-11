@@ -31,3 +31,7 @@ export const getAllBookings = (pageNumber) => {
         }
     }).then((response) => response.data);
 }
+
+export const getDashboardData = () => {
+    return myAxios.get("/bookings/dashboard").then((response) => response.data);
+}

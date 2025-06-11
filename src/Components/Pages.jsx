@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import Pagination from '@mui/material/Pagination';
-import Stack from '@mui/material/Stack';
-import { Box } from '@mui/material';
+import { Box, Pagination, Stack } from '@mui/material';
 
 export default function Pages(props) {
   const [page, setPage] = useState(1);

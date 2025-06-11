@@ -40,8 +40,8 @@ const Navbar = () => {
           <div className="hidden md:flex space-x-10">
             
             <Link to="/home" className="hover:text-gray-400 text-lg">Home</Link>
-            
-            <Link to="/OwnerReg" className="hover:text-gray-400 text-lg">Registration</Link>
+            <Link to="/exploreown" className="hover:text-gray-400 text-lg">Explore</Link>
+            <Link to="/ownercars" className="hover:text-gray-400 text-lg">Registrations</Link>
 
             
             

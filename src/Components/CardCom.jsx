@@ -4,23 +4,14 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import CardInfo from './CardInfo';
 import { CAR_IMAGE_RESOURCE } from '../services/carService';
 
-export default function CardCom({car}) {
+export default function CardCom({car, url}) {
     const navigate = useNavigate(); // Initialize useNavigate
 
     const handleCardClick = () => {
         // Pass car details to the /rent page
-        navigate('/rent2', {
+        navigate(url, {
             state: {
-                car: {
-                    name: car.name,
-                    mileage: car.mileage,
-                    fuelType: car.fuelType,
-                    seatCapacity: car.seatCapacity,
-                    fuelCapacity: car.fuelCapacity,
-                    fuelUnit: car.fuelUnit,
-                    rentPrice: car.rentPrice,
-                    image: CAR_IMAGE_RESOURCE + car.modelImage,
-                },
+                car: {car},
             },
         });
     };

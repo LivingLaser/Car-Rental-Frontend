@@ -20,7 +20,6 @@ import Registration from './Components/Registration';
 import Navbar2 from './Components/Navbar2';
 import ManageEmployee from './Components/ManageEmployee';
 import ManageUser from './Components/ManageUser';
-import ManageCar from './Components/ManageCar';
 import Navbar3 from './Components/Navbar3';
 import Cregemp from './Components/Cregemp';
 import Booking from './Components/Booking';
@@ -28,7 +27,8 @@ import EmpSignup from './Components/EmpSignup';
 import AddCar from './Components/AddCar';
 import OwnerReg from './Components/OwnerReg';
 import DashOwner from './Components/DashOwner';
-
+import ExploreOwner from './Components/ExploreOwner';
+import OwnerCars from './Components/OwnerCars';
 
 // Define the routes
 const router = createBrowserRouter([
@@ -55,9 +55,10 @@ const router = createBrowserRouter([
   { path: "/dashadmin", element: <><Navbar2 /><DashAdmin /></> },
   { path: "/manageemployee", element: <><Navbar2 /><ManageEmployee /></> },
   { path: "/manageuser", element: <><Navbar2 /><ManageUser /></> },
-  { path: "/managecar", element: <><Navbar2 /><ManageCar /></> },
   { path: "/addcar", element: <><Navbar2 /><AddCar /></> },
-  {path: "/home", element: <><Navbar3 /><Home /></> },
+  { path: "/home", element: <><Navbar3 /><Home /></> },
+  { path: "/exploreown", element: <><Navbar3 /><ExploreOwner /></> },
+  { path: "/ownercars", element: <><Navbar3 /><OwnerCars /></> },
 ]);
 
 function App() {

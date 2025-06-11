@@ -1,12 +1,46 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button, Stack, Modal } from '@mui/material';
 import Pages from './Pages';
+import { getUserBookings, updateBooking } from '../services/bookingService';
+import userContext from '../auth/userContext';
+import { CAR_IMAGE_RESOURCE } from '../services/carService';
+import { toast } from 'react-toastify';
 
 export default function Booking() {
-  const [open, setOpen] = useState(false);
-  const [selectedRow, setSelectedRow] = useState(null);
-  const [page, setPage] = useState(1);
-  const rowsPerPage = 10;
+  const [open, setOpen] = useState(null);
+  const handleOpen = (id) => setOpen(id);
+  const handleClose = () => setOpen(null);
+  const userData = useContext(userContext);
+  const [bookingDetail, setBookingDetail] = useState({});
+
+  useEffect(() => {
+    getUserBookings(userData.user.userId, 0).then((response) => {
+      setBookingDetail(response);
+    }).catch((error) => {
+      console.log(error);
+    });
+  }, []);
+
+  const changePage = (pageNubmer) => {
+    getUserBookings(userData.user.userId, pageNubmer).then((response) => {
+      setBookingDetail(response);
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
+
+  const cancelBooking = (bookingId) => {
+    updateBooking(bookingId, "Canceled").then((resp) => {
+      toast.info("Booking Canceled for ID: " + resp.bookingId);
+      getUserBookings(userData.user.userId, bookingDetail?.pageNubmer).then((response) => {
+        setBookingDetail(response);
+      }).catch((error) => {
+        console.log(error);
+      });
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
 
   const modalStyle = {
     position: 'absolute',
@@ -21,23 +55,6 @@ export default function Booking() {
     maxHeight: '90vh',
     overflowY: 'auto',
   };
-
-  function createData(name, calories, fat, carbs, protein) {
-    return { name, calories, fat, carbs, protein };
-  }
-
-  const rows = Array(12).fill(createData('Gingerbread', 356, 16.0, 49, 3.9)).map((row, i) => ({
-    ...row,
-    name: `${row.name} ${i + 1}`
-  }));
-
-  const handleOpen = (row) => {
-    setSelectedRow(row);
-    setOpen(true);
-  };
-
-  const handleClose = () => setOpen(false);
-  const paginatedRows = rows.slice((page - 1) * rowsPerPage, page * rowsPerPage);
 
   return (
     <Box sx={{ marginTop: '30px', display: 'flex', flexDirection: 'column', alignItems: 'center', px: 2 }}>
@@ -58,24 +75,26 @@ export default function Booking() {
         <Table sx={{ minWidth: 650, backgroundColor: '#dce775' }}>
           <TableHead>
             <TableRow>
-              <TableCell><strong>Dessert (100g serving)</strong></TableCell>
-              <TableCell align="right"><strong>Calories</strong></TableCell>
-              <TableCell align="right"><strong>Fat&nbsp;(g)</strong></TableCell>
-              <TableCell align="right"><strong>Carbs&nbsp;(g)</strong></TableCell>
+              <TableCell align="center"><strong>Model</strong></TableCell>
+              <TableCell align="center"><strong>Booking Date & Time</strong></TableCell>
+              <TableCell align="center"><strong>Pickup Date</strong></TableCell>
+              <TableCell align="center"><strong>Drop-off Date</strong></TableCell>
+              <TableCell align="center"><strong>Status</strong></TableCell>
               <TableCell align="center"><strong>Actions</strong></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {paginatedRows.map((row, index) => (
-              <TableRow key={index}>
-                <TableCell>{row.name}</TableCell>
-                <TableCell align="right">{row.calories}</TableCell>
-                <TableCell align="right">{row.fat}</TableCell>
-                <TableCell align="right">{row.carbs}</TableCell>
+            {bookingDetail?.pageContent?.map((booking) => (
+              <TableRow key={booking.bookingId}>
+                <TableCell align="center">{booking.car.modelName}</TableCell>
+                <TableCell align="center">{new Date(booking.bookingDateTime).toLocaleString}</TableCell>
+                <TableCell align="center">{new Date(booking.pickDate).toLocaleDateString}</TableCell>
+                <TableCell align="center">{new Date(booking.dropDate).toLocaleDateString}</TableCell>
+                <TableCell align="center">{booking.bookingStatus}</TableCell>
                 <TableCell align="center">
                   <Stack direction="row" spacing={2} justifyContent="center">
-                    <Button variant="outlined" size="small" onClick={() => handleOpen(row)}>View</Button>
-                    <Button variant="outlined" size="small" color="error" onClick={() => alert('Cancelled')}>Cancel</Button>
+                    <Button variant="outlined" size="small" onClick={() => handleOpen(booking.bookingId)}>View</Button>
+                    {(booking.bookingStatus === "Pending") && <Button variant="outlined" size="small" color="error" onClick={cancelBooking}>Cancel</Button>}
                   </Stack>
                 </TableCell>
               </TableRow>
@@ -85,65 +104,67 @@ export default function Booking() {
       </TableContainer>
 
       {/* External Pagination */}
-      <Pages />
+      <Pages pageCount={bookingDetail?.totalPages} onPageChange={changePage} />
 
       {/* Modal */}
-      <Modal open={open} onClose={handleClose}>
-        <Box sx={modalStyle}>
-          <Typography variant="h6" gutterBottom>Car Rental Details</Typography>
+      {bookingDetail?.pageContent?.map((booking) => (
+        <Modal key={booking.bookingId} open={booking.bookingId === open} onClose={handleClose}>
+          <Box sx={modalStyle}>
+            <Typography variant="h6" gutterBottom>Car Rental Details</Typography>
 
-          <Box display="flex" gap={4} mb={3} flexWrap="wrap">
-            <Box
-              component="img"
-              src="https://stimg.cardekho.com/images/carexteriorimages/930x620/Hyundai/Creta/8667/1744607863052/front-left-side-47.jpg"
-              alt="Car"
-              sx={{ width: 300, height: 200, borderRadius: 1, objectFit: 'cover' }}
-            />
-            <Box>
-              <Typography fontWeight="bold">Model Description:</Typography>
-              <Typography component="ul">
-                <li>Model Name - Audi</li>
-                <li>Mileage - 60 kmpl</li>
-                <li>Engine - 1000CC</li>
-                <li>Transmission - Manual</li>
-                <li>Seat Capacity - 4</li>
-                <li>Bootspace - 1000 li</li>
-                <li>Fuel Type - Petrol</li>
-                <li>Fuel Capacity - 1000 li</li>
-              </Typography>
-            </Box>
-          </Box>
-
-          <Box display="flex" gap={8} mb={3} flexWrap="wrap">
-            <Box>
-              <Typography fontWeight="bold">Booking Details</Typography>
-              <Typography component="ul">
-                <li>Booking Date & Time - 1/1/2025 12:00</li>
-                <li>Pickup Location - Kolkata</li>
-                <li>Drop Location - Howrah</li>
-                <li>Pickup Date - 1/1/2025</li>
-                <li>Drop Date - 2/1/2025</li>
-                <li>Amount - Rs 1200</li>
-                <li>Booking Status - Pending</li>
-              </Typography>
+            <Box display="flex" gap={4} mb={3} flexWrap="wrap">
+              <Box
+                component="img"
+                src={CAR_IMAGE_RESOURCE + booking.car.modelImage}
+                alt="Car"
+                sx={{ width: 300, height: 200, borderRadius: 1, objectFit: 'cover' }}
+              />
+              <Box>
+                <Typography fontWeight="bold">Model Description:</Typography>
+                <Typography component="ul">
+                  <li>Model Name - {booking.car.modelName}</li>
+                  <li>Mileage - {booking.car.mileage} km/{booking.car.fuelUnit}</li>
+                  <li>Engine - {booking.car.engine} CC</li>
+                  <li>Transmission - {booking.car.transmission}</li>
+                  <li>Seat Capacity - {booking.car.seatCapacity}</li>
+                  <li>Bootspace - {booking.car.bootSpace} L</li>
+                  <li>Fuel Type - {booking.car.fuelType}</li>
+                  <li>Fuel Capacity - {booking.car.fuelCapacity} {booking.car.fuelUnit}</li>
+                </Typography>
+              </Box>
             </Box>
 
-            <Box>
-              <Typography fontWeight="bold">Car Details:</Typography>
-              <Typography component="ul">
-                <li>Registration Number - ABC X12 345</li>
-                <li>Insurance Validity - 1/1/2027</li>
-                <li>PUC Validity - 1/1/2027</li>
-                <li>Color - Red</li>
-              </Typography>
+            <Box display="flex" gap={8} mb={3} flexWrap="wrap">
+              <Box>
+                <Typography fontWeight="bold">Booking Details</Typography>
+                <Typography component="ul">
+                  <li>Booking Date & Time - {new Date(booking.bookingDateTime).toLocaleString}</li>
+                  <li>Pickup Date - {new Date(booking.pickDate).toLocaleString}</li>
+                  <li>Pickup Location - {booking.pickLocation}</li>
+                  <li>Drop-off Date - {new Date(booking.dropDate).toLocaleString}</li>
+                  <li>Drop-off Location - {booking.dropLocation}</li>
+                  <li>Amount - Rs. {booking.amount}</li>
+                  <li>Booking Status - {booking.bookingStatus}</li>
+                </Typography>
+              </Box>
+
+              <Box>
+                <Typography fontWeight="bold">Car Details:</Typography>
+                <Typography component="ul">
+                  <li>Registration Number - {booking.carVariant.registration}</li>
+                  <li>Insurance Validity - {new Date(booking.carVariant.insuranceValidity).toLocaleDateString}</li>
+                  <li>PUC Validity - {new Date(booking.carVariant.pucValidity).toLocaleDateString}</li>
+                  <li>Color - {booking.carVariant.modelColor}</li>
+                </Typography>
+              </Box>
+            </Box>
+
+            <Box textAlign="right">
+              <Button onClick={handleClose} variant="contained">Close</Button>
             </Box>
           </Box>
-
-          <Box textAlign="right">
-            <Button onClick={handleClose} variant="contained">Close</Button>
-          </Box>
-        </Box>
-      </Modal>
+        </Modal>
+      ))}
     </Box>
   );
 }
