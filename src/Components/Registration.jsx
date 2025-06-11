@@ -3,6 +3,10 @@ import { useLocation } from "react-router-dom";
 import { CAR_IMAGE_RESOURCE } from "../services/carService";
 import { getVariantsByModel, removeCarVariant } from "../services/carVariantService";
 import { toast } from "react-toastify";
+import { BsFillFuelPumpFill } from "react-icons/bs";
+import { IoSpeedometer } from "react-icons/io5";
+import { MdOutlineAirlineSeatReclineExtra } from "react-icons/md";
+import { BsSuitcase } from "react-icons/bs";
 
 
 const Registration = () => {
@@ -41,12 +45,32 @@ const Registration = () => {
           alt={car.modelName}
           className="w-full max-w-md mx-auto rounded-lg"
         />
-        <h2 className="text-2xl font-bold mt-4">{`Car Model: ${car.modelName}`}</h2>
-        <p className="text-black font-semibold">{`Details: ${car.fuelType}`}</p>
+        <h2 className="text-2xl font-bold mt-4">{`Car Model : ${car.modelName}`}</h2>
+
+
+        <div className="flex justify-around gap-4 mb-6 mt-4 items-center">
+                  <div className="flex items-center p-1">
+                    <BsFillFuelPumpFill className="text-2xl text-blue-500 mr-2" />
+                    <p className="text-black font-semibold">Fuel: {car.fuelType}</p>
+                  </div>
+                  <div className="flex items-center p-1">
+                    <IoSpeedometer className="text-2xl text-blue-500 mr-2" />
+                    <p className="text-black font-semibold">Mileage: {car.mileage}</p>
+                  </div>
+                  <div className="flex items-center p-1">
+                    <MdOutlineAirlineSeatReclineExtra className="text-2xl text-blue-500 mr-2" />
+                    <p className="text-black font-semibold">Seat Capacity: {car.seatCapacity}</p>
+                  </div>
+                  <div className="flex items-center p-1">
+                    <BsSuitcase className="text-2xl text-blue-500 mr-2" />
+                    <p className="text-black font-semibold">Boot Space: {car.bootSpace}</p>
+                  </div>
+                </div>
+
       </div>
 
-      <div className="overflow-x-auto min-h-screen p-5">
-        <table className="table-auto w-full my-0 border-collapse border border-gray-300 overflow-scroll">
+      <div className="overflow-x-auto min-h-screen p-5 ">
+        <table className="table-auto w-full my-0 border-collapse border border-gray-300 overflow-scroll rounded-lg">
           <thead>
             <tr className="bg-gray-100">
               <th className="border border-gray-300 px-4 py-2">Registration</th>
@@ -60,7 +84,7 @@ const Registration = () => {
             </tr>
           </thead>
           <tbody>
-            {variants.map((variant) => (
+            {variants?.map((variant) => (
               <tr key={variant.registration} className="text-center">
                 <td className="border border-gray-300 px-4 py-2">{variant.registration}</td>
                 <td className="border border-gray-300 px-4 py-2">{variant.user.name}</td>

@@ -20,6 +20,17 @@
   color: rgb(248, 239, 0);
 }
 
+.text-stroke-2 {
+  -webkit-text-stroke: 0.2px rgb(242, 246, 21);
+  color: rgb(9, 9, 1);
+}
+
+.text-stroke-3 {
+  -webkit-text-stroke: 1px rgb(0, 0, 0);
+  color: rgb(106, 250, 16);
+}
+
+
 .glass-effect {
   background: rgba(255, 255, 255, 0.159); 
   backdrop-filter: blur(10px); 

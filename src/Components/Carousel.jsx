@@ -53,14 +53,14 @@ const Carousel = () => {
         <div className=''>
             <Slider {...settings}>
                 {
-                    cars.map((car) => (
+                    cars?.map((car) => (
                         <div key={car.modelId}>
                             <div className='w-96 h-[550px] p-3 object-cover mx-auto rounded-lg overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 border-2 border-cyan-400'>
                                 <img src={CAR_IMAGE_RESOURCE + car.modelImage} alt={car.modelName} className='rounded-lg ' />
                                 <h2 className='text-center text-2xl'>{car.modelName}</h2>
                                 <h3 className='text-center text-lg'>Mileage : {car.mileage}</h3>
-                                <h3 className='text-center text-lg'>Feul Type : {car.fuelType}</h3>
-                                <h3 className='text-center text-lg'>Fuel Capacity : {car.fuelCapacity} {car.fuelUnit}</h3>
+                                <h3 className='text-center text-lg'>Fuel Type : {car.fuelType}</h3>
+                                <h3 className='text-center text-lg'>Seat Capacity : {car.seatCapacity}</h3>
                                 <h3 className='text-center text-lg'>Boot Space : {car.bootSpace}</h3>
                                 <h3 className='text-center text-lg'>Price (Hourly): ₹{car.rentPrice}</h3>
                                 <div className='flex justify-center mt-5'>

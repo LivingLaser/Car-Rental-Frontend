@@ -47,7 +47,7 @@ const router = createBrowserRouter([
 
 
   { path: "/navbar2", element: <><Navbar2 /></> },
-  { path: "/dashowner", element: <><Navbar3 /><DashOwner /></> },
+  { path: "/dashowner", element: <><Navbar3 /><Home /></> },
   { path: "/OwnerReg", element: <><Navbar3 /><OwnerReg /></> },
   { path: "/cregemp", element: <><Navbar2 /><Cregemp /></> },
   { path: "/reg", element: <><Navbar2 /><Registration /></> },

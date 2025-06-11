@@ -2,6 +2,11 @@ import { TextField } from '@mui/material';
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { CAR_IMAGE_RESOURCE } from '../services/carService';
+import { BsFillFuelPumpFill } from "react-icons/bs";
+import { IoSpeedometer } from "react-icons/io5";
+import { MdOutlineAirlineSeatReclineExtra } from "react-icons/md";
+import { BsSuitcase } from "react-icons/bs";
+
 
 const Rent = () => {
   const location = useLocation();
@@ -52,12 +57,29 @@ const Rent = () => {
       className="p-5 bg-gray-100 min-h-screen rounded-2xl mx-1 my-1"
       style={{ backgroundImage: `url(${CAR_IMAGE_RESOURCE + car.car.modelImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
-      <h1 className="text-3xl font-bold text-center mb-8">Rent a Car</h1>
+      <h1 className="text-4xl font-bold text-center text-stroke-2 mb-8">Rent a Car</h1>
       <div className="bg-white p-6 rounded-lg shadow-md max-w-4xl mx-auto bg-opacity-30 backdrop-blur-md">
         <img src={CAR_IMAGE_RESOURCE + car.car.modelImage} alt={car.car.modelName} className="w-full h-70 object-cover rounded-md mb-4" />
-        <h2 className="text-2xl font-bold mb-2">{car.modelName}</h2>
-        <p className="text-gray-700 mb-4">{car.car.fuelType}</p>
-        <p className="text-lg font-semibold mb-4">Hourly Price: ₹{hourlyPrice}/hour</p>
+        <h2 className="text-2xl font-bold text-center mb-2">Model : {car.car.modelName}</h2>
+        <div className="flex justify-around gap-4 mb-6 items-center">
+                  <div className="flex items-center p-1">
+                    <BsFillFuelPumpFill className="text-2xl text-blue-500 mr-2" />
+                    <p className="text-black font-semibold">Fuel : {car.car.fuelType}</p>
+                  </div>
+                  <div className="flex items-center p-1">
+                    <IoSpeedometer className="text-2xl text-blue-500 mr-2" />
+                    <p className="text-black font-semibold">Mileage : {car.car.mileage}</p>
+                  </div>
+                  <div className="flex items-center p-1">
+                    <MdOutlineAirlineSeatReclineExtra className="text-2xl text-blue-500 mr-2" />
+                    <p className="text-black font-semibold">Seat Capacity : {car.car.seatCapacity}</p>
+                  </div>
+                  <div className="flex items-center p-1">
+                    <BsSuitcase className="text-2xl text-blue-500 mr-2" />
+                    <p className="text-black font-semibold">Boot Space : {car.car.bootSpace}</p>
+                  </div>
+        </div>
+        <p className="text-lg font-semibold text-center mb-4">Hourly-Price: ₹{hourlyPrice}/hour</p>
         <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
             <div>
@@ -105,7 +127,7 @@ const Rent = () => {
           </button>
         </form>
         {totalPrice && (
-          <p className="mt-4 text-2xl font-bold text-green-700 text-center border-2 border-blue-700 rounded-xl pt-2 pb-2">
+          <p className="mt-4 text-2xl font-bold text-stroke-3 text-center border-2 border-blue-700 rounded-xl pt-2 pb-2">
             Total Price: ₹{totalPrice}
           </p>
         )}
