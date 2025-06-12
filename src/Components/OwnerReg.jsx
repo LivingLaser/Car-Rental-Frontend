@@ -134,11 +134,14 @@ const OwnerReg = () => {
         </div>
         { /*Right: Car Image*/}
         <div className="w-full md:w-1/2 flex items-center justify-center bg-[#0f172a] p-6">
-          <img
-            src={CAR_IMAGE_RESOURCE + car.car.modelImage}
-            alt="Swift Dzire"
-            className="w-full max-w-xs h-auto rounded-xl object-cover"
-          />
+            <div className="flex flex-col items-center">
+              <img
+              src={CAR_IMAGE_RESOURCE + car.car.modelImage}
+              alt="Swift Dzire"
+              className="w-full max-w-xs h-auto rounded-xl object-cover"
+            />
+            <p className="mt-4 text-blue-200 text-lg font-semibold">CAR - SWIFT DEZIRE</p>
+          </div>  
         </div>
       </div>
     </div>
