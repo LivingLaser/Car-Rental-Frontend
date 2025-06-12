@@ -12,7 +12,9 @@ import {
   Button,
   Stack,
   Modal,
-  Snackbar
+  Snackbar,
+  Select,
+  MenuItem
 } from '@mui/material';
 import Pages from './Pages';
 
@@ -38,33 +40,48 @@ const rowsData = Array(12).fill(null).map((_, i) =>
   createData(i + 1, `Gingerbread ${i + 1}`, 356, 16.0, 49, 3.9)
 );
 
+const drivers = ['John Doe', 'Jane Smith', 'Alex Johnson'];
+
 export default function PendingBooking() {
   const [rows, setRows] = useState(rowsData);
-  const [open, setOpen] = useState(false);
+  const [viewModalOpen, setViewModalOpen] = useState(false);
+  const [acceptModalOpen, setAcceptModalOpen] = useState(false);
   const [selectedRow, setSelectedRow] = useState(null);
+  const [acceptTargetRow, setAcceptTargetRow] = useState(null);
+  const [selectedDriver, setSelectedDriver] = useState('');
   const [page, setPage] = useState(1);
   const [snackbar, setSnackbar] = useState({ open: false, message: '' });
 
   const rowsPerPage = 10;
   const paginatedRows = rows.slice((page - 1) * rowsPerPage, page * rowsPerPage);
 
-  const handleOpen = (row) => {
+  const handleViewOpen = (row) => {
     setSelectedRow(row);
-    setOpen(true);
+    setViewModalOpen(true);
   };
 
-  const handleClose = () => setOpen(false);
+  const handleViewClose = () => setViewModalOpen(false);
 
   const handleChangePage = (value) => setPage(value);
 
-  const handleAccept = (row) => {
-    updateRowStatus(row.id, 'Accepted');
-    showSnackbar(`Accepted booking for ${row.name}`);
+  const handleAcceptClick = (row) => {
+    setAcceptTargetRow(row);
+    setAcceptModalOpen(true);
   };
 
   const handleDecline = (row) => {
     updateRowStatus(row.id, 'Declined');
     showSnackbar(`Declined booking for ${row.name}`);
+  };
+
+  const handleConfirmAccept = () => {
+    if (acceptTargetRow) {
+      updateRowStatus(acceptTargetRow.id, 'Accepted');
+      showSnackbar(`Accepted booking for ${acceptTargetRow.name} with driver ${selectedDriver}`);
+      setAcceptModalOpen(false);
+      setSelectedDriver('');
+      setAcceptTargetRow(null);
+    }
   };
 
   const updateRowStatus = (id, newStatus) => {
@@ -87,8 +104,6 @@ export default function PendingBooking() {
     <Box sx={{ marginTop: '30px', display: 'flex', flexDirection: 'column', alignItems: 'center', px: 2 }}>
       <Typography variant="h4" fontWeight="bold" gutterBottom align="center">
         Booking Details
-      
-        
       </Typography>
 
       <TableContainer
@@ -122,8 +137,8 @@ export default function PendingBooking() {
                 <TableCell align="right">{row.status}</TableCell>
                 <TableCell align="center">
                   <Stack direction="row" spacing={1} justifyContent="center">
-                    <Button variant="outlined" size="small" onClick={() => handleOpen(row)}>View</Button>
-                    <Button variant="contained" size="small" color="success" onClick={() => handleAccept(row)}>Accept</Button>
+                    <Button variant="outlined" size="small" onClick={() => handleViewOpen(row)}>View</Button>
+                    <Button variant="contained" size="small" color="success" onClick={() => handleAcceptClick(row)}>Accept</Button>
                     <Button variant="outlined" size="small" color="error" onClick={() => handleDecline(row)}>Decline</Button>
                   </Stack>
                 </TableCell>
@@ -133,11 +148,11 @@ export default function PendingBooking() {
         </Table>
       </TableContainer>
 
-      {/* External Pagination */}
-      <Pages  />
+      {/* Pagination */}
+      <Pages />
 
-      {/* Modal */}
-      <Modal open={open} onClose={handleClose}>
+      {/* View Modal */}
+      <Modal open={viewModalOpen} onClose={handleViewClose}>
         <Box sx={modalStyle}>
           <Typography variant="h6" gutterBottom>Car Rental Details</Typography>
           {selectedRow && (
@@ -190,10 +205,40 @@ export default function PendingBooking() {
               </Box>
 
               <Box textAlign="right">
-                <Button onClick={handleClose} variant="contained">Close</Button>
+                <Button onClick={handleViewClose} variant="contained">Close</Button>
               </Box>
             </>
           )}
+        </Box>
+      </Modal>
+
+      {/* Accept Modal */}
+      <Modal open={acceptModalOpen} onClose={() => setAcceptModalOpen(false)}>
+        <Box sx={{ ...modalStyle, width: 400, bgcolor: 'white' }}>
+          <Typography variant="h6" mb={2}>Select Registration</Typography>
+          <Select
+            fullWidth
+            value={selectedDriver}
+            onChange={(e) => setSelectedDriver(e.target.value)}
+            displayEmpty
+          >
+            <MenuItem value="" disabled>Select </MenuItem>
+            {drivers.map((driver) => (
+              <MenuItem key={driver} value={driver}>{driver}</MenuItem>
+            ))}
+          </Select>
+
+          <Stack direction="row" justifyContent="flex-end" spacing={2} mt={3}>
+            <Button onClick={() => setAcceptModalOpen(false)} variant="outlined">Cancel</Button>
+            <Button
+              onClick={handleConfirmAccept}
+              variant="contained"
+              color="success"
+              disabled={!selectedDriver}
+            >
+              Confirm
+            </Button>
+          </Stack>
         </Box>
       </Modal>
 
