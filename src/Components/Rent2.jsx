@@ -28,7 +28,7 @@ const Rent = () => {
   const hourlyPrice = (car.car.rentPrice);
 
   const handleChange = (event) => {
-    const {id, value} = event.target;
+    const { id, value } = event.target;
     setBookingDetail({ ...bookingDetail, [id]: value });
   }
 
@@ -44,7 +44,7 @@ const Rent = () => {
 
     const durationInHours = Math.ceil((dropoff - pickup) / (1000 * 60 * 60));
     const totalPrice = (durationInHours * hourlyPrice).toFixed(2);
-    setBookingDetail({ ...bookingDetail, [amount]: totalPrice });
+    setBookingDetail({ ...bookingDetail, "amount": totalPrice });
 
     userBooking(bookingDetail, userData.user.userId, car.car.modelId).then((response) => {
       setBookingDetail({
@@ -95,8 +95,10 @@ const Rent = () => {
             <div>
               <label className="block text-sm font-medium mb-1">Pickup Location</label>
               <TextField
-                typ className="w-full p-2 border rounded-md"
+                type="text" className="w-full p-2 border rounded-md"
                 id="pickLocation" value={bookingDetail.pickLocation} onChange={handleChange}
+                error={errors?.response?.data?.pickLocation ? true : false}
+                helperText={errors?.response?.data?.pickLocation}
               />
             </div>
             <div>
@@ -104,6 +106,8 @@ const Rent = () => {
               <TextField
                 type="text" className="w-full p-2 border rounded-md"
                 id="dropLocation" value={bookingDetail.dropLocation} onChange={handleChange}
+                error={errors?.response?.data?.dropLocation ? true : false}
+                helperText={errors?.response?.data?.dropLocation}
               />
             </div>
             <div>
@@ -111,6 +115,8 @@ const Rent = () => {
               <TextField
                 type="datetime-local" className="w-full p-2 border rounded-md"
                 id="pickDate" value={bookingDetail.pickDate} onChange={handleChange}
+                error={errors?.response?.data?.pickDate ? true : false}
+                helperText={errors?.response?.data?.pickDate}
               />
             </div>
             <div>
@@ -118,6 +124,8 @@ const Rent = () => {
               <TextField
                 type="datetime-local" className="w-full p-2 border rounded-md"
                 id="dropDate" value={bookingDetail.dropDate} onChange={handleChange}
+                error={errors?.response?.data?.dropDate ? true : false}
+                helperText={errors?.response?.data?.dropDate}
               />
             </div>
           </div>
@@ -128,11 +136,11 @@ const Rent = () => {
             Confirm Booking
           </button>
         </form>
-        {totalPrice && (
+        {/*totalPrice && (
           <p className="mt-4 text-2xl font-bold text-stroke-3 text-center border-2 border-blue-700 rounded-xl pt-2 pb-2">
             Total Price: ₹{totalPrice}
           </p>
-        )}
+        )*/}
       </div>
     </div>
   );

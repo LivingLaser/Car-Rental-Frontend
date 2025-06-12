@@ -140,7 +140,7 @@ const OwnerReg = () => {
               alt="Swift Dzire"
               className="w-full max-w-xs h-auto rounded-xl object-cover"
             />
-            <p className="mt-4 text-blue-200 text-lg font-semibold">CAR - SWIFT DEZIRE</p>
+            <p className="mt-4 text-blue-200 text-lg font-semibold">CAR - {car.car.modelName}</p>
           </div>  
         </div>
       </div>

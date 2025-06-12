@@ -86,7 +86,7 @@ export default function Booking() {
           <TableBody>
             {bookingDetail?.pageContent?.map((booking) => (
               <TableRow key={booking.bookingId}>
-                <TableCell align="center">{booking.car.modelName}</TableCell>
+                <TableCell align="center">{booking?.car?.modelName}</TableCell>
                 <TableCell align="center">{new Date(booking.bookingDateTime).toLocaleString()}</TableCell>
                 <TableCell align="center">{new Date(booking.pickDate).toLocaleDateString()}</TableCell>
                 <TableCell align="center">{new Date(booking.dropDate).toLocaleDateString()}</TableCell>
@@ -115,21 +115,21 @@ export default function Booking() {
             <Box display="flex" gap={4} mb={3} flexWrap="wrap">
               <Box
                 component="img"
-                src={CAR_IMAGE_RESOURCE + booking.car.modelImage}
+                src={CAR_IMAGE_RESOURCE + booking?.car?.modelImage}
                 alt="Car"
                 sx={{ width: 300, height: 200, borderRadius: 1, objectFit: 'cover' }}
               />
               <Box>
                 <Typography fontWeight="bold">Model Description:</Typography>
                 <Typography component="ul">
-                  <li>Model Name - {booking.car.modelName}</li>
-                  <li>Mileage - {booking.car.mileage} km/{booking.car.fuelUnit}</li>
-                  <li>Engine - {booking.car.engine} CC</li>
-                  <li>Transmission - {booking.car.transmission}</li>
-                  <li>Seat Capacity - {booking.car.seatCapacity}</li>
-                  <li>Bootspace - {booking.car.bootSpace} L</li>
-                  <li>Fuel Type - {booking.car.fuelType}</li>
-                  <li>Fuel Capacity - {booking.car.fuelCapacity} {booking.car.fuelUnit}</li>
+                  <li>Model Name - {booking?.car?.modelName}</li>
+                  <li>Mileage - {booking?.car?.mileage} km/{booking?.car?.fuelUnit}</li>
+                  <li>Engine - {booking?.car?.engine} CC</li>
+                  <li>Transmission - {booking?.car?.transmission}</li>
+                  <li>Seat Capacity - {booking?.car?.seatCapacity}</li>
+                  <li>Bootspace - {booking?.car?.bootSpace} L</li>
+                  <li>Fuel Type - {booking?.car?.fuelType}</li>
+                  <li>Fuel Capacity - {booking?.car?.fuelCapacity} {booking?.car?.fuelUnit}</li>
                 </Typography>
               </Box>
             </Box>
@@ -151,10 +151,10 @@ export default function Booking() {
               <Box>
                 <Typography fontWeight="bold">Car Details:</Typography>
                 <Typography component="ul">
-                  <li>Registration Number - {booking.carVariant.registration}</li>
-                  <li>Insurance Validity - {new Date(booking.carVariant.insuranceValidity).toLocaleDateString()}</li>
-                  <li>PUC Validity - {new Date(booking.carVariant.pucValidity).toLocaleDateString()}</li>
-                  <li>Color - {booking.carVariant.modelColor}</li>
+                  <li>Registration Number - {booking?.carVariant?.registration}</li>
+                  <li>Insurance Validity - {new Date(booking?.carVariant?.insuranceValidity).toLocaleDateString()}</li>
+                  <li>PUC Validity - {new Date(booking?.carVariant?.pucValidity).toLocaleDateString()}</li>
+                  <li>Color - {booking?.carVariant?.modelColor}</li>
                 </Typography>
               </Box>
             </Box>
