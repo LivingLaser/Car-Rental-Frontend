@@ -31,7 +31,7 @@ const Employee = () => {
       doLogin(response);
       userData.setUser(response);
       toast.success("Welcome " + response.name);
-      navigate("/dashemp");
+      navigate("/dashowner");
     }).catch((error) => {
       toast.error(error.response.data.message);
     })

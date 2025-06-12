@@ -35,8 +35,8 @@ const EmpSignup = () => {
         password: ""
       });
       setErrors({});
-      toast.success("Employee Registered...");
-      navigate("/dashadmin");
+      toast.success("Account Created Successfully...");
+      navigate("/employee");
     }).catch((error) => {
       setErrors(error);
     })

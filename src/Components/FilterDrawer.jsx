@@ -35,11 +35,13 @@ export default function FilterDrawer(props) {
         setFilter({ ...filter, [name]: value });
     }
 
-    const submitSearch = () => {
+    const submitSearch = (event) => {
+        event.preventDefault();
         props.onSearch(keyword);
     }
 
-    const submitFilter = () => {
+    const submitFilter = (event) => {
+        event.preventDefault();
         props.onFilter(filter);
     }
 
@@ -85,7 +87,7 @@ export default function FilterDrawer(props) {
                             id="keyword" value={keyword} onChange={handleSearch}
                             sx={{ mb: 3 }}
                         />
-                        <Button type="submit" variant="outlined" href="#outlined-buttons">Search</Button>
+                        <Button type="submit" variant="outlined">Search</Button>
                     </Box>
 
                     <Divider sx={{ my: 2 }} />
@@ -118,7 +120,7 @@ export default function FilterDrawer(props) {
                             name="bootSpace" value={filter.bootSpace} onChange={handleFilter}
                             sx={{ mb: 3 }}
                         />
-                        <Button type="submit" variant="outlined" href="#outlined-buttons">Filter</Button>
+                        <Button type="submit" variant="outlined">Filter</Button>
                     </Box>
                 </Box>
             </Drawer>

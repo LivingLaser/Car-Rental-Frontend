@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { addCarVariant } from "../services/carVariantService";
 import { toast } from "react-toastify";
 import { TextField, Select, MenuItem, InputLabel, FormControl, FormHelperText } from '@mui/material';
@@ -8,6 +8,7 @@ import userContext from "../auth/userContext";
 
 const OwnerReg = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const car = location.state?.car;
   const userData = useContext(userContext);
   const today = new Date();

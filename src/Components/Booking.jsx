@@ -87,9 +87,9 @@ export default function Booking() {
             {bookingDetail?.pageContent?.map((booking) => (
               <TableRow key={booking.bookingId}>
                 <TableCell align="center">{booking.car.modelName}</TableCell>
-                <TableCell align="center">{new Date(booking.bookingDateTime).toLocaleString}</TableCell>
-                <TableCell align="center">{new Date(booking.pickDate).toLocaleDateString}</TableCell>
-                <TableCell align="center">{new Date(booking.dropDate).toLocaleDateString}</TableCell>
+                <TableCell align="center">{new Date(booking.bookingDateTime).toLocaleString()}</TableCell>
+                <TableCell align="center">{new Date(booking.pickDate).toLocaleDateString()}</TableCell>
+                <TableCell align="center">{new Date(booking.dropDate).toLocaleDateString()}</TableCell>
                 <TableCell align="center">{booking.bookingStatus}</TableCell>
                 <TableCell align="center">
                   <Stack direction="row" spacing={2} justifyContent="center">
@@ -138,10 +138,10 @@ export default function Booking() {
               <Box>
                 <Typography fontWeight="bold">Booking Details</Typography>
                 <Typography component="ul">
-                  <li>Booking Date & Time - {new Date(booking.bookingDateTime).toLocaleString}</li>
-                  <li>Pickup Date - {new Date(booking.pickDate).toLocaleString}</li>
+                  <li>Booking Date & Time - {new Date(booking.bookingDateTime).toLocaleString()}</li>
+                  <li>Pickup Date - {new Date(booking.pickDate).toLocaleString()}</li>
                   <li>Pickup Location - {booking.pickLocation}</li>
-                  <li>Drop-off Date - {new Date(booking.dropDate).toLocaleString}</li>
+                  <li>Drop-off Date - {new Date(booking.dropDate).toLocaleString()}</li>
                   <li>Drop-off Location - {booking.dropLocation}</li>
                   <li>Amount - Rs. {booking.amount}</li>
                   <li>Booking Status - {booking.bookingStatus}</li>
@@ -152,8 +152,8 @@ export default function Booking() {
                 <Typography fontWeight="bold">Car Details:</Typography>
                 <Typography component="ul">
                   <li>Registration Number - {booking.carVariant.registration}</li>
-                  <li>Insurance Validity - {new Date(booking.carVariant.insuranceValidity).toLocaleDateString}</li>
-                  <li>PUC Validity - {new Date(booking.carVariant.pucValidity).toLocaleDateString}</li>
+                  <li>Insurance Validity - {new Date(booking.carVariant.insuranceValidity).toLocaleDateString()}</li>
+                  <li>PUC Validity - {new Date(booking.carVariant.pucValidity).toLocaleDateString()}</li>
                   <li>Color - {booking.carVariant.modelColor}</li>
                 </Typography>
               </Box>

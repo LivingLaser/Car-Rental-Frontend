@@ -55,8 +55,8 @@ function OwnerCars() {
                         {variants?.map((variant) => (
                             <TableRow key={variant.registration}>
                                 <TableCell align="center">{variant.registration}</TableCell>
-                                <TableCell align="center">{new Date(variant.insuranceValidity).toLocaleDateString}</TableCell>
-                                <TableCell align="center">{new Date(variant.pucValidity).toLocaleDateString}</TableCell>
+                                <TableCell align="center">{new Date(variant.insuranceValidity).toLocaleDateString()}</TableCell>
+                                <TableCell align="center">{new Date(variant.pucValidity).toLocaleDateString()}</TableCell>
                                 <TableCell align="center">{variant.car.modelName}</TableCell>
                                 <TableCell align="center">{variant.modelColor}</TableCell>
                                 <TableCell align="center">
