@@ -29,6 +29,7 @@ import OwnerReg from './Components/OwnerReg';
 import DashOwner from './Components/DashOwner';
 import ExploreOwner from './Components/ExploreOwner';
 import OwnerCars from './Components/OwnerCars';
+import PendingBooking from './Components/PendingBooking';
 
 // Define the routes
 const router = createBrowserRouter([
@@ -56,9 +57,11 @@ const router = createBrowserRouter([
   { path: "/manageemployee", element: <><Navbar2 /><ManageEmployee /></> },
   { path: "/manageuser", element: <><Navbar2 /><ManageUser /></> },
   { path: "/addcar", element: <><Navbar2 /><AddCar /></> },
+  { path: "/pendings", element: <><Navbar2 /><PendingBooking /></> },
   { path: "/home", element: <><Navbar3 /><Home /></> },
   { path: "/exploreown", element: <><Navbar3 /><ExploreOwner /></> },
   { path: "/ownercars", element: <><Navbar3 /><OwnerCars /></> },
+
 ]);
 
 function App() {

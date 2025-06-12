@@ -8,6 +8,7 @@ import  { isLoggedin } from '../auth/authentication';
 import userContext from '../auth/userContext';
 import defaultProfileImage from '../assets/profile.jpg';
 
+
 const Navbar = () => {
   //const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
@@ -41,9 +42,10 @@ const Navbar = () => {
             <Link to="/dashAdmin" className="hover:text-gray-400 text-lg">Dashboard</Link>
             <Link to="/manageuser" className="hover:text-gray-400 text-lg">Users</Link>
             <Link to="/manageemployee" className="hover:text-gray-400 text-lg">Owners</Link>
-            <Link to="/" className="hover:text-gray-400 text-lg">Bookings</Link>
+            <Link to="/pendings" className="hover:text-gray-400 text-lg">Bookings</Link>
             <Link to="/cregemp" className="hover:text-gray-400 text-lg">Cars</Link>
             <Link to="/addcar" className="hover:text-gray-400 text-lg">AddCars</Link>
+            
             
             
 
