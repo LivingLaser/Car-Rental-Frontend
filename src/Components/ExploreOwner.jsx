@@ -81,7 +81,7 @@ export default function ExploreOwner() {
           alignContent: 'flex-start',
           gap: 6,
           p: 7,
-          bgcolor: '#f1f8e9',
+          bgcolor: '#94C973',
           borderRadius: '16px',
           margin: '5px 5px 5px 5px',
         }}

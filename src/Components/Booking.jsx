@@ -94,7 +94,7 @@ export default function Booking() {
                 <TableCell align="center">
                   <Stack direction="row" spacing={2} justifyContent="center">
                     <Button variant="outlined" size="small" onClick={() => handleOpen(booking.bookingId)}>View</Button>
-                    {(booking.bookingStatus === "Pending") && <Button variant="outlined" size="small" color="error" onClick={cancelBooking}>Cancel</Button>}
+                    {(booking.bookingStatus === "Pending") && <Button variant="outlined" size="small" color="error" onClick={() => cancelBooking(booking.bookingId)}>Cancel</Button>}
                   </Stack>
                 </TableCell>
               </TableRow>

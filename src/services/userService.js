@@ -54,7 +54,7 @@ export const getAllUsers = (pageNumber) => {
 }
 
 export const getAllOwners = (pageNumber) => {
-    return myAxios.get(`/users/owner`, {
+    return myAxios.get(`/users/emp`, {
         params: {
             pageNumber: pageNumber
         }

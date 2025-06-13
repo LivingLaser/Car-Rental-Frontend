@@ -40,7 +40,7 @@ const Navbar = () => {
           <div className="hidden md:flex space-x-10">
             <Link to="/" className="hover:text-gray-400 text-lg">Home</Link>
             <Link to="/explore" className="hover:text-gray-400 text-lg">Explore</Link>
-            <Link to="/booking" className="hover:text-gray-400 text-lg">Bookings</Link>
+            {isLoggedin() && <Link to="/booking" className="hover:text-gray-400 text-lg">Bookings</Link>}
             <Link to="/about" className="hover:text-gray-400 text-lg">About Us</Link>
             <Link to="/contact" className="hover:text-gray-400 text-lg">Contact</Link>
             

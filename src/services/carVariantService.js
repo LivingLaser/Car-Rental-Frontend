@@ -24,6 +24,10 @@ export const removeCarVariant = (registration) => {
     return myAxios.delete(`/variants/${registration}`).then((response) => response.data);
 }
 
+export const getActiveVariants = (modelId) => {
+    return myAxios.get(`/variants/car/${modelId}/active`).then((response) => response.data);
+}
+
 export const clearCarVariants = () => {
     return myAxios.get("/variants/clear").then((response) => response.data);
 }

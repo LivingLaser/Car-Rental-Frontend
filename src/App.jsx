@@ -61,7 +61,7 @@ const router = createBrowserRouter([
   { path: "/home", element: <><Navbar3 /><Home /></> },
   { path: "/exploreown", element: <><Navbar3 /><ExploreOwner /></> },
   { path: "/ownercars", element: <><Navbar3 /><OwnerCars /></> },
-
+  { path: "/profileown", element: <><Navbar3 /><Profile /></> },
 ]);
 
 function App() {

@@ -52,7 +52,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-10">
           {isLoggedin() ? (
             <div className="flex items-center space-x-3">
-              <Link to="/profile">
+              <Link to="/profileown">
                 <img
                     src={USER_IMAGE_RESOURCE + userData.user.userImage} // Use a default image if no profile image is available
                     alt="Profile"
@@ -60,7 +60,7 @@ const Navbar = () => {
                 />
               </Link>
 
-              <Link to="/profile" >
+              <Link to="/profileown" >
               <span className="text-lg hover:text-yellow-400">{userData.user.name}</span>
               </Link>
             </div>
