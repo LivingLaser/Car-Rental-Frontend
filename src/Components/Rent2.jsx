@@ -15,6 +15,9 @@ const Rent = () => {
   const navigate = useNavigate();
   const car = location.state?.car;
   const userData = useContext(userContext);
+  const minDate = new Date();
+  const maxDate = new Date();
+  maxDate.setDate(minDate.getDate() + 365);
 
   const [bookingDetail, setBookingDetail] = useState({
     pickLocation: "",
@@ -26,6 +29,11 @@ const Rent = () => {
 
   const [errors, setErrors] = useState({});
   const hourlyPrice = (car.car.rentPrice);
+
+  const formatDate = (date) => {
+    const pad = (n) => (n < 10 ? '0' + n : n);
+    return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}T${pad(date.getHours())}:${pad(date.getMinutes())}`;
+  };
 
   const handleChange = (event) => {
     const { id, value } = event.target;
@@ -117,6 +125,7 @@ const Rent = () => {
                 id="pickDate" value={bookingDetail.pickDate} onChange={handleChange}
                 error={errors?.response?.data?.pickDate ? true : false}
                 helperText={errors?.response?.data?.pickDate}
+                InputProps={{ inputProps: { min: formatDate(minDate), max: formatDate(maxDate) } }}
               />
             </div>
             <div>
@@ -126,6 +135,7 @@ const Rent = () => {
                 id="dropDate" value={bookingDetail.dropDate} onChange={handleChange}
                 error={errors?.response?.data?.dropDate ? true : false}
                 helperText={errors?.response?.data?.dropDate}
+                InputProps={{ inputProps: { min: formatDate(minDate), max: formatDate(maxDate) } }}
               />
             </div>
           </div>
