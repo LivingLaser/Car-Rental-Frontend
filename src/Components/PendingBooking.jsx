@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button, Stack, Modal, Snackbar, Select, MenuItem } from '@mui/material';
 import { confirmBooking, getBookingsByStatus, updateBooking } from '../services/bookingService';
-import { CAR_IMAGE_RESOURCE } from '../services/carService';
+import { CAR_IMAGE_RESOURCE_PROD } from '../services/carService';
 import { clearCarVariants, getActiveVariants } from '../services/carVariantService';
 import { toast } from 'react-toastify';
 
@@ -135,7 +135,7 @@ export default function PendingBooking() {
             <Box display="flex" gap={4} mb={3} flexWrap="wrap">
               <Box
                 component="img"
-                src={CAR_IMAGE_RESOURCE + booking?.car?.modelImage}
+                src={CAR_IMAGE_RESOURCE_PROD + booking?.car?.modelImage}
                 alt="Car"
                 sx={{ width: 300, height: 200, borderRadius: 1, objectFit: 'cover' }}
               />

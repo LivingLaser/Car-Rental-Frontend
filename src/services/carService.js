@@ -1,4 +1,4 @@
-import { BASE_URL, myAxios } from "./backend"
+import { BASE_URL, BASE_URL_IMAGE, myAxios } from "./backend"
 
 export const addCarModel = (car) => {
     return myAxios.post("/cars/", car).then((response) => response.data);
@@ -63,3 +63,15 @@ export const uploadImage = (modelId, image) => {
 }
 
 export const CAR_IMAGE_RESOURCE = BASE_URL + "/cars/image/";
+
+export const uploadImageProd = (modelId, image) => {
+    let formData = new FormData();
+    formData.append("image", image);
+    return myAxios.post(`/cars/upload/image_prod/${modelId}`, formData, {
+        headers: {
+            "Content-Type": "multipart/form-data"
+        }
+    }).then((response) => response.data);
+}
+
+export const CAR_IMAGE_RESOURCE_PROD = BASE_URL_IMAGE + "/cars/";

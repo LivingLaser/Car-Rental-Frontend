@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Pages from "./Pages";
-import { CAR_IMAGE_RESOURCE, getAllCars } from "../services/carService";
+import { CAR_IMAGE_RESOURCE_PROD, getAllCars } from "../services/carService";
 
 import { BsFillFuelPumpFill } from "react-icons/bs";
 import { IoSpeedometer } from "react-icons/io5";
@@ -37,7 +37,7 @@ const Cregemp = () => {
           >
 
             <img
-              src={CAR_IMAGE_RESOURCE + car.modelImage}
+              src={CAR_IMAGE_RESOURCE_PROD + car.modelImage}
               alt={car.modelName}
               className="w-1/3 h-full object-cover rounded-xl"
             />

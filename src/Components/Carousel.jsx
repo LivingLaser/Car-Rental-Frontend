@@ -4,7 +4,7 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import { Link } from 'react-router-dom';
-import { CAR_IMAGE_RESOURCE, getByRandom } from '../services/carService';
+import { CAR_IMAGE_RESOURCE_PROD, getByRandom } from '../services/carService';
 
 const Carousel = () => {
     const settings = {
@@ -56,7 +56,7 @@ const Carousel = () => {
                     cars?.map((car) => (
                         <div key={car.modelId}>
                             <div className='w-96 h-[550px] p-3 object-cover mx-auto rounded-lg overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 border-2 border-cyan-400'>
-                                <img src={CAR_IMAGE_RESOURCE + car.modelImage} alt={car.modelName} className='rounded-lg ' />
+                                <img src={CAR_IMAGE_RESOURCE_PROD + car.modelImage} alt={car.modelName} className='rounded-lg ' />
                                 <h2 className='text-center text-2xl'>{car.modelName}</h2>
                                 <h3 className='text-center text-lg'>Mileage : {car.mileage}</h3>
                                 <h3 className='text-center text-lg'>Fuel Type : {car.fuelType}</h3>

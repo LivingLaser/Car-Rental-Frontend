@@ -6,7 +6,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { IoSettingsOutline } from "react-icons/io5";
 import  { isLoggedin } from '../auth/authentication';
 import userContext from '../auth/userContext';
-import { USER_IMAGE_RESOURCE } from '../services/userService';
+import { USER_IMAGE_RESOURCE_PROD } from '../services/userService';
 
 const Navbar = () => {
   //const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -54,7 +54,7 @@ const Navbar = () => {
             <div className="flex items-center space-x-3">
               <Link to="/profileown">
                 <img
-                    src={USER_IMAGE_RESOURCE + userData.user.userImage} // Use a default image if no profile image is available
+                    src={USER_IMAGE_RESOURCE_PROD + userData.user.userImage} // Use a default image if no profile image is available
                     alt="Profile"
                     className="w-10 h-10 rounded-full hover:opacity-80 hover:border-2 hover:border-yellow-400 transition duration-300"
                 />

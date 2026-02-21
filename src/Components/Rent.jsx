@@ -1,7 +1,7 @@
 import { TextField } from '@mui/material';
 import React, { useState, useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { CAR_IMAGE_RESOURCE } from '../services/carService';
+import { CAR_IMAGE_RESOURCE_PROD } from '../services/carService';
 import { BsFillFuelPumpFill } from "react-icons/bs";
 import { IoSpeedometer } from "react-icons/io5";
 import { MdOutlineAirlineSeatReclineExtra } from "react-icons/md";
@@ -89,11 +89,11 @@ const Rent = () => {
   return (
     <div
       className="p-5 bg-gray-100 min-h-screen rounded-2xl mx-1 my-1"
-      style={{ backgroundImage: `url(${CAR_IMAGE_RESOURCE + car.modelImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+      style={{ backgroundImage: `url(${CAR_IMAGE_RESOURCE_PROD + car.modelImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       <h1 className="text-4xl font-bold text-center mb-8 text-stroke-2">Rent a Car</h1>
       <div className="bg-white p-6 rounded-lg shadow-md max-w-4xl mx-auto bg-opacity-30 backdrop-blur-md">
-        <img src={CAR_IMAGE_RESOURCE + car.modelImage} alt={car.modelName} className="w-full h-70 object-cover rounded-md mb-4" />
+        <img src={CAR_IMAGE_RESOURCE_PROD + car.modelImage} alt={car.modelName} className="w-full h-70 object-cover rounded-md mb-4" />
         <h2 className="text-2xl text-center font-bold mb-2">Model : {car.modelName}</h2>
 
         <div className="flex justify-around gap-4 mb-6 items-center">

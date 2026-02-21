@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { TextField, Select, MenuItem, InputLabel, FormControl, FormHelperText } from '@mui/material';
-import { addCarModel, uploadImage } from "../services/carService";
+import { addCarModel, uploadImageProd } from "../services/carService";
 import { toast } from "react-toastify";
 
 const AddCar = () => {
@@ -45,7 +45,7 @@ const AddCar = () => {
   const submitForm = (event) => {
     event.preventDefault();
     addCarModel(carDetail).then((response) => {
-      uploadImage(response.modelId, image).then((response) => {
+      uploadImageProd(response.modelId, image).then((response) => {
         setCarDetail({
           modelName: "",
           mileage: "",

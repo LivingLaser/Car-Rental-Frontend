@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { CAR_IMAGE_RESOURCE } from "../services/carService";
+import { CAR_IMAGE_RESOURCE_PROD } from "../services/carService";
 import { getVariantsByModel, removeCarVariant } from "../services/carVariantService";
 import { toast } from "react-toastify";
 import { BsFillFuelPumpFill } from "react-icons/bs";
@@ -41,7 +41,7 @@ const Registration = () => {
       
       <div className="text-center mb-8">
         <img
-          src={CAR_IMAGE_RESOURCE + car.modelImage}
+          src={CAR_IMAGE_RESOURCE_PROD + car.modelImage}
           alt={car.modelName}
           className="w-full max-w-md mx-auto rounded-lg"
         />

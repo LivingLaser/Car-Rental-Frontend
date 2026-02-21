@@ -40,9 +40,6 @@ export default function About() {
   const member = team[index];
 
   return (
-
-    
-
     <div className="relative h-screen  text-white mx-1 my-1 overflow-hidden rounded-2xl ">
       {/* Background Image */}
       <div
@@ -53,8 +50,6 @@ export default function About() {
           width: '100%',   // Adjust the width of the background image
           margin: 'auto', // Center the image
         }}
-        
-
       />
 
       {/* Optional dark overlay for readability */}

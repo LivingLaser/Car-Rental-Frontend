@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Card, CardContent, CardMedia, Typography, CardActionArea } from '@mui/material';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import CardInfo from './CardInfo';
-import { CAR_IMAGE_RESOURCE } from '../services/carService';
+import { CAR_IMAGE_RESOURCE_PROD } from '../services/carService';
 
 export default function CardCom({car, url}) {
     const navigate = useNavigate(); // Initialize useNavigate
@@ -31,7 +31,7 @@ export default function CardCom({car, url}) {
                 <CardMedia
                     component="img"
                     height="160"
-                    image={CAR_IMAGE_RESOURCE + car.modelImage}
+                    image={CAR_IMAGE_RESOURCE_PROD + car.modelImage}
                     alt="Car Image"
                 />
                 <CardContent

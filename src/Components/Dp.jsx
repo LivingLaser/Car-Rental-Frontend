@@ -3,7 +3,7 @@ import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
-import { uploadImage, USER_IMAGE_RESOURCE } from '../services/userService';
+import { uploadImageProd, USER_IMAGE_RESOURCE_PROD } from '../services/userService';
 import userContext from '../auth/userContext';
 import { doLogin } from '../auth/authentication'
 import { toast } from "react-toastify";
@@ -19,7 +19,7 @@ export default function Dp() {
   const handleImageChange = (event) => {
     const file = event.target.files[0];
 
-    uploadImage(userData.user.userId, file).then((response) => {
+    uploadImageProd(userData.user.userId, file).then((response) => {
       doLogin(response);
       userData.setUser(response);
     }).catch((error) => {
@@ -36,7 +36,7 @@ export default function Dp() {
     >
       <Box position="relative" display="inline-block">
         <Avatar
-          src={USER_IMAGE_RESOURCE + userData.user.userImage}
+          src={USER_IMAGE_RESOURCE_PROD + userData.user.userImage}
           sx={{ width: 120, height: 120 }}
         >
           U

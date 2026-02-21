@@ -4,7 +4,7 @@ import { addCarVariant } from "../services/carVariantService";
 import { toast } from "react-toastify";
 import { TextField, Select, MenuItem, InputLabel, FormControl, FormHelperText } from '@mui/material';
 import userContext from "../auth/userContext";
-import { CAR_IMAGE_RESOURCE } from "../services/carService";
+import { CAR_IMAGE_RESOURCE_PROD } from "../services/carService";
 
 const OwnerReg = () => {
   const navigate = useNavigate();
@@ -136,7 +136,7 @@ const OwnerReg = () => {
         <div className="w-full md:w-1/2 flex items-center justify-center bg-[#0f172a] p-6">
             <div className="flex flex-col items-center">
               <img
-              src={CAR_IMAGE_RESOURCE + car.car.modelImage}
+              src={CAR_IMAGE_RESOURCE_PROD + car.car.modelImage}
               alt="Swift Dzire"
               className="w-full max-w-xs h-auto rounded-xl object-cover"
             />

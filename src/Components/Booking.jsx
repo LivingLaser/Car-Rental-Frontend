@@ -3,7 +3,7 @@ import { Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead
 import Pages from './Pages';
 import { getUserBookings, updateBooking } from '../services/bookingService';
 import userContext from '../auth/userContext';
-import { CAR_IMAGE_RESOURCE } from '../services/carService';
+import { CAR_IMAGE_RESOURCE_PROD } from '../services/carService';
 import { toast } from 'react-toastify';
 
 export default function Booking() {
@@ -115,7 +115,7 @@ export default function Booking() {
             <Box display="flex" gap={4} mb={3} flexWrap="wrap">
               <Box
                 component="img"
-                src={CAR_IMAGE_RESOURCE + booking?.car?.modelImage}
+                src={CAR_IMAGE_RESOURCE_PROD + booking?.car?.modelImage}
                 alt="Car"
                 sx={{ width: 300, height: 200, borderRadius: 1, objectFit: 'cover' }}
               />
